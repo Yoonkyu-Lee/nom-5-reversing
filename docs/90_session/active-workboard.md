@@ -66,8 +66,11 @@
     - `land_layer_count=2`
     - layer 0 matches the same section grammar strongly
     - layer 1 still diverges
-- `N5M`: a simple next-section shortcut was tested and rejected:
-  - `u16 count + count * (u8 + i16*5 + u8)` does not stay coherent after the recovered `stage_17/6` land/path section
+- `N5M`: **BREAKTHROUGH — full block parser complete:**
+  - Previous parser only read `nc + nodes` per path layer; events/objects were misread as next path's nc
+  - Fixed: each path layer = `nc+nodes + event_count+events + obj_count+objects`
+  - Validated: **21/21 N5M files, all blocks parse to EOF**
+  - Script: `scripts/formats/n5m/10_probe/probe-n5m-path-with-events.py`
 - `MPL`: untouched
 
 ---
@@ -76,20 +79,18 @@
 
 1. What do `N5M header_a/header_b` represent?
 2. What do `flags[7]` and the early group elements represent?
-3. Where exactly does the recovered strong-family land/path section end, and what is the true next section boundary?
-4. Is `block_start` universal for `GetMapOffset(stage_id)`, or do any families land deeper?
-5. Where do `CMap_J::LoadMap` and `CMap_T::LoadMap` diverge in the body loop?
-6. What engine object does the `N5S 0x34` record table describe?
+3. What engine object does the `N5S 0x34` record table describe?
+4. Where do `CMap_J::LoadMap` and `CMap_T::LoadMap` diverge?
 
 ---
 
 ## Next Concrete Tasks
 
-1. Treat `block_start` as the current best `GetMapOffset(stage_id)` landing point.
-2. Treat the strong-family first post-group land/path section as recovered.
-3. Re-check the exact end of that recovered strong-family section.
-4. Re-align `LoadMap` body trace immediately beyond the recovered land/path section.
-5. Keep `N5S 0x34` record table as a secondary track.
+1. Recover `header_a/header_b` semantics — data pattern (`header_a=6000` matches 10×600 pattern spacing) + LoadMap disasm.
+2. Classify event types: `raw_type - 0x5f` dispatch table in LoadMap.
+3. Classify object types: `f3 → GetObjectInfo` dispatch.
+4. Understand N5S `0x34` record table (secondary track).
+5. N5M → JSON export (defer until semantics are partially recovered).
 
 ---
 
@@ -99,6 +100,12 @@ At session end, update at least one of:
 
 1. discovery notes in the active track documents
 2. `Current State Summary` or `Next Concrete Tasks` in this workboard
+
+## Script Writing Rule
+
+- Quick inline verification (`python -c "..."`) is fine for one-off checks.
+- For any decisive structural parser, validator, or exporter: write a proper script under `scripts/formats/<fmt>/<stage>/` and run it directly.
+- Do not leave important analysis logic only in inline commands.
 
 ## Mid-Session Update Rule
 

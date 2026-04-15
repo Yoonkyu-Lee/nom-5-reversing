@@ -1,7 +1,7 @@
 # N5M Status
 
 - Status: active
-- Current stage: early block prefix re-aligned to `LoadMap`
+- Current stage: **full block parser complete — 21/21 N5M files, all blocks parse to EOF**
 
 ## Role In Game
 
@@ -108,9 +108,28 @@ This makes `stage_17/6` and `stage_20/4` the best next parser targets.
   - `scripts/formats/n5m/10_probe/probe-n5m-strong-family-sections.py`
   - `scripts/formats/n5m/10_probe/probe-n5m-strong-family-next-section.py`
 
+## Key Discovery (2026-04-14)
+
+Previous parser only read `nc + nodes` per path layer, leaving events/objects unparsed.
+These were being misread as the next path's nc, causing all subsequent offsets to be wrong.
+
+Correct per-path-layer structure (confirmed from `CMap_J::LoadMap` disasm):
+```
+u16  node_count
+node_count * (u8 dir, i16 x, i16 y, u16 angle_raw)
+u16  event_count
+event_count * (u8 raw_type, 6*i16 rect, 4*i16 extras, u8 text_len, [text])
+u16  obj_count
+obj_count * (7*u8, 4*i16 init/aux, 2*i16 spawn_xy, u8 text_len, [text])
+```
+
+After this fix: **21/21 N5M files, all blocks parse to EOF**.
+Script: `scripts/formats/n5m/10_probe/probe-n5m-path-with-events.py`
+
 ## Next Step
 
-1. Treat shared body families as the next parser target, not individual stages.
-2. Keep `block_start` as the best current `LoadMap` landing point.
-3. Treat the strong-family land/path section as the first recovered post-group section.
-4. Re-check the exact end of the recovered strong-family section before guessing the next section grammar.
+1. Recover field semantics: header_a/header_b, flags[7], early group elements, event types, object types.
+2. Write N5M → JSON/IR export script (next stage after parser validation).
+3. Understand back-layer section (currently before land layers in LoadMap).
+4. Check stage_20/4 multi-layer parsing (land_layer_count=2) is correct.
+5. Understand `CMap_J::LoadMap` vs `CMap_T::LoadMap` differences for boss stages.

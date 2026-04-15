@@ -98,7 +98,40 @@ This stage belongs to the `0x21` family and currently behaves like `(1, 1, 1)`.
 - `flags[7]`: likely per-block route/variant bits.
 - early group elements: likely layer selectors, layer-local frame references, or placement records that `LoadMap` consumes before the recurring body grammar.
 
-## First Recovered Post-Group Section
+## Corrected Post-Group Section (Full Parse Verified)
+
+**Status: verified against 21/21 N5M files, all blocks to EOF.**
+
+The previous model only read `node_count + nodes` per path layer. Events and objects were
+being misread as the next path layer's nc. The corrected structure per path layer is:
+
+```text
+u16  node_count
+node_count * (u8 dir, i16 x, i16 y, u16 angle_raw)   -- 7 bytes each
+u16  event_count
+event_count *:
+    u8   raw_type
+    6 * i16   rect[0..5]   -> EventRect+0xd4..0xde
+    i16  field_0x20
+    i16  field_0x22
+    i16  field_0xea
+    i16  field_0xec
+    u8   text_len
+    [text_len bytes if text_len > 0]                  -- EUC-KR text
+u16  obj_count
+obj_count *:
+    u8  f0, f1, f2, f3, f4, f5, f6
+    i16 init_x   -> CObject+0xd4
+    i16 init_y   -> CObject+0xd6
+    i16 d8       -> CObject+0xd8
+    i16 da       -> CObject+0xda
+    i16 spawn_x  -> CObject::SetPosition
+    i16 spawn_y
+    u8  text_len
+    [text_len bytes if text_len > 0]
+```
+
+## Previously Documented Post-Group Section
 
 For the strongest shared families, the bytes at `post_groups_start` now parse
 cleanly as:

@@ -34,7 +34,11 @@
       "Bash(.venv/Scripts/python.exe -)",
       "Bash(.venv/Scripts/python.exe scripts/trace-n5s-parse.py)",
       "Bash(python -c \"import sys; sys.stdout.reconfigure\\(encoding='utf-8'\\); exec\\(open\\('scripts/trace-n5s-parse.py'\\).read\\(\\)\\)\")",
-      "Bash(python scripts/trace-n5s-parse.py jadx-out/nom5/resources/assets/map/stage_0.n5s)"
+      "Bash(python scripts/trace-n5s-parse.py jadx-out/nom5/resources/assets/map/stage_0.n5s)",
+      "Bash(.venv/Scripts/python.exe scripts/formats/n5m/10_probe/probe-n5m-strong-family-sections.py stage_17_m.n5m 0)",
+      "Bash(.venv/Scripts/python.exe scripts/formats/n5m/10_probe/probe-n5m-strong-family-sections.py stage_17_m.n5m 1)",
+      "Bash(.venv/Scripts/python.exe scripts/formats/n5m/10_probe/probe-n5m-strong-family-next-section.py stage_17_m.n5m 0 30)",
+      "Bash(.venv/Scripts/python.exe scripts/formats/n5m/10_probe/probe-n5m-strong-family-next-section.py stage_17_m.n5m 1 30)"
     ]
   }
 }

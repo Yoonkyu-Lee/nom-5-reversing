@@ -1,71 +1,51 @@
 # N5M Parser
 
-## Current Parser Boundary
+## Current Parser Status
 
-There is no full `N5M` body parser yet.
+**Full block parser validated: 21/21 N5M files, all blocks parse to EOF.**
 
-The current best boundary is the variable early-body prefix parser implemented in:
+Script: `scripts/formats/n5m/10_probe/probe-n5m-path-with-events.py`
 
-- `scripts/formats/n5m/10_probe/probe-n5m-block-header.py`
-- `scripts/formats/n5m/10_probe/probe-n5m-layer-groups.py`
+## What The Parser Does
 
-## What The Current Probe Parses
+1. Load sibling `N5S`, extract trailing `u16` values as block offsets.
+2. For each block:
+   a. Parse block prefix: `u16 header_a, u16 header_b, u8 flags[7], u8 group_count`
+   b. Parse `group_count` counted element groups: `u8 elem_count + elem_count * (u8, u8, i16, i16)`
+   c. Parse post-group section:
+      - `u8 land_layer_count`
+      - per land layer:
+        - `u8 count_a` + `count_a * (u8 pzx, u8 frame, i16 x, i16 y)`
+        - `u8 count_b` + `count_b * (u8 pzx, u8 frame, i16 x, i16 y)`
+        - `u8 path_count`
+        - per path layer:
+          - `u16 node_count` + `node_count * (u8 dir, i16 x, i16 y, u16 angle_raw)`
+          - `u16 event_count` + events (22 bytes + optional text each)
+          - `u16 obj_count` + objects (20 bytes + optional text each)
 
-1. Load sibling `N5S`
-2. Extract trailing `u16` values
-3. Treat each value as a candidate `N5M` block start
-4. Parse the block prefix as:
-   - `u16 header_a`
-   - `u16 header_b`
-   - `u8 flags[7]`
-   - `u8 layer_group_count`
-   - `layer_group_count` counted element groups
-   - each element currently best fits `(u8 a, u8 b, i16 x, i16 y)`
-5. Report `post_groups_start`
+## What Is Exact
 
-## What Is Exact So Far
+- Full parse verified: every byte in every block is accounted for.
+- `group_count = 3` in all observed samples.
+- `post_groups_start` offset families: `+0x15`, `+0x1b`, `+0x21`.
+- Event record: 22 bytes fixed + optional text (`u8 raw_type + 6*i16 + 4*i16 + u8 text_len`).
+- Object record: 20 bytes fixed + optional text (`7*u8 + 6*i16 + u8 text_len`).
 
-- The current layer-group model fits all observed tail-indexed blocks without truncation.
-- Current observed constants:
-  - `layer_group_count = 3`
-- Current observed `post_groups_start` families:
-  - `0x15`
-  - `0x1b`
-  - `0x21`
-- The initial `LoadMap` read sequence is now best explained by landing on `block_start`.
-- For the strongest shared families, the first post-group section is now largely exact:
-  - `u8 land_layer_count`
-  - per land layer:
-    - `u8 pattern_count_a`
-    - `pattern_count_a * (u8, u8, i16, i16)`
-    - `u8 pattern_count_b`
-    - `pattern_count_b * (u8, u8, i16, i16)`
-    - `u8 path_count`
-    - `path_count * (u16 node_count + node_count * (u8, i16, i16, u16))`
-  - exact on `stage_17/6`
-  - exact on layer `0` of `stage_20/4`, but not yet beyond that
+## What Was Previously Wrong
 
-## What Was Downgraded
-
-- The older fixed `0x11` header model is no longer treated as exact.
-- It is still useful as a byte-history note, but it likely over-consumed the first group records and placed `body_start` too early.
+The older `probe-n5m-strong-family-sections.py` only read `node_count + nodes` per path.
+This caused events and objects to be misread as the next path's `nc`, shifting all
+subsequent offsets. The fix is in `probe-n5m-path-with-events.py`.
 
 ## What Is Still Missing
 
-- Exact body grammar after the recovered strong-family land/path section
-- Record counts/sentinels inside body
-- Semantic meaning of `header_a/header_b`
-- Semantic meaning of `flags[7]`
-- Semantic meaning of the early group elements
+- Semantic meaning of `header_a/header_b`.
+- Semantic meaning of `flags[7]`.
+- Semantic meaning of early group elements `(a, b, x, y)`.
+- Event type classification: `raw_type - 0x5f` dispatch, types 0xa2/0xa3 special cases.
+- Object type classification: `GetObjectInfo(f3)` dispatch to monster types.
+- Back-layer section structure (comes before land layers in `LoadMap`).
 
-## Body Family Clustering
+## Next Parser Step
 
-`post_groups_start` prefixes are not purely stage-local. Several recurring families are shared across stage pairs, for example:
-
-- `stage_26_s` / `stage_9_s`
-- `stage_0` / `stage_22`
-- `stage_17` / `stage_6`
-- `stage_20` / `stage_4`
-- `stage_10` / `stage_25`
-
-This means the next exact parser should target a small number of body families instead of one bespoke parser per stage.
+Write `scripts/formats/n5m/30_export/export-n5m-json.py` to export each block as JSON.
