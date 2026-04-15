@@ -149,10 +149,8 @@ Full mapping needs `GetObjectInfo(f3)` dispatch table analysis.
 ## Next Step
 
 1. Recover full event type meanings via `CEventRect_J` dispatch.
-2. Recover full object type mapping via `GetObjectInfo(f3)` table.
+2. ~~Recover full object type mapping via `GetObjectInfo(f3)` table~~ **DONE** — N5S records = tagSObjectInfo; f3→eMonsterType+pzx files recovered.
 3. Understand `flags[7]` per-block variation.
-4. N5S `0x34` record table (secondary track).
-2. Write N5M → JSON/IR export script (next stage after parser validation).
-3. Understand back-layer section (currently before land layers in LoadMap).
-4. Check stage_20/4 multi-layer parsing (land_layer_count=2) is correct.
-5. Understand `CMap_J::LoadMap` vs `CMap_T::LoadMap` differences for boss stages.
+4. ~~N5S `0x34` record table~~ **DONE** — tagSObjectInfo confirmed (see N5S semantics doc).
+5. Write N5M → JSON/IR export script (next stage after semantics more complete).
+6. Understand `CMap_J::LoadMap` vs `CMap_T::LoadMap` differences for boss stages.

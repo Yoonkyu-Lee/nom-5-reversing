@@ -38,6 +38,8 @@
 - Event types surveyed: 24 types (raw 0x00..0x1b); raw=1/2→SetScript(3/4); raw=4→dialog with text
 - Object types surveyed: f3 range 0..28; CMonster_J/Decal/Shoting instantiation paths located
 - Group elements decoded: `(pzx_mgr, frame, x, y)` → `CBackLayer` objects — the early groups ARE the back-layer section
+- **N5S 0x34 records = tagSObjectInfo**: confirmed; `record[f3]` gives eMonsterType (u8[12]) + pzx1/pzx2 PZX file names via N5S string groups
+- Script: `scripts/formats/n5s/10_probe/probe-n5s-object-info.py`
 
 ---
 
@@ -78,7 +80,8 @@
     - layer 1 still diverges
 - `N5M`: early group elements = `CBackLayer` definitions: `(pzx_mgr, frame, x, y)` → back layer tile placements; early groups ARE the back-layer section
 - `N5M`: event types surveyed: 24 distinct types (raw 0x00..0x1b); raw=1→SetScript(3), raw=2→SetScript(4), raw=4→dialog (always has text); full classification pending `CEventRect_J` analysis
-- `N5M`: object types surveyed: f3 range 0..28; CMonster_J/Decal/Shoting instantiation paths located; full mapping pending `GetObjectInfo(f3)` table
+- `N5M`: object types: f3 range 0..28; full per-f3 mapping recovered via N5S records (eMonsterType, pzx1/pzx2 file names)
+- `N5S`: `0x34` record table = `tagSObjectInfo` per-stage vector; `record[f3]` → eMonsterType (u8[12]) + pzx1 (u16[0]) + pzx2 (u16[6]); pzx indices flat into G0..G4 string groups
 - `N5M`: **BREAKTHROUGH — full block parser complete:**
   - Previous parser only read `nc + nodes` per path layer; events/objects were misread as next path's nc
   - Fixed: each path layer = `nc+nodes + event_count+events + obj_count+objects`
@@ -91,9 +94,10 @@
 ## Immediate Questions
 
 1. What do `flags[7]` represent per-block?
-2. What engine object does the `N5S 0x34` record table describe?
+2. ~~What engine object does the `N5S 0x34` record table describe?~~ **DONE** — `tagSObjectInfo` table
 3. Where do `CMap_J::LoadMap` and `CMap_T::LoadMap` diverge?
 4. What are the 24 `CEventRect_J` subtypes (raw_type 0x00..0x1b) doing?
+5. Full `tagSObjectInfo` u8[0..15] field meanings beyond u8[12]
 
 ---
 
@@ -103,7 +107,7 @@
 2. ~~Event type survey~~ **DONE** — 24 types raw 0..27; dispatch recovered.
 3. ~~Object type survey~~ **DONE** — f3 range 0..28; CMonster paths located.
 4. ~~Classify early group elements~~ **DONE** — `(pzx_mgr, frame, x, y)` → `CBackLayer` objects.
-5. Understand N5S `0x34` record table (secondary track).
+5. ~~Understand N5S `0x34` record table (secondary track)~~ **DONE** — tagSObjectInfo confirmed.
 6. Recover full event type meanings: `CEventRect_J` vtable / dispatch table analysis.
 7. Recover full object type mapping: `GetObjectInfo(f3)` dispatch table analysis.
 8. N5M → JSON export (defer until semantics are more complete).

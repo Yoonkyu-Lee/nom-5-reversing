@@ -15,9 +15,14 @@
 ## Active
 1. Full event type classification: 24 types surveyed; raw=1/2=script triggers, raw=4=dialog;
    remaining types need `CEventRect_J` vtable/dispatch analysis.
-2. Full object type classification: f3 range 0..28; `GetObjectInfo(f3)` dispatch not yet recovered.
-3. Understand `flags[7]` per-block variation — likely route/variant bits.
-4. Understand CBackLayer subtype dispatch: Decal, Shoting, Gate vs default.
+2. Understand `flags[7]` per-block variation — likely route/variant bits.
+3. Understand CBackLayer subtype dispatch: Decal, Shoting, Gate vs default.
+
+## Done (additional)
+- [x] N5S 0x34 record table = tagSObjectInfo: confirmed via GetObjectInfo/FindObjectInfo disasm +
+      stage_12 record count (29) matching f3 range exactly.
+- [x] pzx1/pzx2 → PZX file names via N5S string groups (flat index into G0+G1+G2+G3+G4).
+- [x] eMonsterType = tagSObjectInfo u8[12].
 
 ## Lower Priority
 5. `CMap_J::LoadMap` vs `CMap_T::LoadMap` differences for boss stages.

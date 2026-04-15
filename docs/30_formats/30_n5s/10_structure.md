@@ -103,7 +103,10 @@ EOF
 - `stage_12`: `29`
 - `stage_26_s`: `31`
 
-이 레코드 테이블은 현재 `LoadMap` body와 별개의 top-level metadata일 가능성이 높다.
+**확인됨**: 이 레코드 테이블은 `CMapMgr_J::Init`가 읽는 per-stage `tagSObjectInfo` 테이블이다.
+`record[f3]` = N5M의 object field `f3`에 해당하는 `tagSObjectInfo` 항목.
+`GetObjectInfo(f3)` = 단순 벡터 인덱스; `FindObjectInfo(eMonType)` = u8[12]로 선형 탐색.
+자세한 필드 매핑은 [40_semantics.md](./40_semantics.md)를 참조.
 
 ## Trailing U16 Table
 

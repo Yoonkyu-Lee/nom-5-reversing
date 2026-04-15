@@ -163,4 +163,11 @@ separate initialization path (storing item index at `CObject+0x41`).
 
 ### Full object-type-to-class mapping
 
-Requires `GetObjectInfo(f3)` dispatch table analysis — not yet recovered.
+**Resolved via N5S records** — the N5S `0x34` record table IS the per-stage `tagSObjectInfo`
+vector. `record[f3]` gives:
+- `u8[12]` = `eMonsterType` (used for FindObjectInfo lookup)
+- `u16[0]` (at +0x10) = `pzx1` flat string index → first PZX animation file
+- `u16[6]` (at +0x1c) = `pzx2` flat string index → second PZX animation file
+- PZX file names come from N5S string groups G0..G4 (flat-indexed)
+
+See [N5S semantics](../../30_n5s/40_semantics.md) for the full per-stage table.
