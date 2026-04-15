@@ -10,7 +10,7 @@ Script: `scripts/formats/n5m/10_probe/probe-n5m-path-with-events.py`
 
 1. Load sibling `N5S`, extract trailing `u16` values as block offsets.
 2. For each block:
-   a. Parse block prefix: `u16 header_a, u16 header_b, u8 flags[7], u8 group_count`
+   a. Parse block prefix: `u16 header_a (block_width), u16 header_b (block_height), u8 flags[7], u8 group_count`
    b. Parse `group_count` counted element groups: `u8 elem_count + elem_count * (u8, u8, i16, i16)`
    c. Parse post-group section:
       - `u8 land_layer_count`
@@ -39,7 +39,6 @@ subsequent offsets. The fix is in `probe-n5m-path-with-events.py`.
 
 ## What Is Still Missing
 
-- Semantic meaning of `header_a/header_b`.
 - Semantic meaning of `flags[7]`.
 - Semantic meaning of early group elements `(a, b, x, y)`.
 - Event type classification: `raw_type - 0x5f` dispatch, types 0xa2/0xa3 special cases.

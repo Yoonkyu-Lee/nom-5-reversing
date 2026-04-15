@@ -32,6 +32,15 @@
 
 ---
 
+## Session Progress (2026-04-14)
+
+- `header_a/header_b` confirmed: block width × height in game units
+- Event types surveyed: 24 types (raw 0x00..0x1b); raw=1/2→SetScript(3/4); raw=4→dialog with text
+- Object types surveyed: f3 range 0..28; CMonster_J/Decal/Shoting instantiation paths located
+- Group elements decoded: `(pzx_mgr, frame, x, y)` → `CBackLayer` objects — the early groups ARE the back-layer section
+
+---
+
 ## Current State Summary
 
 - `PZX`: exact decode available
@@ -40,6 +49,7 @@
 - `N5S`: front-matter exact parse secured (`u8 + u16*5 + 5 string groups + 0x34 record table + trailing u16 table`)
 - `N5S`: trailing `u16` table is better explained as sibling `N5M` block indices than raw `.n5s` body offsets
 - `N5M`: `InitMap -> stage_<id>_m.n5m -> constructor -> LoadMap(resource_ptr)` path secured
+- `N5M`: `header_a` = **block width** in game units; `header_b` = **block height** in game units (confirmed across all 21 files via max_node_x and y-bounds; exact match in vertical stages)
 - `N5M`: the old fixed `0x11` header is no longer the best boundary
 - `N5M`: a stronger variable early-body prefix now fits all samples:
   - `u16, u16, flags[7], layer_group_count=3`
@@ -66,6 +76,9 @@
     - `land_layer_count=2`
     - layer 0 matches the same section grammar strongly
     - layer 1 still diverges
+- `N5M`: early group elements = `CBackLayer` definitions: `(pzx_mgr, frame, x, y)` → back layer tile placements; early groups ARE the back-layer section
+- `N5M`: event types surveyed: 24 distinct types (raw 0x00..0x1b); raw=1→SetScript(3), raw=2→SetScript(4), raw=4→dialog (always has text); full classification pending `CEventRect_J` analysis
+- `N5M`: object types surveyed: f3 range 0..28; CMonster_J/Decal/Shoting instantiation paths located; full mapping pending `GetObjectInfo(f3)` table
 - `N5M`: **BREAKTHROUGH — full block parser complete:**
   - Previous parser only read `nc + nodes` per path layer; events/objects were misread as next path's nc
   - Fixed: each path layer = `nc+nodes + event_count+events + obj_count+objects`
@@ -77,20 +90,23 @@
 
 ## Immediate Questions
 
-1. What do `N5M header_a/header_b` represent?
-2. What do `flags[7]` and the early group elements represent?
-3. What engine object does the `N5S 0x34` record table describe?
-4. Where do `CMap_J::LoadMap` and `CMap_T::LoadMap` diverge?
+1. What do `flags[7]` represent per-block?
+2. What engine object does the `N5S 0x34` record table describe?
+3. Where do `CMap_J::LoadMap` and `CMap_T::LoadMap` diverge?
+4. What are the 24 `CEventRect_J` subtypes (raw_type 0x00..0x1b) doing?
 
 ---
 
 ## Next Concrete Tasks
 
-1. Recover `header_a/header_b` semantics — data pattern (`header_a=6000` matches 10×600 pattern spacing) + LoadMap disasm.
-2. Classify event types: `raw_type - 0x5f` dispatch table in LoadMap.
-3. Classify object types: `f3 → GetObjectInfo` dispatch.
-4. Understand N5S `0x34` record table (secondary track).
-5. N5M → JSON export (defer until semantics are partially recovered).
+1. ~~Recover `header_a/header_b` semantics~~ **DONE** — width × height in game units.
+2. ~~Event type survey~~ **DONE** — 24 types raw 0..27; dispatch recovered.
+3. ~~Object type survey~~ **DONE** — f3 range 0..28; CMonster paths located.
+4. ~~Classify early group elements~~ **DONE** — `(pzx_mgr, frame, x, y)` → `CBackLayer` objects.
+5. Understand N5S `0x34` record table (secondary track).
+6. Recover full event type meanings: `CEventRect_J` vtable / dispatch table analysis.
+7. Recover full object type mapping: `GetObjectInfo(f3)` dispatch table analysis.
+8. N5M → JSON export (defer until semantics are more complete).
 
 ---
 
@@ -104,7 +120,7 @@ At session end, update at least one of:
 ## Script Writing Rule
 
 - Quick inline verification (`python -c "..."`) is fine for one-off checks.
-- For any decisive structural parser, validator, or exporter: write a proper script under `scripts/formats/<fmt>/<stage>/` and run it directly.
+- For any decisive structural parser, validator, or exporter: write a proper script under `scripts/formats/<fmt>/<stage>/` and run it directly via .venv.
 - Do not leave important analysis logic only in inline commands.
 
 ## Mid-Session Update Rule

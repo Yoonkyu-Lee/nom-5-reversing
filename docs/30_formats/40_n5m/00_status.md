@@ -1,7 +1,7 @@
 # N5M Status
 
 - Status: active
-- Current stage: **full block parser complete — 21/21 N5M files, all blocks parse to EOF**
+- Current stage: **group elements + header semantics confirmed — block layout largely understood**
 
 ## Role In Game
 
@@ -47,7 +47,10 @@
 - The old `g0 pair` interpretation was likely over-reading the first layer-group records as metadata.
 - Some stages keep `header_a/header_b` constant across all blocks, while others switch between a small set of `header_a` values inside one file.
 - `flags[7]` vary between blocks inside the same stage, so they likely encode route/variant bits rather than file-global constants.
-- `header_a/header_b` are strong candidates for size/extents fields, but semantics are still open.
+- `header_a` = **block width in game units** (CONFIRMED: `max_node_x ≈ header_a` across all 21 files/all blocks)
+- `header_b` = **block height in game units** (CONFIRMED: node y bounded by `[-header_b, 0]`; exact match in vertical stages)
+- Standard stage: width varies by stage, height=400; vertical stages: height=3840; large stages: height=2000
+- Script: `scripts/formats/n5m/10_probe/probe-n5m-header-semantics.py`
 - `LoadMap` annotated reads are consistent with this new boundary:
   - after the initial `u16, u16, u8*7, u8`
   - the function enters loops that read `u8`, `u8`, and then `i16/i16` for certain layer cases
@@ -126,9 +129,29 @@ obj_count * (7*u8, 4*i16 init/aux, 2*i16 spawn_xy, u8 text_len, [text])
 After this fix: **21/21 N5M files, all blocks parse to EOF**.
 Script: `scripts/formats/n5m/10_probe/probe-n5m-path-with-events.py`
 
+## Key Discoveries (2026-04-14)
+
+`header_a` = block width, `header_b` = block height in game units.
+
+Evidence: `max_node_x ≈ header_a` for every block across all 21 files; node y-coordinates always stay within `[-header_b, 0]`, with exact boundary matches in vertical stages (stage_12/28: hb=3840, ny=[-3840,0]) and large stages (stage_1/3: hb=2000, ny=[-2000,0]).
+
+Early group elements = `CBackLayer` definitions: `(pzx_mgr, frame, x, y)`.
+Each element creates a `CBackLayer` (or subtype) in one of 3 background layers.
+This IS the back-layer section — there is no separate back-layer pass after land layers.
+
+Event types: 24 types (raw 0x00..0x1b), type_idx = (raw - 0x5f) & 0xFF.
+Special: raw=1→SetScript(3), raw=2→SetScript(4), raw=4→dialog (always has text).
+Full classification needs `CEventRect_J` analysis.
+
+Object types: f3 ∈ {0..28}. CMonster_J, CMonster_Decal, CMonster_Shoting instantiated.
+Full mapping needs `GetObjectInfo(f3)` dispatch table analysis.
+
 ## Next Step
 
-1. Recover field semantics: header_a/header_b, flags[7], early group elements, event types, object types.
+1. Recover full event type meanings via `CEventRect_J` dispatch.
+2. Recover full object type mapping via `GetObjectInfo(f3)` table.
+3. Understand `flags[7]` per-block variation.
+4. N5S `0x34` record table (secondary track).
 2. Write N5M → JSON/IR export script (next stage after parser validation).
 3. Understand back-layer section (currently before land layers in LoadMap).
 4. Check stage_20/4 multi-layer parsing (land_layer_count=2) is correct.

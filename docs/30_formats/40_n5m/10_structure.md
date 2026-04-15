@@ -92,11 +92,40 @@ c0 12 90 01  02 00 00 00 00 00 00  03 ...
 
 This stage belongs to the `0x21` family and currently behaves like `(1, 1, 1)`.
 
-## Current Interpretation
+## Confirmed Field Semantics (2026-04-14)
 
-- `header_a/header_b`: probably dimensions, extents, or camera bounds.
-- `flags[7]`: likely per-block route/variant bits.
-- early group elements: likely layer selectors, layer-local frame references, or placement records that `LoadMap` consumes before the recurring body grammar.
+### header_a = block width in game units
+
+Confirmed across all 21 N5M files via `probe-n5m-header-semantics.py`:
+- `max_node_x ≈ header_a` for every block in every stage (within ±2 units rounding)
+- Pattern placements in stage_17/6: 10 tiles at x=0,600,…,5400 with `header_a=6000` (=5400+600)
+- stage_10 has varying `header_a` per block (600, 1200, 1800, 2400) — each matches that block's `max_node_x`
+- stage_12/28 (vertical stages): `header_a=360` (narrow horizontal extent, scrolls vertically)
+
+### header_b = block height in game units
+
+Confirmed from node y-coordinate bounds:
+- Node y-coordinates are always bounded by `[-header_b, 0]`
+- Exact-boundary evidence: stage_12/28 `header_b=3840`, ny=`[-3840,0]`; stage_1/3/19 `header_b=2000`, ny reaches exactly `-2000`; stage_23 `header_b=2500`, ny reaches exactly `-2500`
+- Most normal horizontal stages: `header_b=400` (standard screen height), nodes within `[-400,0]`
+- y=0 = top/ground; y=-header_b = bottom boundary of the block
+
+### flags[7]
+
+Still unresolved. Likely per-block route/variant bits — they vary within the same stage file.
+
+### early group elements (a, b, x, y) = back layers
+
+Each element is `(u8 pzx_mgr, u8 frame, i16 x, i16 y)`:
+- `pzx_mgr` = which `CPzxMgr` tile-set to use (`CMapMgr::GetMapPzxMgr(pzx_mgr)`)
+- `frame` = frame index within that PzxMgr (`CPzxMgr::GetFrame(frame)`)
+- `x, y` = placement coordinates in game units
+
+Each element becomes a `CBackLayer` object (or subtype: `CBackLayer_Decal`,
+`CBackLayer_Shoting`, `CBackLayer_Gate` — subtype is stage-id-dependent).
+The three groups are the three back-layer layers (far, mid, near background).
+
+This IS the back-layer section. There is no separate back-layer section after land layers.
 
 ## Corrected Post-Group Section (Full Parse Verified)
 
@@ -175,20 +204,21 @@ group prefix.
 ## Field Distribution Notes
 
 - Some stages keep one fixed `(header_a, header_b)` across all blocks:
-  - `stage_0_m.n5m`: `(0x1388, 0x0190)`
-  - `stage_12_m.n5m`: `(0x0168, 0x0f00)`
-- Some stages switch `header_a` while keeping `header_b` fixed:
-  - `stage_10_m.n5m`: `header_a in {0x0258, 0x04b0, 0x0708, 0x0960}`, `header_b = 0x0190`
-  - `stage_15_m.n5m`: `header_a in {0x0258, 0x12c0}`, `header_b = 0x0190`
+  - `stage_0_m.n5m`: width=5000, height=400
+  - `stage_12_m.n5m`: width=360, height=3840 (vertical stage)
+- Some stages switch `header_a` per block, keeping `header_b` fixed:
+  - `stage_10_m.n5m`: widths 2400→1800→1200→600, height=400 (blocks get shorter toward end)
+  - `stage_15_m.n5m`: widths 600/4800, height=400
+- `stage_23_m.n5m`: both `header_a` and `header_b` vary per block (block 0: 2500×2500, rest: 2000×2000)
+- Standard normal stages: `header_b=400` (0x190)
+- Vertical stages: `header_b=3840` (0xf00)
+- Boss/large stages: `header_b=2000` (0x7d0)
 - The old `g0 pair` split was real at the byte level, but it is now better explained as the first group's first `(a, b)` element:
   - `(0, 0..3)` in some normal stages
   - `(1, 0)` or `(1, 1)` in other stage families
 
-This still suggests route/phase variation, but now inside a richer early-body record.
-
 ## Open Questions
 
-1. What do `header_a` and `header_b` represent exactly?
-2. What exactly do the early group elements describe?
-3. What section grammar comes immediately after the recovered strong-family land/path section?
-4. Does `GetMapOffset(stage_id)` ever land on a deeper sub-offset in other families, or is `block_start` universal?
+1. What do the early group elements `(a, b, x, y)` describe?
+2. What section grammar comes immediately after the recovered strong-family land/path section?
+3. Does `GetMapOffset(stage_id)` ever land on a deeper sub-offset in other families, or is `block_start` universal?
