@@ -29,11 +29,13 @@
       "opcode_name": "SOUND",
       "args": [
         {
+          "label": "sound_channel",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "play_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -46,21 +48,25 @@
       "opcode_name": "OBJ_CREATE",
       "args": [
         {
+          "label": "obj_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "pos1",
           "type_code": 2,
           "type_name": "i16",
           "value": 50
         },
         {
+          "label": "pos2",
           "type_code": 2,
           "type_name": "i16",
           "value": 50
         },
         {
+          "label": "parent_ref",
           "type_code": 2,
           "type_name": "i16",
           "value": -1
@@ -73,16 +79,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 90
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
@@ -95,21 +104,25 @@
       "opcode_name": "OBJ_CREATE",
       "args": [
         {
+          "label": "obj_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "pos1",
           "type_code": 2,
           "type_name": "i16",
           "value": -20
         },
         {
+          "label": "pos2",
           "type_code": 2,
           "type_name": "i16",
           "value": 50
         },
         {
+          "label": "parent_ref",
           "type_code": 2,
           "type_name": "i16",
           "value": -1
@@ -122,16 +135,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 90
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
@@ -144,11 +160,13 @@
       "opcode_name": "OBJ_SET_FLIP_LR",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "flip",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -161,6 +179,7 @@
       "opcode_name": "FADE",
       "args": [
         {
+          "label": "fade_mode",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
@@ -179,6 +198,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 12
@@ -191,16 +211,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 38
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
@@ -213,16 +236,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 27
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -235,6 +261,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -247,36 +274,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "이젠 안 쫓아오겠지?"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 34
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -295,6 +329,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -307,16 +342,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 73
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
@@ -329,16 +367,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 70
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
@@ -351,6 +392,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -363,36 +405,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 3
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "이쁜이 여기 있었어?"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 74
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -405,11 +454,13 @@
       "opcode_name": "OBJ_SET_FLIP_LR",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "flip",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -428,6 +479,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -440,36 +492,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 4
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "아 진짜 그만 쫌!"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 35
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -482,6 +541,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -494,36 +554,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 4
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "나 너 싫거든?"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 33
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -536,6 +603,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -548,36 +616,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 3
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "에이~ 좋으면서~"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 74
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -590,6 +665,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -602,36 +678,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 9
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "말 좀 들어라!"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 35
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -644,6 +727,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -656,36 +740,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 3
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "연애 한번 하는 게 어때서?"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 74
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -698,6 +789,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -710,36 +802,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 9
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "난 남자라구! 남자!"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 31
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -752,6 +851,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -764,36 +864,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 3
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "너같이 예쁘면 남자라도 좋아~"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 70
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -806,6 +913,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -818,36 +926,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 4
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "난 남자라니까!"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 36
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -860,6 +975,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -872,36 +988,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 3
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "무슨 문제라도?"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 74
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -914,6 +1037,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -926,36 +1050,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 4
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "넌 남자 여자도 안가리냐?"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 30
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -968,6 +1099,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -980,36 +1112,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 3
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "이쁘면 상관없어~"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 74
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -1022,6 +1161,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -1034,36 +1174,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 4
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "뭐 이런게 다 있어?"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 35
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -1076,6 +1223,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -1088,36 +1236,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 3
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "나 돈 많아~ 뭐 사줄까?"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 74
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -1130,6 +1285,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -1142,36 +1298,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 6
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "이젠 돈 자랑까지?"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 33
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -1184,6 +1347,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -1196,36 +1360,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 4
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "걍 무시하자!"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 30
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -1238,6 +1409,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -1256,6 +1428,7 @@
       "opcode_name": "FADE",
       "args": [
         {
+          "label": "fade_mode",
           "type_code": 0,
           "type_name": "i8",
           "value": 1

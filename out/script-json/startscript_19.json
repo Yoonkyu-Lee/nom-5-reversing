@@ -29,11 +29,13 @@
       "opcode_name": "SOUND",
       "args": [
         {
+          "label": "sound_channel",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "play_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -46,21 +48,25 @@
       "opcode_name": "OBJ_CREATE",
       "args": [
         {
+          "label": "obj_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "pos1",
           "type_code": 2,
           "type_name": "i16",
           "value": -40
         },
         {
+          "label": "pos2",
           "type_code": 2,
           "type_name": "i16",
           "value": 20
         },
         {
+          "label": "parent_ref",
           "type_code": 2,
           "type_name": "i16",
           "value": -1
@@ -73,16 +79,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 90
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -95,21 +104,25 @@
       "opcode_name": "OBJ_CREATE",
       "args": [
         {
+          "label": "obj_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "pos1",
           "type_code": 2,
           "type_name": "i16",
           "value": -40
         },
         {
+          "label": "pos2",
           "type_code": 2,
           "type_name": "i16",
           "value": 20
         },
         {
+          "label": "parent_ref",
           "type_code": 2,
           "type_name": "i16",
           "value": -1
@@ -122,16 +135,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 90
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -144,11 +160,13 @@
       "opcode_name": "OBJ_SET_FLIP_LR",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "flip",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -161,6 +179,7 @@
       "opcode_name": "FADE",
       "args": [
         {
+          "label": "fade_mode",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
@@ -179,6 +198,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 12
@@ -191,16 +211,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 38
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
@@ -213,16 +236,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 27
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -241,6 +267,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -253,36 +280,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 4
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "혹 하나 떼니까, 다른 혹이 생겼잖아."
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 31
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -295,6 +329,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -307,36 +342,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 8
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "예쁜게 죄야 죄."
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 30
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -349,6 +391,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -361,36 +404,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 5
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "헉! 이제 이런 말까지!"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 29
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -403,6 +453,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -415,36 +466,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 4
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "아~ 몰라! 몰라!"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 33
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -463,6 +521,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -475,16 +534,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 28
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -497,26 +559,31 @@
       "opcode_name": "OBJ_MOVE_POS",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "vx",
           "type_code": 2,
           "type_name": "i16",
           "value": 10
         },
         {
+          "label": "vy",
           "type_code": 2,
           "type_name": "i16",
           "value": 0
         },
         {
+          "label": "target_x",
           "type_code": 2,
           "type_name": "i16",
           "value": 80
         },
         {
+          "label": "target_y",
           "type_code": 2,
           "type_name": "i16",
           "value": 20
@@ -529,16 +596,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 27
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -551,6 +621,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -563,16 +634,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 73
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
@@ -585,16 +659,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 70
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -607,6 +684,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -619,36 +697,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 4
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "그러지 말고 한번만~"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 74
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -661,11 +746,13 @@
       "opcode_name": "OBJ_SET_FLIP_LR",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "flip",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -678,6 +765,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -690,36 +778,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 5
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "으아악! 따라왔잖아!"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 29
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -732,11 +827,13 @@
       "opcode_name": "OBJ_SET_FLIP_LR",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "flip",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
@@ -749,6 +846,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -761,36 +859,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 6
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "튀자!"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 28
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -803,16 +908,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 28
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -825,26 +933,31 @@
       "opcode_name": "OBJ_MOVE_POS",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "vx",
           "type_code": 2,
           "type_name": "i16",
           "value": 10
         },
         {
+          "label": "vy",
           "type_code": 2,
           "type_name": "i16",
           "value": 0
         },
         {
+          "label": "target_x",
           "type_code": 2,
           "type_name": "i16",
           "value": 200
         },
         {
+          "label": "target_y",
           "type_code": 2,
           "type_name": "i16",
           "value": 20
@@ -857,16 +970,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 90
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -879,6 +995,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -891,36 +1008,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 10
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "앙탈부리는거야? 에헤헤~"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 74
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -933,6 +1057,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -945,36 +1070,43 @@
       "opcode_name": "OBJ_TALKBOX",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_type",
           "type_code": 0,
           "type_name": "i8",
           "value": 0
         },
         {
+          "label": "emotion",
           "type_code": 0,
           "type_name": "i8",
           "value": 10
         },
         {
+          "label": "text",
           "type_code": 6,
           "type_name": "str",
           "value": "잡으면 꽁꽁 묶어버린다?"
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 74
         },
         {
+          "label": "motion_opt",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "talkbox_param",
           "type_code": 0,
           "type_name": "i8",
           "value": 16
@@ -987,16 +1119,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 71
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -1009,26 +1144,31 @@
       "opcode_name": "OBJ_MOVE_POS",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "vx",
           "type_code": 2,
           "type_name": "i16",
           "value": 10
         },
         {
+          "label": "vy",
           "type_code": 2,
           "type_name": "i16",
           "value": 0
         },
         {
+          "label": "target_x",
           "type_code": 2,
           "type_name": "i16",
           "value": 200
         },
         {
+          "label": "target_y",
           "type_code": 2,
           "type_name": "i16",
           "value": 20
@@ -1041,16 +1181,19 @@
       "opcode_name": "OBJ_CHANGE_ANI",
       "args": [
         {
+          "label": "slot",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
         },
         {
+          "label": "motion_id",
           "type_code": 0,
           "type_name": "i8",
           "value": 90
         },
         {
+          "label": "wait_flag",
           "type_code": 0,
           "type_name": "i8",
           "value": 1
@@ -1063,6 +1206,7 @@
       "opcode_name": "WAIT_FRAMES",
       "args": [
         {
+          "label": "frames",
           "type_code": 0,
           "type_name": "i8",
           "value": 2
@@ -1081,6 +1225,7 @@
       "opcode_name": "FADE",
       "args": [
         {
+          "label": "fade_mode",
           "type_code": 0,
           "type_name": "i8",
           "value": 1

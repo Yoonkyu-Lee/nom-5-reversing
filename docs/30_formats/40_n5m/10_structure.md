@@ -1,6 +1,6 @@
 # N5M Structure
 
-## Current Structural Hypothesis
+## Current Structural Model
 
 `N5M` is the stream that `CMap_J::LoadMap` / `CMap_T::LoadMap` actually consume after `InitMap` loads `stage_<id>_m.n5m`.
 
@@ -10,15 +10,13 @@
 - The resource pointer is stored and forwarded to the map object constructor.
 - The constructor immediately calls `LoadMap(stage_id, resource_ptr)`.
 
-This is the main reason the current map/body analysis has moved from `N5S` to `N5M`.
+This is why the active map/body analysis moved from `N5S` to `N5M`.
 
 ## Repeated Block Layout
 
 Using sibling `N5S` trailing `u16` values as candidate starts, each repeated block begins with a fixed front prefix and a variable-size early group area.
 
-The old `0x11` header model is now downgraded to a provisional stepping stone. It fit byte counts, but it likely consumed the first layer-group records as if they were pure metadata.
-
-## Current Stronger Layout
+## Front Prefix
 
 ```text
 +0x00  u16  header_a
@@ -28,16 +26,14 @@ The old `0x11` header model is now downgraded to a provisional stepping stone. I
 +0x0c  repeated groups:
        u8   element_count
        repeated element_count times:
-            u8   a
-            u8   b
+            u8   pzx_mgr
+            u8   frame
             i16  x
             i16  y
 ...    ...  post_groups_start
 ```
 
-This prefix now aligns directly with the early `LoadMap` read sequence, so
-`GetMapOffset(stage_id)` is currently better explained as landing on
-`block_start` than on `post_groups_start`.
+This prefix aligns directly with the early `LoadMap` read sequence, so `GetMapOffset(stage_id)` is currently best explained as landing on `block_start`.
 
 Observed invariants across current samples:
 
@@ -66,159 +62,82 @@ These sizes correspond to current group occupancy patterns:
 
 Interpreted under the current model:
 
-- `g0` element: `(a=0, b=0, x=0, y=-50)`
-- `g1` element: `(a=1, b=0, x=0, y=69)`
+- `g0` element: `(pzx_mgr=0, frame=0, x=0, y=-50)`
+- `g1` element: `(pzx_mgr=1, frame=0, x=0, y=69)`
 - `g2` empty
 - `post_groups_start = block_start + 0x1b`
 
-`stage_10_m.n5m` block at `0x0220`:
+## Confirmed Field Semantics
 
-```text
-60 09 90 01  01 00 00 00 00 01 00  03  01 00 01 00 00 00  00  00
-```
+### `header_a`
 
-Interpreted under the current model:
+- block width in game units
+- supported by `max_node_x ~= header_a` across all currently parsed blocks
 
-- `g0` element: `(a=0, b=1, x=0, y=0)`
-- `g1` empty
-- `g2` empty
-- `post_groups_start = block_start + 0x15`
+### `header_b`
 
-`stage_15_m.n5m` block at `0x11d1`:
+- block height in game units
+- supported by node `y` bounds staying within `[-header_b, 0]`
 
-```text
-c0 12 90 01  02 00 00 00 00 00 00  03 ...
-```
+### `flags[7]`
 
-This stage belongs to the `0x21` family and currently behaves like `(1, 1, 1)`.
+- unresolved
+- likely per-block route, variant, or mode bits
 
-## Confirmed Field Semantics (2026-04-14)
+### Early groups
 
-### header_a = block width in game units
+- each element is `(u8 pzx_mgr, u8 frame, i16 x, i16 y)`
+- `pzx_mgr` selects which `CPzxMgr` tileset to use
+- `frame` selects the frame inside that `CPzxMgr`
+- `x, y` are placement coordinates in game units
+- these elements instantiate `CBackLayer` objects or subtypes
+- this is the back-layer section; there is no separate back-layer pass later
 
-Confirmed across all 21 N5M files via `probe-n5m-header-semantics.py`:
-- `max_node_x ≈ header_a` for every block in every stage (within ±2 units rounding)
-- Pattern placements in stage_17/6: 10 tiles at x=0,600,…,5400 with `header_a=6000` (=5400+600)
-- stage_10 has varying `header_a` per block (600, 1200, 1800, 2400) — each matches that block's `max_node_x`
-- stage_12/28 (vertical stages): `header_a=360` (narrow horizontal extent, scrolls vertically)
+## Full Structural Parse
 
-### header_b = block height in game units
+**Status: verified against `21/21` `N5M` files, all blocks to EOF.**
 
-Confirmed from node y-coordinate bounds:
-- Node y-coordinates are always bounded by `[-header_b, 0]`
-- Exact-boundary evidence: stage_12/28 `header_b=3840`, ny=`[-3840,0]`; stage_1/3/19 `header_b=2000`, ny reaches exactly `-2000`; stage_23 `header_b=2500`, ny reaches exactly `-2500`
-- Most normal horizontal stages: `header_b=400` (standard screen height), nodes within `[-400,0]`
-- y=0 = top/ground; y=-header_b = bottom boundary of the block
-
-### flags[7]
-
-Still unresolved. Likely per-block route/variant bits — they vary within the same stage file.
-
-### early group elements (a, b, x, y) = back layers
-
-Each element is `(u8 pzx_mgr, u8 frame, i16 x, i16 y)`:
-- `pzx_mgr` = which `CPzxMgr` tile-set to use (`CMapMgr::GetMapPzxMgr(pzx_mgr)`)
-- `frame` = frame index within that PzxMgr (`CPzxMgr::GetFrame(frame)`)
-- `x, y` = placement coordinates in game units
-
-Each element becomes a `CBackLayer` object (or subtype: `CBackLayer_Decal`,
-`CBackLayer_Shoting`, `CBackLayer_Gate` — subtype is stage-id-dependent).
-The three groups are the three back-layer layers (far, mid, near background).
-
-This IS the back-layer section. There is no separate back-layer section after land layers.
-
-## Corrected Post-Group Section (Full Parse Verified)
-
-**Status: verified against 21/21 N5M files, all blocks to EOF.**
-
-The previous model only read `node_count + nodes` per path layer. Events and objects were
-being misread as the next path layer's nc. The corrected structure per path layer is:
+Per-path-layer structure:
 
 ```text
 u16  node_count
-node_count * (u8 dir, i16 x, i16 y, u16 angle_raw)   -- 7 bytes each
+node_count * (u8 dir, i16 x, i16 y, u16 angle_raw)
 u16  event_count
 event_count *:
     u8   raw_type
-    6 * i16   rect[0..5]   -> EventRect+0xd4..0xde
+    6 * i16   rect[0..5]
     i16  field_0x20
     i16  field_0x22
     i16  field_0xea
     i16  field_0xec
     u8   text_len
-    [text_len bytes if text_len > 0]                  -- EUC-KR text
+    [text_len bytes if text_len > 0]
 u16  obj_count
 obj_count *:
     u8  f0, f1, f2, f3, f4, f5, f6
-    i16 init_x   -> CObject+0xd4
-    i16 init_y   -> CObject+0xd6
-    i16 d8       -> CObject+0xd8
-    i16 da       -> CObject+0xda
-    i16 spawn_x  -> CObject::SetPosition
+    i16 init_x
+    i16 init_y
+    i16 d8
+    i16 da
+    i16 spawn_x
     i16 spawn_y
     u8  text_len
     [text_len bytes if text_len > 0]
 ```
 
-## Previously Documented Post-Group Section
-
-For the strongest shared families, the bytes at `post_groups_start` now parse
-cleanly as:
-
-```text
-u8 land_layer_count
-for each land layer:
-  u8 pattern_count_a
-  pattern_count_a * (u8 pzx_mgr, u8 frame, i16 x, i16 y)
-  u8 pattern_count_b
-  pattern_count_b * (u8 pzx_mgr, u8 frame, i16 x, i16 y)
-  u8 path_count
-  path_count *:
-    u16 node_count
-    node_count * (u8 dir, i16 x, i16 y, u16 aux)
-```
-
-Current confirmed examples:
-
-- `stage_17_m.n5m` / `stage_6_m.n5m`
-  - `land_layer_count = 1`
-  - the single land layer uses:
-    - `pattern_count_a = 10`
-    - tuples: `(1, 0, x, 0)` with `x = 0, 600, 1200, ..., 5400`
-    - `pattern_count_b = 0`
-    - `path_count = 3`
-    - currently one populated path plus two zero-node paths
-  - confirmed on block `0` and block `1`
-- `stage_20_m.n5m` / `stage_4_m.n5m`
-  - `land_layer_count = 2`
-  - layer `0` uses:
-    - `pattern_count_a = 10`
-    - tuples: `(1, 0, x, 0)` with the same `600` spacing
-    - `pattern_count_b = 0`
-    - `path_count = 1`
-  - layer `1` diverges and is not yet exact
-
-This is the first family-specific post-group section recovered after the early
-group prefix.
+This corrected the older mistake where events and objects were being misread as the next path layer's `node_count`.
 
 ## Field Distribution Notes
 
-- Some stages keep one fixed `(header_a, header_b)` across all blocks:
-  - `stage_0_m.n5m`: width=5000, height=400
-  - `stage_12_m.n5m`: width=360, height=3840 (vertical stage)
-- Some stages switch `header_a` per block, keeping `header_b` fixed:
-  - `stage_10_m.n5m`: widths 2400→1800→1200→600, height=400 (blocks get shorter toward end)
-  - `stage_15_m.n5m`: widths 600/4800, height=400
-- `stage_23_m.n5m`: both `header_a` and `header_b` vary per block (block 0: 2500×2500, rest: 2000×2000)
-- Standard normal stages: `header_b=400` (0x190)
-- Vertical stages: `header_b=3840` (0xf00)
-- Boss/large stages: `header_b=2000` (0x7d0)
-- The old `g0 pair` split was real at the byte level, but it is now better explained as the first group's first `(a, b)` element:
-  - `(0, 0..3)` in some normal stages
-  - `(1, 0)` or `(1, 1)` in other stage families
+- Some stages keep one fixed `(header_a, header_b)` across all blocks.
+- Some stages switch `header_a` per block while keeping `header_b` fixed.
+- `stage_23_m.n5m` varies both `header_a` and `header_b` by block.
+- Standard normal stages tend to use `header_b = 400`.
+- Vertical stages use `header_b = 3840`.
+- Boss or large stages often use `header_b = 2000` or `2500`.
 
 ## Open Questions
 
-1. What do the early group elements `(a, b, x, y)` describe?
-2. What section grammar comes immediately after the recovered strong-family land/path section?
-3. Does `GetMapOffset(stage_id)` ever land on a deeper sub-offset in other families, or is `block_start` universal?
+1. What do `flags[7]` encode per block?
+2. What are the exact semantics of each event subtype (`raw_type 0x00..0x1b`)?
+3. What are the remaining `tagSObjectInfo` field meanings beyond monster type and PZX references?

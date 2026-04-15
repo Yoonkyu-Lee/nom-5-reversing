@@ -53,8 +53,16 @@
 ## 8. Next Steps
 
 1. `CTalkBox` 경로를 더 파서 talkbox enum 의미를 확정
-2. object 관련 opcode 인자를 scene object field와 더 직접 연결
+2. ~~object 관련 opcode 인자를 scene object field와 더 직접 연결~~ **PARTIAL (2026-04-15)**:
+   opcode 10/18/23/27 인자 의미 disasm으로 확정. 12 SHAKE_SCREEN은 부분.
+   - 10 SOUND: arg0=channel(0..4 → sound system 0x1c/0x2c/0x2b/0x29/0x2a), arg1=play flag
+   - 18 OBJ_CREATE: (type, x, y, parent_ref=-1)
+   - 23 OBJ_CHANGE_ANI: (slot, motion_id, wait_flag)
+   - 27 OBJ_MOVE_POS: (slot, vx, vy, target_x, target_y) — DoFSMLogic queue type=2 디코드 완료
 3. 컷신 재생기용 IR 설계
+4. SCR JSON exporter에 시맨틱 라벨 추가 (N5M exporter 패턴 참조)
+5. ~~queue type=2 do-handler 위치 찾아 OBJ_MOVE_POS 5개 인자 정확 분리~~ **DONE 2026-04-15**
+6. opcode 12 SHAKE_SCREEN의 anonymous handler 위치 추적해 script→popup 인자 매핑 확정
 
 ## Related Docs
 

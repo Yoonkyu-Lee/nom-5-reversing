@@ -24,6 +24,46 @@ TYPE_NAMES = {
     6: "str",
 }
 
+# Per-opcode argument labels, derived from disasm of Init_SCRIPTCMD_* handlers and
+# inline dispatch in CScriptEngine::InitScriptEngine. Arg count must match sFormat.tbl.
+# Entries marked "unused_*" are read by the parser but ignored by the runtime handler.
+OPCODE_ARG_LABELS: dict[int, list[str]] = {
+    0:  [],                                              # CLEAR_WAIT_FLAG
+    1:  [],                                              # END_SCRIPT_FINALIZE
+    2:  ["res_id"],                                      # LOAD_RES
+    3:  ["push_id"],                                     # COMMAND_PUSH_START (reserved)
+    4:  ["push_id"],                                     # COMMAND_PUSH_END (reserved)
+    5:  [],                                              # ENABLE_SKIP
+    6:  [],                                              # NOOP_ADVANCE
+    7:  [],                                              # WAIT_OBJECTS_SETTLE
+    8:  ["frames"],                                      # WAIT_FRAMES
+    9:  ["intensity"],                                   # VIBRATE
+    10: ["sound_channel", "play_flag"],                  # SOUND (channel 0..4 → 0x1c/0x2c/0x2b/0x29/0x2a)
+    11: [],                                              # SOUND_STOP
+    12: ["unused_a", "unused_b"],                        # SHAKE_SCREEN — args ignored, hardcoded (3,8)
+    13: ["scroll_x", "scroll_y"],                        # SCREEN_SCROLL (reserved)
+    14: ["fade_mode"],                                   # FADE (0=in, !=0=out)
+    15: [],                                              # CLEAR_FADE_FLAG
+    16: [],                                              # END_SCRIPT_NOW (reserved)
+    17: ["popup_id"],                                    # RESULT_POPUP
+    18: ["obj_type", "pos1", "pos2", "parent_ref"],      # OBJ_CREATE — parent_ref always -1
+    19: ["slot"],                                        # OBJ_SET_TALKBOX_MODE
+    20: ["slot"],                                        # OBJ_ENLARGE_SCREEN
+    21: ["slot", "talkbox_type", "emotion", "text",
+         "motion_id", "motion_opt", "talkbox_param"],    # OBJ_TALKBOX (emotion >12 ⇒ default 13)
+    22: ["slot_or_neg1", "talkbox_type", "emotion",
+         "text", "talkbox_param", "x", "y"],             # OBJ_TALKBOX_POS
+    23: ["slot", "motion_id", "wait_flag"],              # OBJ_CHANGE_ANI
+    24: ["slot", "motion_id"],                           # OBJ_CHANGE_ANI_INIT (reserved)
+    25: ["slot", "x", "y"],                              # OBJ_SET_POS
+    26: ["slot", "flip"],                                # OBJ_SET_FLIP_LR
+    27: ["slot", "vx", "vy", "target_x", "target_y"],    # OBJ_MOVE_POS
+    28: ["slot", "delay_frames"],                        # OBJ_SET_FSM_DELAY
+    29: ["slot", "flip"],                                # OBJ_SET_FLIP_UD
+    30: ["sfx_id", "play_flag"],                         # SOUND_EFFECT
+}
+
+
 OPCODE_NAMES = {
     0: "CLEAR_WAIT_FLAG",
     1: "END_SCRIPT_FINALIZE",
@@ -96,7 +136,8 @@ def parse_script(data: bytes, schema: list[list[int]]):
         opcode = data[off]
         off += 1
         args = []
-        for type_code in schema[opcode]:
+        labels = OPCODE_ARG_LABELS.get(opcode, [])
+        for arg_index, type_code in enumerate(schema[opcode]):
             if type_code == 0:
                 value = struct.unpack_from("<b", data, off)[0]
                 off += 1
@@ -122,8 +163,10 @@ def parse_script(data: bytes, schema: list[list[int]]):
                 off += length
             else:
                 raise ValueError(f"unknown type code {type_code}")
+            label = labels[arg_index] if arg_index < len(labels) else f"arg{arg_index}"
             args.append(
                 {
+                    "label": label,
                     "type_code": type_code,
                     "type_name": TYPE_NAMES.get(type_code, f"?{type_code}"),
                     "value": value,

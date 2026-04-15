@@ -1,2 +1,33 @@
-jadx-1.5.5.zip
+# Python / local env
+.venv/
+__pycache__/
+*.pyc
+
+# Local editor / Claude local settings
+.claude/settings.local.json
+
+# Local SDK / machine-specific dirs
+.android-home/
+
+# Generated analysis outputs
+out/
+logs/
+
+# Build artifacts
+build/
+apktool-out/
+
+# Decompiled / extracted app contents
+jadx-out/
+
+# Downloaded / unpacked tools
 jadx/
+jadx-*.zip
+
+# APK signing leftovers
+*.idsig
+
+# If you do not want Windows junk
+Thumbs.db
+Desktop.ini
+scripts/scratch/

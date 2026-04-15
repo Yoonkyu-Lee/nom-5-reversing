@@ -85,27 +85,30 @@
 
 ## 3. 현재 진행도
 
+*Last updated: 2026-04-15*
+
 ### 완료에 가까운 축
 
-- `PZX`: 현 샘플 기준 exact decode 가능
+- `PZX`: exact decode 확보
 - `ZT1`: 구조 확정
-- `SCR`: schema, static parser, opcode naming 대부분 확보
-- `JNI / native engine map`: 큰 뼈대 확보
+- `SCR`: structure parse 완료, opcode naming 대부분 확보; semantics 정밀화 진행 중
+- `N5S`: front-matter exact parse 확보 (`u8 + u16×5 + 5 string groups + 0x34 record table + trailing u16 table`); `tagSObjectInfo` 필드 대부분 해독
+- `N5M`: 전체 구조 파싱 완료 (21/21 파일 EOF 검증); semantics 상당 부분 해독
 
 ### 진행 중인 축
 
-- `N5S`: 헤더와 일부 읽기 순서 확보, 내부 루프 구조 분석 중
-- `SCR semantics`: talkbox/object 계열의 인자 의미를 계속 정밀화 중
-- `map loading flow`: `CMap_J::LoadMap` 중심으로 구조 복원 중
+- `N5M semantics`: 이벤트 타입, 오브젝트 타입, flags 모두 상당 수준 복원; terrain noop 타입(0x11/0x12/0x13/0x18) 특성 파악; 물리/충돌 consumer 경로는 미확인
+- `tagSObjectInfo`: `u8[12..13]`, `u16[0]`, `u16[6]`, `u16[12..17]` 해독; 나머지 필드(`u8[1..5]`, `u8[6..11]`, `u16[1..5]`, `u16[7..11]`) 미완
+- `CMap_J::LoadMap`: 전체 흐름 확보; `CMap_T::LoadMap`(보스) 분기 비교 미완
 
 ### 아직 초기 단계인 축
 
-- `N5M`
-- `MPL`
-- `FT2`
+- `MPL`: 미착수
+- `FT2`: 미착수
 - 렌더링 파이프라인
-- 충돌/물리
+- 충돌/물리 서브시스템
 - 보스 FSM 정밀 복원
+- 서브시스템 재구현 (Track E1) 전체
 
 ---
 
@@ -194,10 +197,14 @@
 
 ## 7. 현재 권장 다음 단계
 
+*Last updated: 2026-04-15*
+
 현재 프로젝트 전체 관점에서 가장 효율이 좋은 다음 단계는:
 
-1. `N5S` 파서를 더 밀어서 land/path/event/object 경계를 안정화
-2. `N5M` 초기 조사 시작
-3. `SCR` talkbox/object 인자 의미를 runtime field 기준으로 계속 확정
+1. `tagSObjectInfo` 나머지 필드 의미 복원
+2. 물리/충돌 consumer 경로 확인 (terrain noop 타입 0x11/0x12/0x13/0x18 소비 경로)
+3. `CMap_T::LoadMap` vs `CMap_J::LoadMap` 보스 분기 비교
+4. `N5M → JSON/IR` export 작성 (semantics가 충분히 안정된 뒤)
+5. `MPL` 초기 조사 시작
 
-이 세 가지가 끝나야 `최소 장면 재생기` 설계가 구체화된다.
+이 단계들이 끝나야 `최소 장면 재생기` 설계가 구체화된다.

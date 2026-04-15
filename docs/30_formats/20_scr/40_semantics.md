@@ -125,6 +125,117 @@ This writes an `i16` value into `CScriptObject + 0x40`.
 
 So this is best modeled as an object-local delay / cooldown / wait field.
 
+## Object Commands (arg semantics — 2026-04-15 update)
+
+### `10` SOUND
+
+Schema: `[i32 sound_channel, i32 enable_flag]`
+
+Decoded from `Init_SCRIPTCMD_SOUND` (0xfed64) — 5-case jump table on arg0:
+
+| arg0 | sound system code |
+|------|-------------------|
+| 0    | 0x1c              |
+| 1    | 0x2c              |
+| 2    | 0x2b              |
+| 3    | 0x29              |
+| 4    | 0x2a              |
+
+arg1 is a boolean (`(|arg1|>>31) ? 1 : 0`). Observed: arg1 = 1 (play). Init also calls
+`SoundStop` first, so this is "stop current → play category arg0".
+
+### `18` OBJ_CREATE
+
+Schema: `[i32 type, i32 pos1, i32 pos2, i32 parent_ref]`
+
+Decoded from `Init_SCRIPTCMD_OBJ_CREATE` (0xfeff0):
+
+- arg0: object type/template id, passed to constructor at `0xfff88`
+- arg1, arg2: position params (i16) → `SetPos(arg1, arg2)` at `0x618d8`
+- arg3: parent/ref id, stored at `CScriptObject+0x4c`. `-1` (always observed) = no parent.
+
+Allocates 0xa4-byte `CScriptObject`, sets active flag (+0x38=1). Object is queued or
+created directly depending on engine state byte `[r7+0x31] ∈ {3,4,5}`.
+
+### `23` OBJ_CHANGE_ANI
+
+Schema: `[i32 slot, i32 motion_id, i32 wait_flag]`
+
+Decoded from `Init_SCRIPTCMD_OBJ_CHANGE_ANI` (0xff7e8):
+
+- arg0: script object slot index (0..3 observed)
+- arg1: motion id, eventually passed to `CAniObject::ChangeMotion`
+- arg2: queue/wait flag — `0` = immediate change with init=1, `1` = queue (Do_handler
+  processes and waits)
+
+The 0x24-byte queue record format: `{type=4, motion_id=arg1, init_flag=(arg2==0)}`.
+
+### `27` OBJ_MOVE_POS
+
+Schema: `[i32 slot, i16 vx, i16 vy, i16 target_x, i16 target_y]`
+
+Decoded from `Init_SCRIPTCMD_OBJ_MOVE_POS` (0xff9c4) and queue-type-2 handler in
+`CScriptObject::DoFSMLogic` (0xffd06):
+
+- arg0: script object slot index
+- arg1: vx (velocity X per frame, signed)
+- arg2: vy (velocity Y per frame, signed)
+- arg3: target_x (clamp boundary; semantics depends on sign of vx)
+- arg4: target_y (clamp boundary; semantics depends on sign of vy)
+
+Per-frame logic in queue type=2:
+```
+obj.x += vx
+obj.y += vy
+if vx > 0 and obj.x > target_x: clamp obj.x = target_x; advance
+if vx < 0 and obj.x < target_x: clamp obj.x = target_x; advance
+if vx == 0: no horizontal clamp
+(same for vy / target_y)
+```
+
+So this is a velocity-based linear move with target-position clamp. Movement starts
+from current position (set previously by `OBJ_SET_POS` or `OBJ_CREATE`).
+
+### `12` SHAKE_SCREEN
+
+Schema: `[i32 a, i32 b]` — **arguments are unused at runtime**
+
+The opcode 12 handler is inline at `0xffbe6` inside `CScriptEngine::InitScriptEngine`'s
+dispatch switch (no exposed `Init_SCRIPTCMD_SHAKE_SCREEN` symbol). The full handler is:
+
+```
+ldr  r0, [r0, #4]      ; r0 = popup pointer
+movs r1, #3            ; HARDCODED duration = 3
+movs r2, #8            ; HARDCODED amplitude = 8
+bl   CScriptPopUp::ActiveShakeScreen   ; calls (popup, 3, 8)
+bl   NextCommand(0)
+```
+
+The recCommand args (arg0, arg1 — observed `[0/1, 8/16]`) are **not read** by the
+handler. They are vestigial bytes that the format and parser still consume, but the
+runtime ignores them. Likely a leftover from a prior engine version where shake was
+customizable. `ActiveShakeScreen(duration, amplitude)` writes `popup+0x54=duration`,
+`popup+0x50=amplitude`, and triggers a callback on `popup+0x1c` if non-null.
+
+For faithful recreation: emit a fixed shake of (duration=3 frames, amplitude=8) and
+discard the script args.
+
+### Dispatch Table Location
+
+All `Init_SCRIPTCMD_*` handlers (both exposed-symbol and anonymous-inline) are reached
+via a 31-entry jump table inside `CScriptEngine::InitScriptEngine` at `0xffb00`:
+
+```
+ldr  r2, [r0, #0x18]   ; current opcode
+cmp  r2, #0x1e          ; opcode > 30 ⇒ no-op
+bhi  exit
+... jump-table dispatch ...
+```
+
+Anonymous handlers (no exposed symbol — opcodes `00/01/05/06/07/11/12/13/14/15/16/19/22*` etc.)
+are inline within this function. This is where to look for any handler whose precise
+behavior is in doubt.
+
 ## Talkbox Commands
 
 ### `21` OBJ_TALKBOX
@@ -143,15 +254,22 @@ Observed behavior:
 - may initialize object motion after the talkbox call
 - sets object field `+0x90 = -1`, which is later used by do-handlers as a talkbox/readiness gate
 
-Current working interpretation:
+Confirmed via `Init_SCRIPTCMD_OBJ_TALKBOX` (0xff2f0):
 
-- arg0: object slot / speaker object id
+- arg0: object slot / speaker object id (resolved via `0xfe3b8`)
 - arg1: `eTalkBoxType`
-- arg2: branch/layout hint used by the handler, but not yet cleanly mapped to a final runtime enum
-- arg3: inline text
-- arg4: optional motion id trigger (`> 0` causes a follow-up motion init)
-- arg5: motion option / bool-ish flag passed into the follow-up motion init
-- arg6: extra integer parameter passed as the third non-string argument into `CTalkBox::ActiveTalkBox`
+- arg2: `eTaklBoxEmotionKind` (≤ 12 = use directly; > 12 = use default emotion `0xd` = 13).
+  The branch is at `0xff334`: `cmp arg2, #0xc; bgt main_path; b alt_path`. Same logic
+  as opcode 22.
+- arg3: inline text (passed to `CTalkBox::ActiveTalkBox` as `const char*`)
+- arg4: motion_id (`> 0` triggers `CAniObject::ChangeMotion` after talkbox setup)
+- arg5: motion init flag passed to ChangeMotion
+- arg6: extra integer parameter passed into `CTalkBox::ActiveTalkBox`
+
+Side effects after talkbox activation:
+- `scriptObj+0x90 = -1` (talkbox-active marker)
+- `scriptObj+0x80 = 0` (x position cleared)
+- `scriptObj+0x82 = 0 or computed-from-arg2` (y position)
 
 `CTalkBox::ActiveTalkBox()` signature is:
 
