@@ -1,0 +1,763 @@
+{
+  "source_file": "startscript_7.scr",
+  "size": 325,
+  "fully_consumed": true,
+  "command_count": 38,
+  "end_off": 325,
+  "commands": [
+    {
+      "index": 0,
+      "opcode": 0,
+      "opcode_name": "CLEAR_WAIT_FLAG",
+      "args": []
+    },
+    {
+      "index": 1,
+      "opcode": 6,
+      "opcode_name": "NOOP_ADVANCE",
+      "args": []
+    },
+    {
+      "index": 2,
+      "opcode": 2,
+      "opcode_name": "LOAD_RES",
+      "args": []
+    },
+    {
+      "index": 3,
+      "opcode": 10,
+      "opcode_name": "SOUND",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "opcode": 18,
+      "opcode_name": "OBJ_CREATE",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 2,
+          "type_name": "i16",
+          "value": -50
+        },
+        {
+          "type_code": 2,
+          "type_name": "i16",
+          "value": 100
+        },
+        {
+          "type_code": 2,
+          "type_name": "i16",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "opcode": 23,
+      "opcode_name": "OBJ_CHANGE_ANI",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 90
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "opcode": 14,
+      "opcode_name": "FADE",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "opcode": 6,
+      "opcode_name": "NOOP_ADVANCE",
+      "args": []
+    },
+    {
+      "index": 8,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 12
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "opcode": 23,
+      "opcode_name": "OBJ_CHANGE_ANI",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 21
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "opcode": 23,
+      "opcode_name": "OBJ_CHANGE_ANI",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 6
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "opcode": 5,
+      "opcode_name": "ENABLE_SKIP",
+      "args": []
+    },
+    {
+      "index": 12,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "opcode": 21,
+      "opcode_name": "OBJ_TALKBOX",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 6,
+          "type_name": "str",
+          "value": "뭐야? 위아래 모두 식물뿐이잖아."
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 8
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "opcode": 21,
+      "opcode_name": "OBJ_TALKBOX",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 6
+        },
+        {
+          "type_code": 6,
+          "type_name": "str",
+          "value": "우주는 우주구만."
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 9
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "opcode": 21,
+      "opcode_name": "OBJ_TALKBOX",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 5
+        },
+        {
+          "type_code": 6,
+          "type_name": "str",
+          "value": "어? 왠지 몸이 가볍네?"
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 4
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "opcode": 23,
+      "opcode_name": "OBJ_CHANGE_ANI",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 5
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "opcode": 21,
+      "opcode_name": "OBJ_TALKBOX",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 7
+        },
+        {
+          "type_code": 6,
+          "type_name": "str",
+          "value": "얏호! 기분 죽이는데~."
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 4
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "opcode": 23,
+      "opcode_name": "OBJ_CHANGE_ANI",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 5
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "opcode": 21,
+      "opcode_name": "OBJ_TALKBOX",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 7
+        },
+        {
+          "type_code": 6,
+          "type_name": "str",
+          "value": "히히"
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 13
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "opcode": 21,
+      "opcode_name": "OBJ_TALKBOX",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 6,
+          "type_name": "str",
+          "value": "이런 식물 별이라면"
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 6
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "opcode": 21,
+      "opcode_name": "OBJ_TALKBOX",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 3
+        },
+        {
+          "type_code": 6,
+          "type_name": "str",
+          "value": "엘프같은 여자도 있겠지?"
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 10
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "opcode": 21,
+      "opcode_name": "OBJ_TALKBOX",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 3
+        },
+        {
+          "type_code": 6,
+          "type_name": "str",
+          "value": "나 귀 큰 여자도 좋아ㅋㅋ"
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 10
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "opcode": 21,
+      "opcode_name": "OBJ_TALKBOX",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 0
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 7
+        },
+        {
+          "type_code": 6,
+          "type_name": "str",
+          "value": "꿀벅지도 좋아ㅋㅋ"
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 13
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        },
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "opcode": 8,
+      "opcode_name": "WAIT_FRAMES",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "index": 35,
+      "opcode": 6,
+      "opcode_name": "NOOP_ADVANCE",
+      "args": []
+    },
+    {
+      "index": 36,
+      "opcode": 14,
+      "opcode_name": "FADE",
+      "args": [
+        {
+          "type_code": 0,
+          "type_name": "i8",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "opcode": 1,
+      "opcode_name": "END_SCRIPT_FINALIZE",
+      "args": []
+    }
+  ]
+}

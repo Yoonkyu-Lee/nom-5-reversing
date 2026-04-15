@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/flayout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.gamevil.nexus2.NexusGLSurfaceView android:id="@id/SurfaceView01" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.gamevil.nom5.ui.Nom5UIControllerView android:id="@id/UIView01" android:focusableInTouchMode="true" android:visibility="visible" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.gamevil.nexus2.ui.UITextView android:gravity="left" android:id="@id/text_view" android:visibility="invisible" android:layout_width="300.0px" android:layout_height="20.0px" />
+    <com.gamevil.nexus2.ui.UIEditText android:textAppearance="?android:textAppearanceMedium" android:textSize="11.0px" android:layout_gravity="left|top" android:id="@id/text_edit" android:visibility="invisible" android:layout_width="100.0px" android:layout_height="30.0px" android:layout_marginLeft="280.0px" android:layout_marginTop="82.0px" android:maxLines="1" android:minLines="1" android:scrollHorizontally="true" android:singleLine="true" android:maxLength="10" android:capitalize="none" android:autoText="false" android:inputType="textPersonName" />
+    <ProgressBar android:layout_gravity="center" android:id="@android:attr/theme" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:attr/progressBarStyleLarge" />
+    <com.gamevil.nexus2.ui.UIWebView android:id="@android:attr/label" android:visibility="invisible" android:layout_width="362.0px" android:layout_height="226.0px" android:layout_marginLeft="45.0px" android:layout_marginTop="60.0px" />
+    <ImageView android:layout_gravity="center" android:id="@id/titleImg" android:padding="0.0dip" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/title" android:scaleType="fitXY" />
+    <ImageView android:layout_gravity="right|top" android:id="@id/gradeImg" android:padding="0.0dip" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/grade" android:scaleType="fitXY" />
+    <TextView android:textStyle="bold" android:textColor="#ff000000" android:layout_gravity="right|bottom" android:id="@id/versionTxt" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="2.0px" android:text="v1.0.0" />
+    <FrameLayout android:layout_gravity="left|top" android:id="@id/FrameNews" android:padding="0.0dip" android:focusableInTouchMode="true" android:visibility="invisible" android:clickable="true" android:layout_width="fill_parent" android:layout_height="145.0px">
+        <ImageButton android:layout_gravity="left|top" android:id="@id/button_go" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/banner" android:scaleType="fitXY" />
+        <ImageButton android:layout_gravity="left|bottom" android:id="@id/button_news" android:layout_width="wrap_content" android:layout_height="40.0px" android:src="@drawable/news" android:scaleType="center" android:text="toggle" />
+        <Button android:layout_gravity="right|top" android:id="@id/button_cancle" android:layout_width="80.0px" android:layout_height="80.0px" android:text=" " />
+    </FrameLayout>
+    <FrameLayout android:layout_gravity="left|top" android:id="@id/gamevilLive" android:padding="0.0dip" android:focusableInTouchMode="true" android:visibility="invisible" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.gamevil.nexus2.xml.GamevilLiveWebView android:layout_gravity="left|top" android:id="@id/webView" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="20.0px" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/gamevilLive" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_width="52.0dip" android:layout_height="wrap_content" android:src="@drawable/back_b" android:scaleType="fitXY" />
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/bar" android:scaleType="fitXY" android:layout_weight="1.0" />
+            <ImageView android:layout_width="53.0dip" android:layout_height="wrap_content" android:src="@drawable/home_b" android:scaleType="fitXY" />
+        </LinearLayout>
+        <ImageButton android:layout_gravity="left|top" android:id="@id/button_back" android:padding="0.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/back_b" />
+        <ImageButton android:layout_gravity="right|top" android:id="@id/button_close" android:padding="0.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/home_b" />
+        <ProgressBar android:layout_gravity="center" android:id="@android:attr/icon" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:attr/progressBarStyleLarge" />
+    </FrameLayout>
+</FrameLayout>

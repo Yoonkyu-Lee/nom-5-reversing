@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ARM 기능검증</string>
+    <string name="spinnerTitle">환경설정</string>
+</resources>

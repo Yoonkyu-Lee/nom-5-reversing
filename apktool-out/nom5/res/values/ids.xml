@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="flayout" />
+    <item type="id" name="SurfaceView01" />
+    <item type="id" name="UIView01" />
+    <item type="id" name="text_view" />
+    <item type="id" name="text_edit" />
+    <item type="id" name="titleImg" />
+    <item type="id" name="gradeImg" />
+    <item type="id" name="versionTxt" />
+    <item type="id" name="FrameNews" />
+    <item type="id" name="button_go" />
+    <item type="id" name="button_news" />
+    <item type="id" name="button_cancle" />
+    <item type="id" name="gamevilLive" />
+    <item type="id" name="webView" />
+    <item type="id" name="button_back" />
+    <item type="id" name="button_close" />
+</resources>

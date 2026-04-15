@@ -1,0 +1,21 @@
+{
+  "source_file": "shipscript_5.scr",
+  "size": 3,
+  "fully_consumed": true,
+  "command_count": 2,
+  "end_off": 3,
+  "commands": [
+    {
+      "index": 0,
+      "opcode": 0,
+      "opcode_name": "CLEAR_WAIT_FLAG",
+      "args": []
+    },
+    {
+      "index": 1,
+      "opcode": 1,
+      "opcode_name": "END_SCRIPT_FINALIZE",
+      "args": []
+    }
+  ]
+}

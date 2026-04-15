@@ -1,0 +1,2762 @@
+
+======================================================================
+CMap_J::LoadMap
+======================================================================
+  0x0009f8a4  push     {r4, r5, r6, r7, lr}          
+  0x0009f8a6  mov      r7, fp                        
+  0x0009f8a8  mov      r6, sl                        
+  0x0009f8aa  mov      r5, sb                        
+  0x0009f8ac  mov      r4, r8                        
+  0x0009f8ae  push     {r4, r5, r6, r7}              
+  0x0009f8b0  ldr      r3, [pc, #0x2ac]              
+  0x0009f8b2  adds     r6, r0, #0                    
+  0x0009f8b4  ldr      r0, [pc, #0x2ac]              
+  0x0009f8b6  sub      sp, #0x7c                     
+  0x0009f8b8  add      r3, pc                        
+  0x0009f8ba  str      r3, [sp, #0x2c]               
+  0x0009f8bc  ldr      r3, [r3, r0]                  
+  0x0009f8be  adds     r7, r1, #0                    
+  0x0009f8c0  str      r0, [sp, #0x40]               
+  0x0009f8c2  ldr      r1, [r3]                      
+  0x0009f8c4  movs     r3, #0x6d                     
+  0x0009f8c6  add      r4, sp, #0x68                 
+  0x0009f8c8  ldrb     r5, [r1, r3]                  
+  0x0009f8ca  ldr      r1, [sp, #0x2c]               
+  0x0009f8cc  ldr      r3, [pc, #0x298]              
+  0x0009f8ce  adds     r0, r4, #0                    
+  0x0009f8d0  ldr      r3, [r1, r3]                  
+  0x0009f8d2  adds     r1, r2, #0                    
+  0x0009f8d4  str      r3, [sp, #0x74]               
+  0x0009f8d6  bl       #0x8fbfc                        <<< _ZN12CInputStreamC1El
+  0x0009f8da  adds     r1, r7, #0                    
+  0x0009f8dc  ldr      r0, [r6, #0x14]               
+  0x0009f8de  bl       #0xa7c14                        <<< _ZN7CMapMgr12GetMapOffsetEh
+  0x0009f8e2  adds     r1, r0, #0                    
+  0x0009f8e4  adds     r0, r4, #0                    
+  0x0009f8e6  bl       #0x8fd08                        <<< skip(int)
+  0x0009f8ea  adds     r0, r4, #0                    
+  0x0009f8ec  bl       #0x8fca4                        <<< readUint16()
+  0x0009f8f0  movs     r3, #0x6e                     
+  0x0009f8f2  strh     r0, [r6, r3]                  
+  0x0009f8f4  adds     r0, r4, #0                    
+  0x0009f8f6  bl       #0x8fca4                        <<< readUint16()
+  0x0009f8fa  movs     r3, #0x70                     
+  0x0009f8fc  strh     r0, [r6, r3]                  
+  0x0009f8fe  adds     r0, r4, #0                    
+  0x0009f900  bl       #0x8fc78                        <<< readUint8()
+  0x0009f904  ldr      r1, [r6, #0x14]               
+  0x0009f906  movs     r2, #0x66                     
+  0x0009f908  strb     r0, [r6, r2]                  
+  0x0009f90a  movs     r3, #0x38                     
+  0x0009f90c  ldrb     r3, [r1, r3]                  
+  0x0009f90e  cmp      r3, #0                        
+  0x0009f910  beq      #0x9f916                      
+  0x0009f912  bl       #0xa0182                      
+  0x0009f916  ldr      r3, [pc, #0x254]              
+  0x0009f918  cmp      r5, #0x1c                     
+  0x0009f91a  bne      #0x9f920                      
+  0x0009f91c  bl       #0xa0192                      
+  0x0009f920  cmp      r5, #0xc                      
+  0x0009f922  bne      #0x9f928                      
+  0x0009f924  bl       #0xa0192                      
+  0x0009f928  cmp      r5, #0x19                     
+  0x0009f92a  bne      #0x9f930                      
+  0x0009f92c  bl       #0xa019c                      
+  0x0009f930  cmp      r5, #0xa                      
+  0x0009f932  bne      #0x9f938                      
+  0x0009f934  bl       #0xa019c                      
+  0x0009f938  ldr      r1, [sp, #0x2c]               
+  0x0009f93a  ldr      r3, [r1, r3]                  
+  0x0009f93c  ldr      r2, [r3]                      
+  0x0009f93e  movs     r3, #0x66                     
+  0x0009f940  ldrb     r1, [r6, r3]                  
+  0x0009f942  str      r1, [r2, #4]                  
+  0x0009f944  ldrb     r3, [r6, r3]                  
+  0x0009f946  lsls     r2, r3, #0x1f                 
+  0x0009f948  bpl      #0x9f94e                      
+  0x0009f94a  bl       #0xa01c2                      
+  0x0009f94e  cmp      r5, #0x19                     
+  0x0009f950  bne      #0x9f956                      
+  0x0009f952  bl       #0xa01ac                      
+  0x0009f956  cmp      r5, #0xa                      
+  0x0009f958  bne      #0x9f95e                      
+  0x0009f95a  bl       #0xa01ac                      
+  0x0009f95e  ldr      r3, [pc, #0x210]              
+  0x0009f960  ldr      r0, [sp, #0x2c]               
+  0x0009f962  str      r3, [sp, #0x54]               
+  0x0009f964  ldr      r3, [r0, r3]                  
+  0x0009f966  ldr      r2, [r3]                      
+  0x0009f968  ldr      r3, [r2, #8]                  
+  0x0009f96a  ldr      r2, [r2, #0xc]                
+  0x0009f96c  lsls     r3, r3, #0x10                 
+  0x0009f96e  asrs     r3, r3, #0x10                 
+  0x0009f970  lsls     r2, r2, #0x10                 
+  0x0009f972  asrs     r2, r2, #0x10                 
+  0x0009f974  movs     r1, #0                        
+  0x0009f976  str      r2, [sp]                      
+  0x0009f978  adds     r0, r6, #0                    
+  0x0009f97a  movs     r2, #0                        
+  0x0009f97c  bl       #0x9bef4                        <<< _ZN4CMap11SetMapBoundEssss
+  0x0009f980  adds     r0, r4, #0                    
+  0x0009f982  bl       #0x8fc78                        <<< readUint8()
+  0x0009f986  movs     r3, #0x67                     
+  0x0009f988  strb     r0, [r6, r3]                  
+  0x0009f98a  adds     r0, r4, #0                    
+  0x0009f98c  bl       #0x8fc78                        <<< readUint8()
+  0x0009f990  movs     r3, #0x68                     
+  0x0009f992  strb     r0, [r6, r3]                  
+  0x0009f994  adds     r0, r4, #0                    
+  0x0009f996  bl       #0x8fc78                        <<< readUint8()
+  0x0009f99a  movs     r3, #0x69                     
+  0x0009f99c  strb     r0, [r6, r3]                  
+  0x0009f99e  adds     r0, r4, #0                    
+  0x0009f9a0  bl       #0x8fc78                        <<< readUint8()
+  0x0009f9a4  movs     r3, #0x6a                     
+  0x0009f9a6  strb     r0, [r6, r3]                  
+  0x0009f9a8  adds     r0, r4, #0                    
+  0x0009f9aa  bl       #0x8fc78                        <<< readUint8()
+  0x0009f9ae  movs     r3, #0x6b                     
+  0x0009f9b0  strb     r0, [r6, r3]                  
+  0x0009f9b2  adds     r0, r4, #0                    
+  0x0009f9b4  bl       #0x8fc78                        <<< readUint8()
+  0x0009f9b8  movs     r3, #0x6c                     
+  0x0009f9ba  strb     r0, [r6, r3]                  
+  0x0009f9bc  adds     r0, r4, #0                    
+  0x0009f9be  bl       #0x8fc78                        <<< readUint8()
+  0x0009f9c2  str      r0, [sp, #0x44]               
+  0x0009f9c4  cmp      r0, #0                        
+  0x0009f9c6  bne      #0x9f9ca                      
+  0x0009f9c8  b        #0x9fb82                      
+  0x0009f9ca  adds     r1, r6, #0                    
+  0x0009f9cc  adds     r1, #0x38                     
+  0x0009f9ce  movs     r2, #0                        
+  0x0009f9d0  str      r1, [sp, #0x30]               
+  0x0009f9d2  str      r2, [sp, #0x28]               
+  0x0009f9d4  adds     r0, r4, #0                    
+  0x0009f9d6  bl       #0x8fc78                        <<< readUint8()
+  0x0009f9da  str      r0, [sp, #0x1c]               
+  0x0009f9dc  cmp      r0, #0                        
+  0x0009f9de  bne      #0x9f9e2                      
+  0x0009f9e0  b        #0x9fb74                      
+  0x0009f9e2  ldr      r0, [sp, #0x28]               
+  0x0009f9e4  movs     r5, #0                        
+  0x0009f9e6  lsls     r3, r0, #0x18                 
+  0x0009f9e8  lsrs     r3, r3, #0x17                 
+  0x0009f9ea  adds     r3, #0x38                     
+  0x0009f9ec  str      r3, [sp, #0x38]               
+  0x0009f9ee  b        #0x9fa52                      
+  0x0009f9f0  cmp      r3, #0x1c                     
+  0x0009f9f2  bne      #0x9f9f6                      
+  0x0009f9f4  b        #0x9fb52                      
+  0x0009f9f6  cmp      r3, #9                        
+  0x0009f9f8  bne      #0x9f9fc                      
+  0x0009f9fa  b        #0x9fb3e                      
+  0x0009f9fc  cmp      r3, #0x1a                     
+  0x0009f9fe  bne      #0x9fa02                      
+  0x0009fa00  b        #0x9fb3e                      
+  0x0009fa02  movs     r0, #0                        
+  0x0009fa04  str      r0, [sp, #0x24]               
+  0x0009fa06  str      r0, [sp, #0x20]               
+  0x0009fa08  mov      fp, r0                        
+  0x0009fa0a  mov      sb, r0                        
+  0x0009fa0c  cmp      r3, #0xa                      
+  0x0009fa0e  bne      #0x9fac6                      
+  0x0009fa10  ldr      r1, [sp, #0x38]               
+  0x0009fa12  ldr      r3, [r6, #0x14]               
+  0x0009fa14  movs     r0, #0x40                     
+  0x0009fa16  adds     r3, r3, r1                    
+  0x0009fa18  ldrh     r3, [r3, #4]                  
+  0x0009fa1a  mov      sb, r3                        
+  0x0009fa1c  bl       #0x108f78                       <<< _Znwj
+  0x0009fa20  mov      r2, sb                        
+  0x0009fa22  lsls     r3, r2, #0x10                 
+  0x0009fa24  asrs     r3, r3, #0x10                 
+  0x0009fa26  str      r3, [sp]                      
+  0x0009fa28  adds     r1, r6, #0                    
+  0x0009fa2a  adds     r2, r7, #0                    
+  0x0009fa2c  mov      r3, sl                        
+  0x0009fa2e  mov      r8, r0                        
+  0x0009fa30  bl       #0x9f868                        <<< _ZN16CBackLayer_DecalC1EP4CMapP7CPzxMgrP11CGxPZxFrames
+  0x0009fa34  adds     r0, r4, #0                    
+  0x0009fa36  bl       #0x8fc84                        <<< readInt16()
+  0x0009fa3a  adds     r0, r4, #0                    
+  0x0009fa3c  bl       #0x8fc84                        <<< readInt16()
+  0x0009fa40  ldr      r0, [sp, #0x30]               
+  0x0009fa42  mov      r1, r8                        
+  0x0009fa44  bl       #0x9ee90                        <<< _ZN7CVectorIP10CBackLayerE10AddElementES1_
+  0x0009fa48  ldr      r2, [sp, #0x1c]               
+  0x0009fa4a  adds     r5, #1                        
+  0x0009fa4c  cmp      r5, r2                        
+  0x0009fa4e  blt      #0x9fa52                      
+  0x0009fa50  b        #0x9fb74                      
+  0x0009fa52  adds     r0, r4, #0                    
+  0x0009fa54  bl       #0x8fc78                        <<< readUint8()
+  0x0009fa58  adds     r7, r0, #0                    
+  0x0009fa5a  adds     r0, r4, #0                    
+  0x0009fa5c  bl       #0x8fc78                        <<< readUint8()
+  0x0009fa60  adds     r1, r7, #0                    
+  0x0009fa62  mov      r8, r0                        
+  0x0009fa64  ldr      r0, [r6, #0x14]               
+  0x0009fa66  bl       #0xa7b50                        <<< _ZN7CMapMgr12GetMapPzxMgrEi
+  0x0009fa6a  mov      r1, r8                        
+  0x0009fa6c  adds     r7, r0, #0                    
+  0x0009fa6e  bl       #0xe7a9c                        <<< _ZN7CPzxMgr8GetFrameEi
+  0x0009fa72  ldr      r1, [sp, #0x2c]               
+  0x0009fa74  ldr      r2, [sp, #0x40]               
+  0x0009fa76  mov      sl, r0                        
+  0x0009fa78  movs     r0, #0x6d                     
+  0x0009fa7a  ldr      r3, [r1, r2]                  
+  0x0009fa7c  ldr      r3, [r3]                      
+  0x0009fa7e  ldrb     r3, [r3, r0]                  
+  0x0009fa80  cmp      r3, #0xc                      
+  0x0009fa82  bne      #0x9f9f0                      
+  0x0009fa84  movs     r3, #1                        
+  0x0009fa86  str      r3, [sp, #0x20]               
+  0x0009fa88  mov      sb, r3                        
+  0x0009fa8a  str      r3, [sp, #0x24]               
+  0x0009fa8c  mov      fp, r3                        
+  0x0009fa8e  ldr      r3, [r6, #0x14]               
+  0x0009fa90  ldr      r0, [sp, #0x38]               
+  0x0009fa92  adds     r3, r3, r0                    
+  0x0009fa94  ldrh     r3, [r3, #4]                  
+  0x0009fa96  movs     r0, #0x44                     
+  0x0009fa98  str      r3, [sp, #0x3c]               
+  0x0009fa9a  bl       #0x108f78                       <<< _Znwj
+  0x0009fa9e  ldr      r1, [sp, #0x3c]               
+  0x0009faa0  mov      r8, r0                        
+  0x0009faa2  ldr      r0, [sp, #0x20]               
+  0x0009faa4  lsls     r3, r1, #0x10                 
+  0x0009faa6  ldr      r1, [sp, #0x24]               
+  0x0009faa8  asrs     r3, r3, #0x10                 
+  0x0009faaa  mov      r2, sb                        
+  0x0009faac  str      r3, [sp]                      
+  0x0009faae  mov      r3, fp                        
+  0x0009fab0  str      r2, [sp, #4]                  
+  0x0009fab2  str      r3, [sp, #8]                  
+  0x0009fab4  str      r0, [sp, #0xc]                
+  0x0009fab6  str      r1, [sp, #0x10]               
+  0x0009fab8  mov      r0, r8                        
+  0x0009faba  adds     r1, r6, #0                    
+  0x0009fabc  adds     r2, r7, #0                    
+  0x0009fabe  mov      r3, sl                        
+  0x0009fac0  bl       #0x9f720                        <<< _ZN18CBackLayer_ShotingC1EP4CMapP7CPzxMgrP11CGxPZxFramesbbbb
+  0x0009fac4  b        #0x9fa34                      
+  0x0009fac6  cmp      r3, #0x19                     
+  0x0009fac8  beq      #0x9fa10                      
+  0x0009faca  cmp      r3, #9                        
+  0x0009facc  bne      #0x9fafa                      
+  0x0009face  ldr      r0, [sp, #0x28]               
+  0x0009fad0  cmp      r0, #0                        
+  0x0009fad2  bne      #0x9fafe                      
+  0x0009fad4  ldr      r3, [r6, #0x14]               
+  0x0009fad6  movs     r0, #0x44                     
+  0x0009fad8  ldrh     r3, [r3, #0x3c]               
+  0x0009fada  mov      sb, r3                        
+  0x0009fadc  bl       #0x108f78                       <<< _Znwj
+  0x0009fae0  ldr      r1, [sp, #0x28]               
+  0x0009fae2  mov      r2, sb                        
+  0x0009fae4  lsls     r3, r2, #0x10                 
+  0x0009fae6  asrs     r3, r3, #0x10                 
+  0x0009fae8  str      r1, [sp]                      
+  0x0009faea  str      r3, [sp, #4]                  
+  0x0009faec  adds     r1, r6, #0                    
+  0x0009faee  adds     r2, r7, #0                    
+  0x0009faf0  mov      r3, sl                        
+  0x0009faf2  mov      r8, r0                        
+  0x0009faf4  bl       #0x9f7e8                        <<< _ZN15CBackLayer_GateC1EP4CMapP7CPzxMgrP11CGxPZxFrameis
+  0x0009faf8  b        #0x9fa34                      
+  0x0009fafa  cmp      r3, #0x1a                     
+  0x0009fafc  beq      #0x9face                      
+  0x0009fafe  cmp      r3, #0xc                      
+  0x0009fb00  beq      #0x9fa8e                      
+  0x0009fb02  cmp      r3, #0x1c                     
+  0x0009fb04  beq      #0x9fa8e                      
+  0x0009fb06  ldr      r3, [r6, #0x14]               
+  0x0009fb08  ldr      r2, [sp, #0x38]               
+  0x0009fb0a  movs     r0, #0x40                     
+  0x0009fb0c  adds     r3, r3, r2                    
+  0x0009fb0e  ldrh     r3, [r3, #4]                  
+  0x0009fb10  str      r3, [sp, #0x3c]               
+  0x0009fb12  bl       #0x108f78                       <<< _Znwj
+  0x0009fb16  mov      r8, r0                        
+  0x0009fb18  ldr      r0, [sp, #0x3c]               
+  0x0009fb1a  mov      r1, sb                        
+  0x0009fb1c  mov      r2, fp                        
+  0x0009fb1e  lsls     r3, r0, #0x10                 
+  0x0009fb20  asrs     r3, r3, #0x10                 
+  0x0009fb22  ldr      r0, [sp, #0x24]               
+  0x0009fb24  str      r3, [sp]                      
+  0x0009fb26  ldr      r3, [sp, #0x20]               
+  0x0009fb28  str      r1, [sp, #4]                  
+  0x0009fb2a  str      r2, [sp, #8]                  
+  0x0009fb2c  str      r3, [sp, #0xc]                
+  0x0009fb2e  str      r0, [sp, #0x10]               
+  0x0009fb30  adds     r1, r6, #0                    
+  0x0009fb32  mov      r0, r8                        
+  0x0009fb34  adds     r2, r7, #0                    
+  0x0009fb36  mov      r3, sl                        
+  0x0009fb38  bl       #0x9c4d8                        <<< _ZN10CBackLayerC1EP4CMapP7CPzxMgrP11CGxPZxFramesbbbb
+  0x0009fb3c  b        #0x9fa34                      
+  0x0009fb3e  ldr      r1, [sp, #0x28]               
+  0x0009fb40  cmp      r1, #0                        
+  0x0009fb42  bne      #0x9fb46                      
+  0x0009fb44  b        #0x9fa02                      
+  0x0009fb46  movs     r2, #1                        
+  0x0009fb48  str      r2, [sp, #0x24]               
+  0x0009fb4a  str      r2, [sp, #0x20]               
+  0x0009fb4c  mov      fp, r2                        
+  0x0009fb4e  mov      sb, r2                        
+  0x0009fb50  b        #0x9fa0c                      
+  0x0009fb52  movs     r1, #1                        
+  0x0009fb54  str      r1, [sp, #0x20]               
+  0x0009fb56  mov      sb, r1                        
+  0x0009fb58  str      r1, [sp, #0x24]               
+  0x0009fb5a  mov      fp, r1                        
+  0x0009fb5c  b        #0x9fb02                      
+  0x0009fb5e  mov      r8, r8                        
+  0x0009fb60  sbcs     r4, r5                        
+  0x0009fb62  movs     r2, r1                        
+  0x0009fb64  lsls     r4, r0, #6                    
+  0x0009fb66  movs     r0, r0                        
+  0x0009fb68  str      r4, [r6, #0x5c]               
+  0x0009fb6a  vrsra.u32 q8, q6, #2                    
+  0x0009fb6e  movs     r0, r0                        
+  0x0009fb70  lsls     r4, r3, #0x1a                 
+  0x0009fb72  movs     r0, r0                        
+  0x0009fb74  ldr      r3, [sp, #0x28]               
+  0x0009fb76  ldr      r0, [sp, #0x44]               
+  0x0009fb78  adds     r3, #1                        
+  0x0009fb7a  str      r3, [sp, #0x28]               
+  0x0009fb7c  cmp      r3, r0                        
+  0x0009fb7e  bge      #0x9fb82                      
+  0x0009fb80  b        #0x9f9d4                      
+  0x0009fb82  adds     r0, r4, #0                    
+  0x0009fb84  bl       #0x8fc78                        <<< readUint8()
+  0x0009fb88  str      r0, [sp, #0x60]               
+  0x0009fb8a  cmp      r0, #0                        
+  0x0009fb8c  bne      #0x9fb90                      
+  0x0009fb8e  b        #0xa015e                      
+  0x0009fb90  adds     r1, r6, #0                    
+  0x0009fb92  adds     r1, #0x4c                     
+  0x0009fb94  movs     r2, #0                        
+  0x0009fb96  str      r1, [sp, #0x64]               
+  0x0009fb98  str      r2, [sp, #0x24]               
+  0x0009fb9a  movs     r0, #0x38                     
+  0x0009fb9c  bl       #0x108f78                       <<< _Znwj
+  0x0009fba0  adds     r1, r6, #0                    
+  0x0009fba2  str      r0, [sp, #0x58]               
+  0x0009fba4  bl       #0x9c250                        <<< _ZN10CLandLayerC1EP4CMap
+  0x0009fba8  adds     r0, r4, #0                    
+  0x0009fbaa  bl       #0x8fc78                        <<< readUint8()
+  0x0009fbae  mov      sb, r0                        
+  0x0009fbb0  cmp      r0, #0                        
+  0x0009fbb2  beq      #0x9fc14                      
+  0x0009fbb4  ldr      r3, [sp, #0x58]               
+  0x0009fbb6  movs     r7, #0                        
+  0x0009fbb8  mov      fp, r3                        
+  0x0009fbba  movs     r3, #8                        
+  0x0009fbbc  add      fp, r3                        
+  0x0009fbbe  adds     r0, r4, #0                    
+  0x0009fbc0  bl       #0x8fc78                        <<< readUint8()
+  0x0009fbc4  mov      r8, r0                        
+  0x0009fbc6  adds     r0, r4, #0                    
+  0x0009fbc8  bl       #0x8fc78                        <<< readUint8()
+  0x0009fbcc  mov      r1, r8                        
+  0x0009fbce  adds     r5, r0, #0                    
+  0x0009fbd0  ldr      r0, [r6, #0x14]               
+  0x0009fbd2  bl       #0xa7b50                        <<< _ZN7CMapMgr12GetMapPzxMgrEi
+  0x0009fbd6  adds     r1, r5, #0                    
+  0x0009fbd8  bl       #0xe7a9c                        <<< _ZN7CPzxMgr8GetFrameEi
+  0x0009fbdc  mov      sl, r0                        
+  0x0009fbde  movs     r0, #0x14                     
+  0x0009fbe0  bl       #0x108f78                       <<< _Znwj
+  0x0009fbe4  mov      r2, r8                        
+  0x0009fbe6  mov      r1, sl                        
+  0x0009fbe8  adds     r5, r0, #0                    
+  0x0009fbea  bl       #0x9bb5c                        <<< _ZN8CPatternC1EP11CGxPZxFrameh
+  0x0009fbee  adds     r0, r4, #0                    
+  0x0009fbf0  bl       #0x8fc84                        <<< readInt16()
+  0x0009fbf4  lsls     r0, r0, #0x10                 
+  0x0009fbf6  lsrs     r0, r0, #0x10                 
+  0x0009fbf8  mov      r8, r0                        
+  0x0009fbfa  adds     r0, r4, #0                    
+  0x0009fbfc  bl       #0x8fc84                        <<< readInt16()
+  0x0009fc00  mov      r1, r8                        
+  0x0009fc02  strh     r1, [r5, #0xa]                
+  0x0009fc04  strh     r0, [r5, #0xc]                
+  0x0009fc06  adds     r1, r5, #0                    
+  0x0009fc08  mov      r0, fp                        
+  0x0009fc0a  adds     r7, #1                        
+  0x0009fc0c  bl       #0x9eeec                        <<< _ZN7CVectorIP8CPatternE10AddElementES1_
+  0x0009fc10  cmp      r7, sb                        
+  0x0009fc12  blt      #0x9fbbe                      
+  0x0009fc14  adds     r0, r4, #0                    
+  0x0009fc16  bl       #0x8fc78                        <<< readUint8()
+  0x0009fc1a  mov      sb, r0                        
+  0x0009fc1c  cmp      r0, #0                        
+  0x0009fc1e  beq      #0x9fc80                      
+  0x0009fc20  ldr      r2, [sp, #0x58]               
+  0x0009fc22  movs     r7, #0                        
+  0x0009fc24  mov      fp, r2                        
+  0x0009fc26  movs     r2, #8                        
+  0x0009fc28  add      fp, r2                        
+  0x0009fc2a  adds     r0, r4, #0                    
+  0x0009fc2c  bl       #0x8fc78                        <<< readUint8()
+  0x0009fc30  mov      r8, r0                        
+  0x0009fc32  adds     r0, r4, #0                    
+  0x0009fc34  bl       #0x8fc78                        <<< readUint8()
+  0x0009fc38  mov      r1, r8                        
+  0x0009fc3a  adds     r5, r0, #0                    
+  0x0009fc3c  ldr      r0, [r6, #0x14]               
+  0x0009fc3e  bl       #0xa7b50                        <<< _ZN7CMapMgr12GetMapPzxMgrEi
+  0x0009fc42  adds     r1, r5, #0                    
+  0x0009fc44  bl       #0xe7a9c                        <<< _ZN7CPzxMgr8GetFrameEi
+  0x0009fc48  mov      sl, r0                        
+  0x0009fc4a  movs     r0, #0x14                     
+  0x0009fc4c  bl       #0x108f78                       <<< _Znwj
+  0x0009fc50  mov      r2, r8                        
+  0x0009fc52  mov      r1, sl                        
+  0x0009fc54  adds     r5, r0, #0                    
+  0x0009fc56  bl       #0x9bb5c                        <<< _ZN8CPatternC1EP11CGxPZxFrameh
+  0x0009fc5a  adds     r0, r4, #0                    
+  0x0009fc5c  bl       #0x8fc84                        <<< readInt16()
+  0x0009fc60  lsls     r0, r0, #0x10                 
+  0x0009fc62  lsrs     r0, r0, #0x10                 
+  0x0009fc64  mov      r8, r0                        
+  0x0009fc66  adds     r0, r4, #0                    
+  0x0009fc68  bl       #0x8fc84                        <<< readInt16()
+  0x0009fc6c  mov      r3, r8                        
+  0x0009fc6e  strh     r0, [r5, #0xc]                
+  0x0009fc70  strh     r3, [r5, #0xa]                
+  0x0009fc72  mov      r0, fp                        
+  0x0009fc74  adds     r1, r5, #0                    
+  0x0009fc76  adds     r7, #1                        
+  0x0009fc78  bl       #0x9eeec                        <<< _ZN7CVectorIP8CPatternE10AddElementES1_
+  0x0009fc7c  cmp      r7, sb                        
+  0x0009fc7e  blt      #0x9fc2a                      
+  0x0009fc80  adds     r0, r4, #0                    
+  0x0009fc82  bl       #0x8fc78                        <<< readUint8()
+  0x0009fc86  str      r0, [sp, #0x5c]               
+  0x0009fc88  cmp      r0, #0                        
+  0x0009fc8a  bne      #0x9fc8e                      
+  0x0009fc8c  b        #0xa0148                      
+  0x0009fc8e  ldr      r1, [sp, #0x24]               
+  0x0009fc90  movs     r0, #0                        
+  0x0009fc92  str      r0, [sp, #0x4c]               
+  0x0009fc94  lsls     r3, r1, #0x18                 
+  0x0009fc96  lsrs     r3, r3, #0x18                 
+  0x0009fc98  str      r3, [sp, #0x30]               
+  0x0009fc9a  adds     r7, r6, #0                    
+  0x0009fc9c  movs     r0, #0x24                     
+  0x0009fc9e  bl       #0x108f78                       <<< _Znwj
+  0x0009fca2  adds     r1, r7, #0                    
+  0x0009fca4  str      r0, [sp, #0x50]               
+  0x0009fca6  bl       #0x9c1d0                        <<< _ZN10CPathLayerC1EP4CMap
+  0x0009fcaa  adds     r0, r4, #0                    
+  0x0009fcac  bl       #0x8fca4                        <<< readUint16()
+  0x0009fcb0  mov      r8, r0                        
+  0x0009fcb2  movs     r0, #0x18                     
+  0x0009fcb4  bl       #0x108f78                       <<< _Znwj
+  0x0009fcb8  mov      r1, r8                        
+  0x0009fcba  str      r0, [sp, #0x20]               
+  0x0009fcbc  bl       #0x9d698                        <<< _ZN5CPathC1Ei
+  0x0009fcc0  ldr      r2, [sp, #0x20]               
+  0x0009fcc2  ldr      r3, [sp, #0x20]               
+  0x0009fcc4  ldr      r0, [sp, #0x20]               
+  0x0009fcc6  ldr      r1, [sp, #0x20]               
+  0x0009fcc8  ldr      r2, [r2, #4]                  
+  0x0009fcca  ldr      r3, [r3, #8]                  
+  0x0009fccc  ldr      r0, [r0, #0xc]                
+  0x0009fcce  ldr      r1, [r1, #0x10]               
+  0x0009fcd0  mov      sl, r2                        
+  0x0009fcd2  mov      r2, r8                        
+  0x0009fcd4  mov      sb, r3                        
+  0x0009fcd6  mov      fp, r0                        
+  0x0009fcd8  str      r1, [sp, #0x1c]               
+  0x0009fcda  cmp      r2, #0                        
+  0x0009fcdc  beq      #0x9fd20                      
+  0x0009fcde  mov      r8, r7                        
+  0x0009fce0  movs     r5, #0                        
+  0x0009fce2  movs     r6, #0                        
+  0x0009fce4  adds     r7, r2, #0                    
+  0x0009fce6  adds     r0, r4, #0                    
+  0x0009fce8  bl       #0x8fc78                        <<< readUint8()
+  0x0009fcec  mov      r3, sl                        
+  0x0009fcee  strb     r0, [r6, r3]                  
+  0x0009fcf0  adds     r0, r4, #0                    
+  0x0009fcf2  bl       #0x8fc84                        <<< readInt16()
+  0x0009fcf6  mov      r1, sb                        
+  0x0009fcf8  strh     r0, [r5, r1]                  
+  0x0009fcfa  adds     r0, r4, #0                    
+  0x0009fcfc  bl       #0x8fc84                        <<< readInt16()
+  0x0009fd00  mov      r2, fp                        
+  0x0009fd02  strh     r0, [r5, r2]                  
+  0x0009fd04  adds     r0, r4, #0                    
+  0x0009fd06  bl       #0x8fca4                        <<< readUint16()
+  0x0009fd0a  movs     r1, #0xb4                     
+  0x0009fd0c  lsls     r1, r1, #1                    
+  0x0009fd0e  blx      #0x121c28                       <<< __aeabi_uidivmod
+  0x0009fd12  ldr      r3, [sp, #0x1c]               
+  0x0009fd14  adds     r6, #1                        
+  0x0009fd16  strh     r1, [r5, r3]                  
+  0x0009fd18  adds     r5, #2                        
+  0x0009fd1a  cmp      r7, r6                        
+  0x0009fd1c  bgt      #0x9fce6                      
+  0x0009fd1e  mov      r7, r8                        
+  0x0009fd20  ldr      r1, [sp, #0x50]               
+  0x0009fd22  ldr      r0, [sp, #0x20]               
+  0x0009fd24  ldr      r3, [r1]                      
+  0x0009fd26  str      r0, [r1, #8]                  
+  0x0009fd28  ldr      r0, [sp, #0x50]               
+  0x0009fd2a  ldr      r3, [r3, #8]                  
+  0x0009fd2c  blx      r3                            
+  0x0009fd2e  adds     r0, r4, #0                    
+  0x0009fd30  bl       #0x8fca4                        <<< readUint16()
+  0x0009fd34  mov      sb, r0                        
+  0x0009fd36  cmp      r0, #0                        
+  0x0009fd38  beq      #0x9fdf2                      
+  0x0009fd3a  ldr      r2, [sp, #0x50]               
+  0x0009fd3c  ldr      r1, [pc, #0x3a0]              
+  0x0009fd3e  movs     r3, #0                        
+  0x0009fd40  adds     r2, #0xc                      
+  0x0009fd42  movs     r0, #0xec                     
+  0x0009fd44  str      r2, [sp, #0x20]               
+  0x0009fd46  mov      sl, r3                        
+  0x0009fd48  mov      fp, r0                        
+  0x0009fd4a  str      r1, [sp, #0x28]               
+  0x0009fd4c  adds     r6, r4, #0                    
+  0x0009fd4e  adds     r0, r6, #0                    
+  0x0009fd50  bl       #0x8fc78                        <<< readUint8()
+  0x0009fd54  adds     r3, r0, #0                    
+  0x0009fd56  subs     r3, #0x5f                     
+  0x0009fd58  lsls     r3, r3, #0x18                 
+  0x0009fd5a  lsrs     r3, r3, #0x18                 
+  0x0009fd5c  movs     r0, #0xf0                     
+  0x0009fd5e  mov      r8, r3                        
+  0x0009fd60  bl       #0x108f78                       <<< _Znwj
+  0x0009fd64  adds     r2, r7, #0                    
+  0x0009fd66  mov      r1, r8                        
+  0x0009fd68  adds     r5, r0, #0                    
+  0x0009fd6a  bl       #0x82ea0                        <<< _ZN12CEventRect_JC1EiP4CMap
+  0x0009fd6e  ldr      r2, [sp, #0x24]               
+  0x0009fd70  cmp      r2, #0                        
+  0x0009fd72  beq      #0x9fd76                      
+  0x0009fd74  b        #0x9ffd6                      
+  0x0009fd76  ldr      r3, [r7, #0x18]               
+  0x0009fd78  str      r3, [r5, #0x28]               
+  0x0009fd7a  movs     r4, #0                        
+  0x0009fd7c  adds     r0, r6, #0                    
+  0x0009fd7e  bl       #0x8fc84                        <<< readInt16()
+  0x0009fd82  adds     r3, r5, r4                    
+  0x0009fd84  adds     r3, #0xd4                     
+  0x0009fd86  adds     r4, #2                        
+  0x0009fd88  strh     r0, [r3]                      
+  0x0009fd8a  cmp      r4, #0xc                      
+  0x0009fd8c  bne      #0x9fd7c                      
+  0x0009fd8e  adds     r0, r6, #0                    
+  0x0009fd90  bl       #0x8fc84                        <<< readInt16()
+  0x0009fd94  strh     r0, [r5, #0x20]               
+  0x0009fd96  adds     r0, r6, #0                    
+  0x0009fd98  bl       #0x8fc84                        <<< readInt16()
+  0x0009fd9c  strh     r0, [r5, #0x22]               
+  0x0009fd9e  adds     r0, r6, #0                    
+  0x0009fda0  bl       #0x8fc84                        <<< readInt16()
+  0x0009fda4  movs     r3, #0xea                     
+  0x0009fda6  strh     r0, [r5, r3]                  
+  0x0009fda8  adds     r0, r6, #0                    
+  0x0009fdaa  bl       #0x8fc84                        <<< readInt16()
+  0x0009fdae  mov      r1, fp                        
+  0x0009fdb0  strh     r0, [r5, r1]                  
+  0x0009fdb2  adds     r0, r6, #0                    
+  0x0009fdb4  bl       #0x8fc78                        <<< readUint8()
+  0x0009fdb8  subs     r4, r0, #0                    
+  0x0009fdba  beq      #0x9fdbe                      
+  0x0009fdbc  b        #0xa002e                      
+  0x0009fdbe  mov      r2, r8                        
+  0x0009fdc0  cmp      r2, #0xa2                     
+  0x0009fdc2  bne      #0x9fdc6                      
+  0x0009fdc4  b        #0xa007c                      
+  0x0009fdc6  mov      r2, r8                        
+  0x0009fdc8  cmp      r2, #0xa3                     
+  0x0009fdca  bne      #0x9fdce                      
+  0x0009fdcc  b        #0xa00a6                      
+  0x0009fdce  ldr      r3, [r5]                      
+  0x0009fdd0  adds     r0, r5, #0                    
+  0x0009fdd2  ldr      r1, [sp, #0x30]               
+  0x0009fdd4  ldr      r3, [r3, #0x28]               
+  0x0009fdd6  blx      r3                            
+  0x0009fdd8  add      r2, sp, #0x4c                 
+  0x0009fdda  ldrb     r3, [r2]                      
+  0x0009fddc  movs     r2, #0x3e                     
+  0x0009fdde  adds     r1, r5, #0                    
+  0x0009fde0  strb     r3, [r5, r2]                  
+  0x0009fde2  ldr      r0, [sp, #0x20]               
+  0x0009fde4  bl       #0x83b7c                        <<< _ZN7CVectorIP7CObjectE10AddElementES1_
+  0x0009fde8  movs     r0, #1                        
+  0x0009fdea  add      sl, r0                        
+  0x0009fdec  cmp      sb, sl                        
+  0x0009fdee  bgt      #0x9fd4e                      
+  0x0009fdf0  adds     r4, r6, #0                    
+  0x0009fdf2  adds     r0, r4, #0                    
+  0x0009fdf4  bl       #0x8fca4                        <<< readUint16()
+  0x0009fdf8  str      r0, [sp, #0x3c]               
+  0x0009fdfa  cmp      r0, #0                        
+  0x0009fdfc  bne      #0x9fe00                      
+  0x0009fdfe  b        #0xa012e                      
+  0x0009fe00  ldr      r1, [sp, #0x4c]               
+  0x0009fe02  ldr      r2, [sp, #0x50]               
+  0x0009fe04  lsls     r3, r1, #0x18                 
+  0x0009fe06  lsrs     r3, r3, #0x18                 
+  0x0009fe08  str      r3, [sp, #0x44]               
+  0x0009fe0a  adds     r2, #0xc                      
+  0x0009fe0c  movs     r3, #0                        
+  0x0009fe0e  str      r2, [sp, #0x48]               
+  0x0009fe10  mov      sl, r3                        
+  0x0009fe12  b        #0x9ff10                      
+  0x0009fe14  ldr      r3, [r7, #0x18]               
+  0x0009fe16  adds     r0, r5, #0                    
+  0x0009fe18  str      r3, [r5, #0x28]               
+  0x0009fe1a  bl       #0xd5704                        <<< _ZN7CObject6IsItemEv
+  0x0009fe1e  cmp      r0, #0                        
+  0x0009fe20  bne      #0x9fe24                      
+  0x0009fe22  b        #0x9ffbc                      
+  0x0009fe24  mov      r2, sb                        
+  0x0009fe26  movs     r0, #0                        
+  0x0009fe28  subs     r3, r2, #1                    
+  0x0009fe2a  sbcs     r2, r3                        
+  0x0009fe2c  str      r0, [sp, #0x1c]               
+  0x0009fe2e  mov      r1, sp                        
+  0x0009fe30  movs     r3, #0x1c                     
+  0x0009fe32  ldrb     r3, [r3, r1]                  
+  0x0009fe34  movs     r1, #0x41                     
+  0x0009fe36  mov      r0, r8                        
+  0x0009fe38  strb     r3, [r5, r1]                  
+  0x0009fe3a  movs     r3, #0x36                     
+  0x0009fe3c  strb     r2, [r5, r3]                  
+  0x0009fe3e  ldr      r2, [sp, #0x20]               
+  0x0009fe40  subs     r3, r2, #1                    
+  0x0009fe42  sbcs     r2, r3                        
+  0x0009fe44  movs     r3, #0x37                     
+  0x0009fe46  strb     r2, [r5, r3]                  
+  0x0009fe48  mov      r2, fp                        
+  0x0009fe4a  subs     r3, r2, #1                    
+  0x0009fe4c  sbcs     r2, r3                        
+  0x0009fe4e  movs     r3, #0xf9                     
+  0x0009fe50  strb     r2, [r5, r3]                  
+  0x0009fe52  movs     r3, #0x40                     
+  0x0009fe54  strb     r0, [r5, r3]                  
+  0x0009fe56  ldr      r3, [r5]                      
+  0x0009fe58  adds     r0, r5, #0                    
+  0x0009fe5a  ldr      r1, [sp, #0x30]               
+  0x0009fe5c  ldr      r3, [r3, #0x28]               
+  0x0009fe5e  blx      r3                            
+  0x0009fe60  add      r1, sp, #0x44                 
+  0x0009fe62  ldrb     r1, [r1]                      
+  0x0009fe64  movs     r3, #0x3e                     
+  0x0009fe66  adds     r0, r4, #0                    
+  0x0009fe68  strb     r1, [r5, r3]                  
+  0x0009fe6a  bl       #0x8fc84                        <<< readInt16()
+  0x0009fe6e  movs     r2, #0xd4                     
+  0x0009fe70  strh     r0, [r5, r2]                  
+  0x0009fe72  adds     r0, r4, #0                    
+  0x0009fe74  bl       #0x8fc84                        <<< readInt16()
+  0x0009fe78  movs     r3, #0xd6                     
+  0x0009fe7a  strh     r0, [r5, r3]                  
+  0x0009fe7c  adds     r0, r4, #0                    
+  0x0009fe7e  bl       #0x8fc84                        <<< readInt16()
+  0x0009fe82  movs     r3, #0xd8                     
+  0x0009fe84  strh     r0, [r5, r3]                  
+  0x0009fe86  adds     r0, r4, #0                    
+  0x0009fe88  bl       #0x8fc84                        <<< readInt16()
+  0x0009fe8c  movs     r3, #0xda                     
+  0x0009fe8e  strh     r0, [r5, r3]                  
+  0x0009fe90  movs     r3, #0x46                     
+  0x0009fe92  movs     r0, #0                        
+  0x0009fe94  strh     r0, [r5, r3]                  
+  0x0009fe96  movs     r1, #0                        
+  0x0009fe98  movs     r3, #0x44                     
+  0x0009fe9a  strh     r1, [r5, r3]                  
+  0x0009fe9c  adds     r0, r4, #0                    
+  0x0009fe9e  bl       #0x8fc84                        <<< readInt16()
+  0x0009fea2  lsls     r0, r0, #0x10                 
+  0x0009fea4  asrs     r0, r0, #0x10                 
+  0x0009fea6  mov      sb, r0                        
+  0x0009fea8  adds     r0, r4, #0                    
+  0x0009feaa  bl       #0x8fc84                        <<< readInt16()
+  0x0009feae  lsls     r0, r0, #0x10                 
+  0x0009feb0  asrs     r0, r0, #0x10                 
+  0x0009feb2  mov      r2, r8                        
+  0x0009feb4  mov      fp, r0                        
+  0x0009feb6  cmp      r2, #7                        
+  0x0009feb8  bne      #0x9febc                      
+  0x0009feba  b        #0xa0092                      
+  0x0009febc  mov      r3, r8                        
+  0x0009febe  subs     r3, #1                        
+  0x0009fec0  lsls     r3, r3, #0x18                 
+  0x0009fec2  lsrs     r3, r3, #0x18                 
+  0x0009fec4  cmp      r3, #1                        
+  0x0009fec6  bhi      #0x9feca                      
+  0x0009fec8  b        #0xa00ee                      
+  0x0009feca  ldrb     r3, [r6, #0xc]                
+  0x0009fecc  cmp      r3, #0x70                     
+  0x0009fece  bne      #0x9fed2                      
+  0x0009fed0  b        #0xa0088                      
+  0x0009fed2  cmp      r3, #0x7b                     
+  0x0009fed4  bne      #0x9fed8                      
+  0x0009fed6  b        #0xa00e4                      
+  0x0009fed8  ldrb     r3, [r6, #0xd]                
+  0x0009feda  cmp      r3, #7                        
+  0x0009fedc  bne      #0x9fee0                      
+  0x0009fede  b        #0xa0172                      
+  0x0009fee0  mov      r2, sb                        
+  0x0009fee2  mov      r3, fp                        
+  0x0009fee4  lsls     r1, r2, #0x10                 
+  0x0009fee6  lsls     r2, r3, #0x10                 
+  0x0009fee8  adds     r0, r5, #0                    
+  0x0009feea  asrs     r1, r1, #0x10                 
+  0x0009feec  asrs     r2, r2, #0x10                 
+  0x0009feee  bl       #0xd56f4                        <<< _ZN7CObject11SetPositionEss
+  0x0009fef2  adds     r0, r4, #0                    
+  0x0009fef4  bl       #0x8fc78                        <<< readUint8()
+  0x0009fef8  subs     r6, r0, #0                    
+  0x0009fefa  bne      #0x9ffdc                      
+  0x0009fefc  ldr      r0, [sp, #0x48]               
+  0x0009fefe  adds     r1, r5, #0                    
+  0x0009ff00  bl       #0x83b7c                        <<< _ZN7CVectorIP7CObjectE10AddElementES1_
+  0x0009ff04  ldr      r3, [sp, #0x3c]               
+  0x0009ff06  movs     r2, #1                        
+  0x0009ff08  add      sl, r2                        
+  0x0009ff0a  cmp      sl, r3                        
+  0x0009ff0c  blt      #0x9ff10                      
+  0x0009ff0e  b        #0xa012e                      
+  0x0009ff10  adds     r0, r4, #0                    
+  0x0009ff12  bl       #0x8fc78                        <<< readUint8()
+  0x0009ff16  mov      sb, r0                        
+  0x0009ff18  adds     r0, r4, #0                    
+  0x0009ff1a  bl       #0x8fc78                        <<< readUint8()
+  0x0009ff1e  str      r0, [sp, #0x20]               
+  0x0009ff20  adds     r0, r4, #0                    
+  0x0009ff22  bl       #0x8fc78                        <<< readUint8()
+  0x0009ff26  mov      fp, r0                        
+  0x0009ff28  adds     r0, r4, #0                    
+  0x0009ff2a  bl       #0x8fc78                        <<< readUint8()
+  0x0009ff2e  adds     r5, r0, #0                    
+  0x0009ff30  adds     r0, r4, #0                    
+  0x0009ff32  bl       #0x8fc78                        <<< readUint8()
+  0x0009ff36  mov      r8, r0                        
+  0x0009ff38  adds     r0, r4, #0                    
+  0x0009ff3a  bl       #0x8fc78                        <<< readUint8()
+  0x0009ff3e  str      r0, [sp, #0x28]               
+  0x0009ff40  adds     r0, r4, #0                    
+  0x0009ff42  bl       #0x8fc78                        <<< readUint8()
+  0x0009ff46  str      r0, [sp, #0x38]               
+  0x0009ff48  adds     r1, r5, #0                    
+  0x0009ff4a  ldr      r0, [r7, #0x14]               
+  0x0009ff4c  bl       #0xa7c0c                        <<< _ZN7CMapMgr13GetObjectInfoEh
+  0x0009ff50  adds     r6, r0, #0                    
+  0x0009ff52  movs     r2, #0x10                     
+  0x0009ff54  ldrsh    r1, [r6, r2]                  
+  0x0009ff56  ldr      r0, [r7, #0x14]               
+  0x0009ff58  movs     r3, #0x1c                     
+  0x0009ff5a  ldrsh    r2, [r6, r3]                  
+  0x0009ff5c  bl       #0xa7ba4                        <<< _ZN7CMapMgr9GetPzxMgrEii
+  0x0009ff60  ldr      r1, [sp, #0x40]               
+  0x0009ff62  str      r0, [sp, #0x1c]               
+  0x0009ff64  ldr      r0, [sp, #0x2c]               
+  0x0009ff66  movs     r2, #0x6d                     
+  0x0009ff68  ldr      r3, [r0, r1]                  
+  0x0009ff6a  ldr      r3, [r3]                      
+  0x0009ff6c  ldrb     r3, [r3, r2]                  
+  0x0009ff6e  cmp      r3, #0xa                      
+  0x0009ff70  bne      #0x9ff74                      
+  0x0009ff72  b        #0xa00be                      
+  0x0009ff74  cmp      r3, #0x19                     
+  0x0009ff76  bne      #0x9ff7a                      
+  0x0009ff78  b        #0xa00be                      
+  0x0009ff7a  cmp      r3, #0xc                      
+  0x0009ff7c  bne      #0x9ff80                      
+  0x0009ff7e  b        #0xa00fe                      
+  0x0009ff80  cmp      r3, #0x1c                     
+  0x0009ff82  bne      #0x9ff86                      
+  0x0009ff84  b        #0xa00fe                      
+  0x0009ff86  ldr      r0, [r7, #0x14]               
+  0x0009ff88  bl       #0xa7b30                        <<< _ZN7CMapMgr15GetShadowPzxMgrEv
+  0x0009ff8c  str      r0, [sp, #0x34]               
+  0x0009ff8e  movs     r0, #0x9e                     
+  0x0009ff90  lsls     r0, r0, #1                    
+  0x0009ff92  bl       #0x108f78                       <<< _Znwj
+  0x0009ff96  adds     r1, r6, #0                    
+  0x0009ff98  ldr      r2, [sp, #0x1c]               
+  0x0009ff9a  ldr      r3, [sp, #0x34]               
+  0x0009ff9c  adds     r5, r0, #0                    
+  0x0009ff9e  str      r7, [sp]                      
+  0x0009ffa0  bl       #0xae560                        <<< _ZN10CMonster_JC1EPK14tagSObjectInfoP7CPzxMgrS4_P4CMap
+  0x0009ffa4  ldr      r3, [sp, #0x24]               
+  0x0009ffa6  cmp      r3, #0                        
+  0x0009ffa8  bne      #0x9ffac                      
+  0x0009ffaa  b        #0x9fe14                      
+  0x0009ffac  ldr      r3, [r7, #0x1c]               
+  0x0009ffae  adds     r0, r5, #0                    
+  0x0009ffb0  str      r3, [r5, #0x28]               
+  0x0009ffb2  bl       #0xd5704                        <<< _ZN7CObject6IsItemEv
+  0x0009ffb6  cmp      r0, #0                        
+  0x0009ffb8  beq      #0x9ffbc                      
+  0x0009ffba  b        #0x9fe24                      
+  0x0009ffbc  movs     r1, #0x68                     
+  0x0009ffbe  ldrb     r3, [r7, r1]                  
+  0x0009ffc0  cmp      r3, #1                        
+  0x0009ffc2  bne      #0x9ffc6                      
+  0x0009ffc4  b        #0xa011e                      
+  0x0009ffc6  mov      r1, sb                        
+  0x0009ffc8  cmp      r1, #0                        
+  0x0009ffca  beq      #0x9ffce                      
+  0x0009ffcc  b        #0xa00f6                      
+  0x0009ffce  movs     r3, #1                        
+  0x0009ffd0  movs     r2, #0                        
+  0x0009ffd2  str      r3, [sp, #0x1c]               
+  0x0009ffd4  b        #0x9fe2e                      
+  0x0009ffd6  ldr      r3, [r7, #0x1c]               
+  0x0009ffd8  str      r3, [r5, #0x28]               
+  0x0009ffda  b        #0x9fd7a                      
+  0x0009ffdc  adds     r0, r6, #1                    
+  0x0009ffde  mov      sb, r0                        
+  0x0009ffe0  bl       #0x108f70                       <<< _Znaj
+  0x0009ffe4  movs     r1, #0                        
+  0x0009ffe6  mov      r8, r0                        
+  0x0009ffe8  mov      r2, sb                        
+  0x0009ffea  blx      #0x54910                      
+  0x0009ffee  adds     r2, r6, #0                    
+  0x0009fff0  mov      r1, r8                        
+  0x0009fff2  adds     r0, r4, #0                    
+  0x0009fff4  bl       #0x8fd30                        <<< readString(buf,n)
+  0x0009fff8  movs     r0, #0x44                     
+  0x0009fffa  bl       #0x108f78                       <<< _Znwj
+  0x0009fffe  adds     r6, r0, #0                    
+  0x000a0000  bl       #0x103760                       <<< _ZN8CTalkBoxC1Ev
+  0x000a0004  movs     r3, #0xd0                     
+  0x000a0006  str      r6, [r5, r3]                  
+  0x000a0008  ldr      r1, [sp, #0x1c]               
+  0x000a000a  ldr      r2, [sp, #0x38]               
+  0x000a000c  ldr      r0, [sp, #0x28]               
+  0x000a000e  lsls     r3, r1, #1                    
+  0x000a0010  str      r2, [sp]                      
+  0x000a0012  str      r0, [sp, #4]                  
+  0x000a0014  mov      r1, r8                        
+  0x000a0016  adds     r0, r6, #0                    
+  0x000a0018  movs     r2, #0                        
+  0x000a001a  bl       #0x102ffc                       <<< _ZN8CTalkBox4InitEPc12eTalkBoxKindiii
+  0x000a001e  mov      r1, r8                        
+  0x000a0020  cmp      r1, #0                        
+  0x000a0022  bne      #0xa0026                      
+  0x000a0024  b        #0x9fefc                      
+  0x000a0026  mov      r0, r8                        
+  0x000a0028  bl       #0x108f60                       <<< _ZdaPv
+  0x000a002c  b        #0x9fefc                      
+  0x000a002e  adds     r2, r4, #1                    
+  0x000a0030  adds     r0, r2, #0                    
+  0x000a0032  str      r2, [sp, #0x1c]               
+  0x000a0034  bl       #0x108f70                       <<< _Znaj
+  0x000a0038  movs     r3, #0xe4                     
+  0x000a003a  str      r0, [r5, r3]                  
+  0x000a003c  movs     r1, #0                        
+  0x000a003e  ldr      r2, [sp, #0x1c]               
+  0x000a0040  blx      #0x54910                      
+  0x000a0044  movs     r0, #0xe4                     
+  0x000a0046  ldr      r1, [r5, r0]                  
+  0x000a0048  adds     r2, r4, #0                    
+  0x000a004a  adds     r0, r6, #0                    
+  0x000a004c  bl       #0x8fd30                        <<< readString(buf,n)
+  0x000a0050  ldr      r1, [sp, #0x2c]               
+  0x000a0052  ldr      r2, [sp, #0x54]               
+  0x000a0054  ldr      r3, [r1, r2]                  
+  0x000a0056  ldr      r3, [r3]                      
+  0x000a0058  ldr      r3, [r3, #8]                  
+  0x000a005a  cmp      r3, #0xb0                     
+  0x000a005c  beq      #0xa0060                      
+  0x000a005e  b        #0x9fdbe                      
+  0x000a0060  movs     r3, #0xe4                     
+  0x000a0062  ldr      r0, [r5, r3]                  
+  0x000a0064  cmp      r0, #0                        
+  0x000a0066  bne      #0xa006a                      
+  0x000a0068  b        #0x9fdbe                      
+  0x000a006a  bl       #0x108f60                       <<< _ZdaPv
+  0x000a006e  movs     r1, #0                        
+  0x000a0070  movs     r0, #0xe4                     
+  0x000a0072  mov      r2, r8                        
+  0x000a0074  str      r1, [r5, r0]                  
+  0x000a0076  cmp      r2, #0xa2                     
+  0x000a0078  beq      #0xa007c                      
+  0x000a007a  b        #0x9fdc6                      
+  0x000a007c  ldr      r0, [sp, #0x2c]               
+  0x000a007e  ldr      r1, [sp, #0x28]               
+  0x000a0080  ldr      r3, [r0, r1]                  
+  0x000a0082  movs     r1, #3                        
+  0x000a0084  ldr      r0, [r3]                      
+  0x000a0086  b        #0xa00b0                      
+  0x000a0088  movs     r3, #0xd4                     
+  0x000a008a  ldrh     r2, [r5, r3]                  
+  0x000a008c  movs     r3, #0xd6                     
+  0x000a008e  strh     r2, [r5, r3]                  
+  0x000a0090  b        #0x9fee0                      
+  0x000a0092  movs     r3, #0x3a                     
+  0x000a0094  movs     r0, #0                        
+  0x000a0096  strb     r0, [r5, r3]                  
+  0x000a0098  movs     r1, #0xd4                     
+  0x000a009a  ldrsh    r3, [r5, r1]                  
+  0x000a009c  movs     r0, #0xd8                     
+  0x000a009e  add      sb, r3                        
+  0x000a00a0  ldrsh    r3, [r5, r0]                  
+  0x000a00a2  add      fp, r3                        
+  0x000a00a4  b        #0x9feca                      
+  0x000a00a6  ldr      r0, [sp, #0x2c]               
+  0x000a00a8  ldr      r1, [sp, #0x28]               
+  0x000a00aa  ldr      r3, [r0, r1]                  
+  0x000a00ac  movs     r1, #4                        
+  0x000a00ae  ldr      r0, [r3]                      
+  0x000a00b0  bl       #0x101f34                       <<< _ZN15CStageGameScene9SetScriptEi
+  0x000a00b4  ldr      r3, [r5]                      
+  0x000a00b6  adds     r0, r5, #0                    
+  0x000a00b8  ldr      r3, [r3, #4]                  
+  0x000a00ba  blx      r3                            
+  0x000a00bc  b        #0x9fde8                      
+  0x000a00be  ldr      r0, [r7, #0x14]               
+  0x000a00c0  bl       #0xa7b30                        <<< _ZN7CMapMgr15GetShadowPzxMgrEv
+  0x000a00c4  str      r0, [sp, #0x34]               
+  0x000a00c6  movs     r0, #0xa4                     
+  0x000a00c8  lsls     r0, r0, #1                    
+  0x000a00ca  bl       #0x108f78                       <<< _Znwj
+  0x000a00ce  adds     r1, r6, #0                    
+  0x000a00d0  ldr      r2, [sp, #0x1c]               
+  0x000a00d2  ldr      r3, [sp, #0x34]               
+  0x000a00d4  adds     r5, r0, #0                    
+  0x000a00d6  str      r7, [sp]                      
+  0x000a00d8  bl       #0xb0d6c                        <<< _ZN14CMonster_DecalC1EPK14tagSObjectInfoP7CPzxMgrS4_P4CMap
+  0x000a00dc  b        #0x9ffa4                      
+  0x000a00de  mov      r8, r8                        
+  0x000a00e0  lsls     r0, r4, #0x18                 
+  0x000a00e2  movs     r0, r0                        
+  0x000a00e4  movs     r3, #0xa2                     
+  0x000a00e6  lsls     r3, r3, #1                    
+  0x000a00e8  movs     r0, #0                        
+  0x000a00ea  strb     r0, [r5, r3]                  
+  0x000a00ec  b        #0x9fee0                      
+  0x000a00ee  movs     r3, #0x3a                     
+  0x000a00f0  movs     r2, #0                        
+  0x000a00f2  strb     r2, [r5, r3]                  
+  0x000a00f4  b        #0x9feca                      
+  0x000a00f6  movs     r0, #0                        
+  0x000a00f8  movs     r2, #1                        
+  0x000a00fa  str      r0, [sp, #0x1c]               
+  0x000a00fc  b        #0x9fe2e                      
+  0x000a00fe  ldr      r0, [r7, #0x14]               
+  0x000a0100  bl       #0xa7b30                        <<< _ZN7CMapMgr15GetShadowPzxMgrEv
+  0x000a0104  str      r0, [sp, #0x34]               
+  0x000a0106  movs     r0, #0xac                     
+  0x000a0108  lsls     r0, r0, #1                    
+  0x000a010a  bl       #0x108f78                       <<< _Znwj
+  0x000a010e  adds     r1, r6, #0                    
+  0x000a0110  ldr      r2, [sp, #0x1c]               
+  0x000a0112  ldr      r3, [sp, #0x34]               
+  0x000a0114  adds     r5, r0, #0                    
+  0x000a0116  str      r7, [sp]                      
+  0x000a0118  bl       #0xaf954                        <<< _ZN16CMonster_ShotingC1EPK14tagSObjectInfoP7CPzxMgrS4_P4CMap
+  0x000a011c  b        #0x9ffa4                      
+  0x000a011e  mov      r2, sb                        
+  0x000a0120  subs     r3, r2, #1                    
+  0x000a0122  sbcs     r2, r3                        
+  0x000a0124  mov      r0, sb                        
+  0x000a0126  str      r2, [sp, #0x1c]               
+  0x000a0128  rsbs     r2, r0, #0                    
+  0x000a012a  adcs     r2, r0                        
+  0x000a012c  b        #0x9fe2e                      
+  0x000a012e  ldr      r0, [sp, #0x58]               
+  0x000a0130  ldr      r1, [sp, #0x50]               
+  0x000a0132  ldr      r3, [r0]                      
+  0x000a0134  ldr      r3, [r3, #0xc]                
+  0x000a0136  blx      r3                            
+  0x000a0138  ldr      r1, [sp, #0x4c]               
+  0x000a013a  ldr      r2, [sp, #0x5c]               
+  0x000a013c  adds     r1, #1                        
+  0x000a013e  str      r1, [sp, #0x4c]               
+  0x000a0140  cmp      r1, r2                        
+  0x000a0142  bge      #0xa0146                      
+  0x000a0144  b        #0x9fc9c                      
+  0x000a0146  adds     r6, r7, #0                    
+  0x000a0148  ldr      r0, [sp, #0x64]               
+  0x000a014a  ldr      r1, [sp, #0x58]               
+  0x000a014c  bl       #0x9ef48                        <<< _ZN7CVectorIP10CLandLayerE10AddElementES1_
+  0x000a0150  ldr      r3, [sp, #0x24]               
+  0x000a0152  ldr      r0, [sp, #0x60]               
+  0x000a0154  adds     r3, #1                        
+  0x000a0156  str      r3, [sp, #0x24]               
+  0x000a0158  cmp      r0, r3                        
+  0x000a015a  ble      #0xa015e                      
+  0x000a015c  b        #0x9fb9a                      
+  0x000a015e  adds     r0, r4, #0                    
+  0x000a0160  bl       #0x8fc30                        <<< _ZN12CInputStreamD1Ev
+  0x000a0164  add      sp, #0x7c                     
+  0x000a0166  pop      {r2, r3, r4, r5}              
+  0x000a0168  mov      r8, r2                        
+  0x000a016a  mov      sb, r3                        
+  0x000a016c  mov      sl, r4                        
+  0x000a016e  mov      fp, r5                        
+  0x000a0170  pop      {r4, r5, r6, r7, pc}          
+  0x000a0172  movs     r0, #4                        
+  0x000a0174  bl       #0x10a970                       <<< _Z6Randoml
+  0x000a0178  add      r3, sp, #0x74                 
+  0x000a017a  ldrsb    r2, [r3, r0]                  
+  0x000a017c  movs     r3, #0xd8                     
+  0x000a017e  strh     r2, [r5, r3]                  
+  0x000a0180  b        #0x9fee0                      
+  0x000a0182  ldr      r0, [sp, #0x2c]               
+  0x000a0184  ldr      r3, [pc, #0x50]               
+  0x000a0186  ldr      r1, [r0, r3]                  
+  0x000a0188  ldr      r1, [r1]                      
+  0x000a018a  ldr      r1, [r1, #4]                  
+  0x000a018c  strb     r1, [r6, r2]                  
+  0x000a018e  bl       #0x9f918                      
+  0x000a0192  movs     r1, #1                        
+  0x000a0194  movs     r2, #0x66                     
+  0x000a0196  strb     r1, [r6, r2]                  
+  0x000a0198  bl       #0x9f938                      
+  0x000a019c  movs     r2, #0x66                     
+  0x000a019e  ldrb     r0, [r6, r2]                  
+  0x000a01a0  movs     r1, #3                        
+  0x000a01a2  adds     r0, #1                        
+  0x000a01a4  ands     r1, r0                        
+  0x000a01a6  strb     r1, [r6, r2]                  
+  0x000a01a8  bl       #0x9f938                      
+  0x000a01ac  ldr      r1, [pc, #0x2c]               
+  0x000a01ae  ldr      r2, [sp, #0x2c]               
+  0x000a01b0  str      r1, [sp, #0x54]               
+  0x000a01b2  ldr      r3, [r2, r1]                  
+  0x000a01b4  ldr      r2, [r3]                      
+  0x000a01b6  ldr      r3, [r2, #8]                  
+  0x000a01b8  ldr      r2, [r2, #0xc]                
+  0x000a01ba  lsls     r3, r3, #0xf                  
+  0x000a01bc  asrs     r3, r3, #0x10                 
+  0x000a01be  bl       #0x9f970                      
+  0x000a01c2  ldr      r3, [pc, #0x18]               
+  0x000a01c4  ldr      r0, [sp, #0x2c]               
+  0x000a01c6  str      r3, [sp, #0x54]               
+  0x000a01c8  ldr      r3, [r0, r3]                  
+  0x000a01ca  ldr      r2, [r3]                      
+  0x000a01cc  ldr      r3, [r2, #0xc]                
+  0x000a01ce  ldr      r2, [r2, #8]                  
+  0x000a01d0  lsls     r3, r3, #0x10                 
+  0x000a01d2  asrs     r3, r3, #0x10                 
+  0x000a01d4  bl       #0x9f970                      
+  0x000a01d8  lsls     r4, r3, #0xd                  
+  0x000a01da  movs     r0, r0                        
+  0x000a01dc  lsls     r4, r3, #0x1a                 
+  0x000a01de  movs     r0, r0                        
+
+Read sequence (58 calls):
+  [00] skip(int)
+  [01] readUint16()
+  [02] readUint16()
+  [03] readUint8()
+  [04] readUint8()
+  [05] readUint8()
+  [06] readUint8()
+  [07] readUint8()
+  [08] readUint8()
+  [09] readUint8()
+  [10] readUint8()
+  [11] readUint8()
+  [12] readInt16()
+  [13] readInt16()
+  [14] readUint8()
+  [15] readUint8()
+  [16] readUint8()
+  [17] readUint8()
+  [18] readUint8()
+  [19] readUint8()
+  [20] readInt16()
+  [21] readInt16()
+  [22] readUint8()
+  [23] readUint8()
+  [24] readUint8()
+  [25] readInt16()
+  [26] readInt16()
+  [27] readUint8()
+  [28] readUint16()
+  [29] readUint8()
+  [30] readInt16()
+  [31] readInt16()
+  [32] readUint16()
+  [33] readUint16()
+  [34] readUint8()
+  [35] readInt16()
+  [36] readInt16()
+  [37] readInt16()
+  [38] readInt16()
+  [39] readInt16()
+  [40] readUint8()
+  [41] readUint16()
+  [42] readInt16()
+  [43] readInt16()
+  [44] readInt16()
+  [45] readInt16()
+  [46] readInt16()
+  [47] readInt16()
+  [48] readUint8()
+  [49] readUint8()
+  [50] readUint8()
+  [51] readUint8()
+  [52] readUint8()
+  [53] readUint8()
+  [54] readUint8()
+  [55] readUint8()
+  [56] readString(buf,n)
+  [57] readString(buf,n)
+
+======================================================================
+CMap_T::LoadMap
+======================================================================
+  0x000a4cf4  push     {r4, r5, r6, r7, lr}          
+  0x000a4cf6  mov      r7, fp                        
+  0x000a4cf8  mov      r6, sl                        
+  0x000a4cfa  mov      r5, sb                        
+  0x000a4cfc  mov      r4, r8                        
+  0x000a4cfe  push     {r4, r5, r6, r7}              
+  0x000a4d00  ldr      r3, [pc, #0x33c]              
+  0x000a4d02  sub      sp, #0xe4                     
+  0x000a4d04  adds     r5, r0, #0                    
+  0x000a4d06  add      r3, pc                        
+  0x000a4d08  mov      r0, sp                        
+  0x000a4d0a  str      r3, [sp, #0x60]               
+  0x000a4d0c  adds     r0, #0xdc                     
+  0x000a4d0e  movs     r3, #0                        
+  0x000a4d10  strh     r3, [r0]                      
+  0x000a4d12  str      r0, [sp, #0xac]               
+  0x000a4d14  ldr      r3, [pc, #0x32c]              
+  0x000a4d16  ldr      r0, [sp, #0x60]               
+  0x000a4d18  adds     r4, r1, #0                    
+  0x000a4d1a  add      r7, sp, #0xcc                 
+  0x000a4d1c  ldr      r3, [r0, r3]                  
+  0x000a4d1e  ldr      r1, [r3]                      
+  0x000a4d20  movs     r3, #0x6d                     
+  0x000a4d22  ldrb     r3, [r1, r3]                  
+  0x000a4d24  adds     r1, r2, #0                    
+  0x000a4d26  str      r3, [sp, #0x78]               
+  0x000a4d28  ldr      r3, [pc, #0x31c]              
+  0x000a4d2a  ldr      r3, [r0, r3]                  
+  0x000a4d2c  adds     r0, r7, #0                    
+  0x000a4d2e  str      r3, [sp, #0xd8]               
+  0x000a4d30  bl       #0x8fbfc                        <<< _ZN12CInputStreamC1El
+  0x000a4d34  adds     r1, r4, #0                    
+  0x000a4d36  ldr      r0, [r5, #0x14]               
+  0x000a4d38  bl       #0xa7c14                        <<< _ZN7CMapMgr12GetMapOffsetEh
+  0x000a4d3c  adds     r1, r0, #0                    
+  0x000a4d3e  adds     r0, r7, #0                    
+  0x000a4d40  bl       #0x8fd08                        <<< skip(int)
+  0x000a4d44  adds     r0, r7, #0                    
+  0x000a4d46  bl       #0x8fca4                        <<< readUint16()
+  0x000a4d4a  movs     r3, #0x6e                     
+  0x000a4d4c  strh     r0, [r5, r3]                  
+  0x000a4d4e  adds     r0, r7, #0                    
+  0x000a4d50  bl       #0x8fca4                        <<< readUint16()
+  0x000a4d54  movs     r3, #0x70                     
+  0x000a4d56  strh     r0, [r5, r3]                  
+  0x000a4d58  adds     r0, r7, #0                    
+  0x000a4d5a  bl       #0x8fc78                        <<< readUint8()
+  0x000a4d5e  movs     r3, #0x66                     
+  0x000a4d60  strb     r0, [r5, r3]                  
+  0x000a4d62  ldr      r1, [sp, #0x78]               
+  0x000a4d64  ldr      r4, [sp, #0x78]               
+  0x000a4d66  subs     r1, #0x16                     
+  0x000a4d68  rsbs     r2, r1, #0                    
+  0x000a4d6a  adcs     r1, r2                        
+  0x000a4d6c  rsbs     r2, r4, #0                    
+  0x000a4d6e  adcs     r2, r4                        
+  0x000a4d70  adds     r0, r1, #0                    
+  0x000a4d72  orrs     r0, r2                        
+  0x000a4d74  str      r0, [sp, #0x64]               
+  0x000a4d76  beq      #0xa4d7c                      
+  0x000a4d78  movs     r2, #1                        
+  0x000a4d7a  strb     r2, [r5, r3]                  
+  0x000a4d7c  ldr      r1, [sp, #0x60]               
+  0x000a4d7e  ldr      r3, [pc, #0x2cc]              
+  0x000a4d80  ldr      r3, [r1, r3]                  
+  0x000a4d82  ldr      r2, [r3]                      
+  0x000a4d84  movs     r3, #0x66                     
+  0x000a4d86  ldrb     r1, [r5, r3]                  
+  0x000a4d88  str      r1, [r2, #4]                  
+  0x000a4d8a  ldrb     r3, [r5, r3]                  
+  0x000a4d8c  lsls     r2, r3, #0x1f                 
+  0x000a4d8e  bmi      #0xa4d94                      
+  0x000a4d90  bl       #0xa604a                      
+  0x000a4d94  ldr      r3, [pc, #0x2b8]              
+  0x000a4d96  ldr      r4, [sp, #0x60]               
+  0x000a4d98  str      r3, [sp, #0xa0]               
+  0x000a4d9a  ldr      r3, [r4, r3]                  
+  0x000a4d9c  ldr      r2, [r3]                      
+  0x000a4d9e  ldr      r3, [r2, #0xc]                
+  0x000a4da0  ldr      r2, [r2, #8]                  
+  0x000a4da2  lsls     r3, r3, #0x10                 
+  0x000a4da4  asrs     r3, r3, #0x10                 
+  0x000a4da6  lsls     r2, r2, #0x10                 
+  0x000a4da8  asrs     r2, r2, #0x10                 
+  0x000a4daa  movs     r1, #0                        
+  0x000a4dac  str      r2, [sp]                      
+  0x000a4dae  adds     r0, r5, #0                    
+  0x000a4db0  movs     r2, #0                        
+  0x000a4db2  bl       #0x9bef4                        <<< _ZN4CMap11SetMapBoundEssss
+  0x000a4db6  adds     r0, r7, #0                    
+  0x000a4db8  bl       #0x8fc78                        <<< readUint8()
+  0x000a4dbc  movs     r3, #0x67                     
+  0x000a4dbe  strb     r0, [r5, r3]                  
+  0x000a4dc0  adds     r0, r7, #0                    
+  0x000a4dc2  bl       #0x8fc78                        <<< readUint8()
+  0x000a4dc6  movs     r3, #0x68                     
+  0x000a4dc8  strb     r0, [r5, r3]                  
+  0x000a4dca  adds     r0, r7, #0                    
+  0x000a4dcc  bl       #0x8fc78                        <<< readUint8()
+  0x000a4dd0  movs     r3, #0x69                     
+  0x000a4dd2  strb     r0, [r5, r3]                  
+  0x000a4dd4  adds     r0, r7, #0                    
+  0x000a4dd6  bl       #0x8fc78                        <<< readUint8()
+  0x000a4dda  movs     r3, #0x6a                     
+  0x000a4ddc  strb     r0, [r5, r3]                  
+  0x000a4dde  adds     r0, r7, #0                    
+  0x000a4de0  bl       #0x8fc78                        <<< readUint8()
+  0x000a4de4  movs     r3, #0x6b                     
+  0x000a4de6  strb     r0, [r5, r3]                  
+  0x000a4de8  adds     r0, r7, #0                    
+  0x000a4dea  bl       #0x8fc78                        <<< readUint8()
+  0x000a4dee  movs     r3, #0x6c                     
+  0x000a4df0  strb     r0, [r5, r3]                  
+  0x000a4df2  adds     r0, r7, #0                    
+  0x000a4df4  bl       #0x8fc78                        <<< readUint8()
+  0x000a4df8  ldr      r3, [sp, #0x78]               
+  0x000a4dfa  movs     r2, #0                        
+  0x000a4dfc  str      r0, [sp, #0x38]               
+  0x000a4dfe  str      r2, [sp, #0x9c]               
+  0x000a4e00  cmp      r3, #0xf                      
+  0x000a4e02  bne      #0xa4e08                      
+  0x000a4e04  bl       #0xa6060                      
+  0x000a4e08  ldr      r4, [sp, #0x38]               
+  0x000a4e0a  cmp      r4, #0                        
+  0x000a4e0c  bne      #0xa4e10                      
+  0x000a4e0e  b        #0xa5064                      
+  0x000a4e10  adds     r0, r5, #0                    
+  0x000a4e12  mov      r2, sp                        
+  0x000a4e14  adds     r0, #0x38                     
+  0x000a4e16  adds     r2, #0xde                     
+  0x000a4e18  str      r0, [sp, #0x2c]               
+  0x000a4e1a  str      r2, [sp, #0x44]               
+  0x000a4e1c  ldr      r4, [sp, #0x78]               
+  0x000a4e1e  ldr      r2, [pc, #0x234]              
+  0x000a4e20  ldr      r0, [sp, #0x60]               
+  0x000a4e22  movs     r1, #0                        
+  0x000a4e24  lsls     r3, r4, #2                    
+  0x000a4e26  adds     r2, r0, r2                    
+  0x000a4e28  mov      fp, r1                        
+  0x000a4e2a  str      r2, [sp, #0x28]               
+  0x000a4e2c  movs     r1, #1                        
+  0x000a4e2e  adds     r2, r2, r3                    
+  0x000a4e30  mov      sl, r2                        
+  0x000a4e32  mov      sb, r1                        
+  0x000a4e34  adds     r0, r7, #0                    
+  0x000a4e36  bl       #0x8fc78                        <<< readUint8()
+  0x000a4e3a  str      r0, [sp, #0x30]               
+  0x000a4e3c  cmp      r0, #0                        
+  0x000a4e3e  bne      #0xa4e42                      
+  0x000a4e40  b        #0xa5058                      
+  0x000a4e42  mov      r2, fp                        
+  0x000a4e44  lsls     r3, r2, #0x18                 
+  0x000a4e46  lsrs     r3, r3, #0x17                 
+  0x000a4e48  adds     r3, #0x38                     
+  0x000a4e4a  movs     r6, #0                        
+  0x000a4e4c  str      r3, [sp, #0x40]               
+  0x000a4e4e  b        #0xa4ea4                      
+  0x000a4e50  ldr      r3, [r5, #0x14]               
+  0x000a4e52  ldr      r0, [sp, #0x40]               
+  0x000a4e54  adds     r3, r3, r0                    
+  0x000a4e56  ldrh     r3, [r3, #4]                  
+  0x000a4e58  movs     r0, #0x40                     
+  0x000a4e5a  str      r3, [sp, #0x34]               
+  0x000a4e5c  bl       #0x108f78                       <<< _Znwj
+  0x000a4e60  ldr      r1, [sp, #0x34]               
+  0x000a4e62  mov      r2, sb                        
+  0x000a4e64  mov      r8, r0                        
+  0x000a4e66  lsls     r3, r1, #0x10                 
+  0x000a4e68  asrs     r3, r3, #0x10                 
+  0x000a4e6a  str      r3, [sp]                      
+  0x000a4e6c  movs     r3, #0                        
+  0x000a4e6e  str      r2, [sp, #4]                  
+  0x000a4e70  str      r3, [sp, #8]                  
+  0x000a4e72  str      r2, [sp, #0xc]                
+  0x000a4e74  str      r2, [sp, #0x10]               
+  0x000a4e76  mov      r0, r8                        
+  0x000a4e78  adds     r1, r5, #0                    
+  0x000a4e7a  adds     r2, r4, #0                    
+  0x000a4e7c  ldr      r3, [sp, #0x9c]               
+  0x000a4e7e  bl       #0x9c4d8                        <<< _ZN10CBackLayerC1EP4CMapP7CPzxMgrP11CGxPZxFramesbbbb
+  0x000a4e82  adds     r0, r7, #0                    
+  0x000a4e84  bl       #0x8fc84                        <<< readInt16()
+  0x000a4e88  ldr      r4, [sp, #0x44]               
+  0x000a4e8a  adds     r6, #1                        
+  0x000a4e8c  strh     r0, [r4]                      
+  0x000a4e8e  adds     r0, r7, #0                    
+  0x000a4e90  bl       #0x8fc84                        <<< readInt16()
+  0x000a4e94  ldr      r0, [sp, #0x2c]               
+  0x000a4e96  mov      r1, r8                        
+  0x000a4e98  bl       #0x9ee90                        <<< _ZN7CVectorIP10CBackLayerE10AddElementES1_
+  0x000a4e9c  ldr      r0, [sp, #0x30]               
+  0x000a4e9e  cmp      r6, r0                        
+  0x000a4ea0  blt      #0xa4ea4                      
+  0x000a4ea2  b        #0xa5058                      
+  0x000a4ea4  adds     r0, r7, #0                    
+  0x000a4ea6  bl       #0x8fc78                        <<< readUint8()
+  0x000a4eaa  adds     r4, r0, #0                    
+  0x000a4eac  adds     r0, r7, #0                    
+  0x000a4eae  bl       #0x8fc78                        <<< readUint8()
+  0x000a4eb2  adds     r1, r4, #0                    
+  0x000a4eb4  mov      r8, r0                        
+  0x000a4eb6  ldr      r0, [r5, #0x14]               
+  0x000a4eb8  bl       #0xa7b50                        <<< _ZN7CMapMgr12GetMapPzxMgrEi
+  0x000a4ebc  mov      r1, r8                        
+  0x000a4ebe  adds     r4, r0, #0                    
+  0x000a4ec0  bl       #0xe7a9c                        <<< _ZN7CPzxMgr8GetFrameEi
+  0x000a4ec4  ldr      r3, [sp, #0x78]               
+  0x000a4ec6  str      r0, [sp, #0x9c]               
+  0x000a4ec8  cmp      r3, #0x17                     
+  0x000a4eca  bhi      #0xa4e50                      
+  0x000a4ecc  mov      r0, sl                        
+  0x000a4ece  ldr      r3, [r0]                      
+  0x000a4ed0  ldr      r1, [sp, #0x28]               
+  0x000a4ed2  adds     r3, r3, r1                    
+  0x000a4ed4  mov      pc, r3                        
+  0x000a4ed6  mov      r3, fp                        
+  0x000a4ed8  cmp      r3, #0                        
+  0x000a4eda  beq      #0xa4ee0                      
+  0x000a4edc  bl       #0xa5fd8                      
+  0x000a4ee0  ldr      r3, [r5, #0x14]               
+  0x000a4ee2  movs     r0, #0x40                     
+  0x000a4ee4  ldrh     r3, [r3, #0x3c]               
+  0x000a4ee6  str      r3, [sp, #0x34]               
+  0x000a4ee8  bl       #0x108f78                       <<< _Znwj
+  0x000a4eec  mov      r8, r0                        
+  0x000a4eee  ldr      r0, [sp, #0x34]               
+  0x000a4ef0  mov      r1, fp                        
+  0x000a4ef2  str      r1, [sp, #4]                  
+  0x000a4ef4  lsls     r3, r0, #0x10                 
+  0x000a4ef6  asrs     r3, r3, #0x10                 
+  0x000a4ef8  str      r3, [sp]                      
+  0x000a4efa  str      r1, [sp, #8]                  
+  0x000a4efc  str      r1, [sp, #0xc]                
+  0x000a4efe  str      r1, [sp, #0x10]               
+  0x000a4f00  b        #0xa4e76                      
+  0x000a4f02  movs     r1, #0                        
+  0x000a4f04  mov      r2, fp                        
+  0x000a4f06  mov      r8, r1                        
+  0x000a4f08  cmp      r2, #0                        
+  0x000a4f0a  bne      #0xa4e82                      
+  0x000a4f0c  movs     r0, #0x40                     
+  0x000a4f0e  bl       #0x108f78                       <<< _Znwj
+  0x000a4f12  adds     r1, r5, #0                    
+  0x000a4f14  adds     r2, r4, #0                    
+  0x000a4f16  ldr      r3, [sp, #0x9c]               
+  0x000a4f18  mov      r8, r0                        
+  0x000a4f1a  bl       #0x9c648                        <<< _ZN18CBackLayer_PatternC1EP4CMapP7CPzxMgrP11CGxPZxFrame
+  0x000a4f1e  b        #0xa4e82                      
+  0x000a4f20  mov      r0, fp                        
+  0x000a4f22  cmp      r0, #0                        
+  0x000a4f24  beq      #0xa4f0c                      
+  0x000a4f26  ldr      r3, [r5, #0x14]               
+  0x000a4f28  ldr      r1, [sp, #0x40]               
+  0x000a4f2a  movs     r0, #0x40                     
+  0x000a4f2c  adds     r3, r3, r1                    
+  0x000a4f2e  ldrh     r3, [r3, #4]                  
+  0x000a4f30  str      r3, [sp, #0x34]               
+  0x000a4f32  bl       #0x108f78                       <<< _Znwj
+  0x000a4f36  ldr      r2, [sp, #0x34]               
+  0x000a4f38  mov      r8, r0                        
+  0x000a4f3a  movs     r0, #0                        
+  0x000a4f3c  lsls     r3, r2, #0x10                 
+  0x000a4f3e  asrs     r3, r3, #0x10                 
+  0x000a4f40  str      r3, [sp]                      
+  0x000a4f42  mov      r3, sb                        
+  0x000a4f44  str      r3, [sp, #4]                  
+  0x000a4f46  str      r0, [sp, #8]                  
+  0x000a4f48  str      r3, [sp, #0xc]                
+  0x000a4f4a  str      r3, [sp, #0x10]               
+  0x000a4f4c  mov      r0, r8                        
+  0x000a4f4e  adds     r1, r5, #0                    
+  0x000a4f50  adds     r2, r4, #0                    
+  0x000a4f52  ldr      r3, [sp, #0x9c]               
+  0x000a4f54  bl       #0xa48e8                        <<< _ZN15CBackLayer_PathC1EP4CMapP7CPzxMgrP11CGxPZxFramesbbbb
+  0x000a4f58  b        #0xa4e82                      
+  0x000a4f5a  mov      r0, fp                        
+  0x000a4f5c  cmp      r0, #0                        
+  0x000a4f5e  beq      #0xa4f0c                      
+  0x000a4f60  ldr      r3, [r5, #0x14]               
+  0x000a4f62  ldr      r1, [sp, #0x40]               
+  0x000a4f64  movs     r0, #0x48                     
+  0x000a4f66  adds     r3, r3, r1                    
+  0x000a4f68  ldrh     r3, [r3, #4]                  
+  0x000a4f6a  str      r3, [sp, #0x4c]               
+  0x000a4f6c  bl       #0x108f78                       <<< _Znwj
+  0x000a4f70  str      r0, [sp, #0x34]               
+  0x000a4f72  ldr      r0, [sp, #0x4c]               
+  0x000a4f74  mov      r2, r8                        
+  0x000a4f76  mov      r1, sb                        
+  0x000a4f78  lsls     r3, r0, #0x10                 
+  0x000a4f7a  str      r2, [sp]                      
+  0x000a4f7c  asrs     r3, r3, #0x10                 
+  0x000a4f7e  movs     r2, #0                        
+  0x000a4f80  str      r3, [sp, #4]                  
+  0x000a4f82  str      r1, [sp, #8]                  
+  0x000a4f84  str      r2, [sp, #0xc]                
+  0x000a4f86  str      r1, [sp, #0x10]               
+  0x000a4f88  str      r1, [sp, #0x14]               
+  0x000a4f8a  ldr      r3, [sp, #0x9c]               
+  0x000a4f8c  ldr      r0, [sp, #0x34]               
+  0x000a4f8e  adds     r1, r5, #0                    
+  0x000a4f90  adds     r2, r4, #0                    
+  0x000a4f92  bl       #0xa4a30                        <<< _ZN19CBackLayer_IllusionC1EP4CMapP7CPzxMgrP11CGxPZxFrameisbbbb
+  0x000a4f96  ldr      r3, [sp, #0x34]               
+  0x000a4f98  mov      r8, r3                        
+  0x000a4f9a  b        #0xa4e82                      
+  0x000a4f9c  ldr      r3, [r5, #0x14]               
+  0x000a4f9e  ldr      r1, [sp, #0x40]               
+  0x000a4fa0  movs     r0, #0x40                     
+  0x000a4fa2  adds     r3, r3, r1                    
+  0x000a4fa4  ldrh     r3, [r3, #4]                  
+  0x000a4fa6  str      r3, [sp, #0x34]               
+  0x000a4fa8  bl       #0x108f78                       <<< _Znwj
+  0x000a4fac  ldr      r2, [sp, #0x34]               
+  0x000a4fae  mov      r8, r0                        
+  0x000a4fb0  lsls     r3, r2, #0x10                 
+  0x000a4fb2  asrs     r3, r3, #0x10                 
+  0x000a4fb4  str      r3, [sp]                      
+  0x000a4fb6  mov      r3, sb                        
+  0x000a4fb8  str      r3, [sp, #4]                  
+  0x000a4fba  str      r3, [sp, #8]                  
+  0x000a4fbc  str      r3, [sp, #0xc]                
+  0x000a4fbe  str      r3, [sp, #0x10]               
+  0x000a4fc0  b        #0xa4e76                      
+  0x000a4fc2  mov      r1, fp                        
+  0x000a4fc4  cmp      r1, #0                        
+  0x000a4fc6  beq      #0xa4f0c                      
+  0x000a4fc8  ldr      r3, [r5, #0x14]               
+  0x000a4fca  ldr      r0, [sp, #0x40]               
+  0x000a4fcc  ldr      r2, [r3, #0x24]               
+  0x000a4fce  adds     r3, r3, r0                    
+  0x000a4fd0  movs     r0, #0x5c                     
+  0x000a4fd2  str      r2, [sp, #0x4c]               
+  0x000a4fd4  ldrh     r3, [r3, #4]                  
+  0x000a4fd6  str      r3, [sp, #0x34]               
+  0x000a4fd8  bl       #0x108f78                       <<< _Znwj
+  0x000a4fdc  mov      r8, r0                        
+  0x000a4fde  ldr      r0, [sp, #0x34]               
+  0x000a4fe0  ldr      r1, [sp, #0x9c]               
+  0x000a4fe2  mov      r2, fp                        
+  0x000a4fe4  lsls     r3, r0, #0x10                 
+  0x000a4fe6  asrs     r3, r3, #0x10                 
+  0x000a4fe8  str      r1, [sp]                      
+  0x000a4fea  str      r2, [sp, #4]                  
+  0x000a4fec  str      r3, [sp, #8]                  
+  0x000a4fee  mov      r0, r8                        
+  0x000a4ff0  adds     r1, r5, #0                    
+  0x000a4ff2  ldr      r2, [sp, #0x4c]               
+  0x000a4ff4  adds     r3, r4, #0                    
+  0x000a4ff6  bl       #0xa4ca8                        <<< _ZN22CBackLayer_Object_BeatC1EP4CMapP4CNomP7CPzxMgrP11CGxPZxFrameis
+  0x000a4ffa  b        #0xa4e82                      
+  0x000a4ffc  mov      r2, fp                        
+  0x000a4ffe  cmp      r2, #0                        
+  0x000a5000  beq      #0xa5006                      
+  0x000a5002  bl       #0xa6002                      
+  0x000a5006  mov      r1, r8                        
+  0x000a5008  adds     r1, #1                        
+  0x000a500a  lsls     r1, r1, #0x18                 
+  0x000a500c  lsrs     r1, r1, #0x18                 
+  0x000a500e  adds     r0, r4, #0                    
+  0x000a5010  bl       #0xe7a9c                        <<< _ZN7CPzxMgr8GetFrameEi
+  0x000a5014  str      r0, [sp, #0x9c]               
+  0x000a5016  ldr      r3, [r5, #0x14]               
+  0x000a5018  ldr      r0, [r3, #0x24]               
+  0x000a501a  str      r0, [sp, #0x4c]               
+  0x000a501c  ldrh     r3, [r3, #0x3c]               
+  0x000a501e  movs     r0, #0x48                     
+  0x000a5020  str      r3, [sp, #0x34]               
+  0x000a5022  bl       #0x108f78                       <<< _Znwj
+  0x000a5026  ldr      r2, [sp, #0x34]               
+  0x000a5028  ldr      r1, [sp, #0x9c]               
+  0x000a502a  mov      r8, r0                        
+  0x000a502c  lsls     r3, r2, #0x10                 
+  0x000a502e  asrs     r3, r3, #0x10                 
+  0x000a5030  str      r1, [sp]                      
+  0x000a5032  str      r3, [sp, #4]                  
+  0x000a5034  adds     r1, r5, #0                    
+  0x000a5036  ldr      r2, [sp, #0x4c]               
+  0x000a5038  adds     r3, r4, #0                    
+  0x000a503a  bl       #0xa49a8                        <<< _ZN17CBackLayer_BridleC1EP4CMapP4CNomP7CPzxMgrP11CGxPZxFrames
+  0x000a503e  b        #0xa4e82                      
+  0x000a5040  ldcl     p0, c0, [lr, #-0x24]          
+  0x000a5044  lsls     r4, r0, #6                    
+  0x000a5046  movs     r0, r0                        
+  0x000a5048  str      r0, [r3, #0x64]               
+  0x000a504a  vrsra.u32 q8, q6, #2                    
+  0x000a504e  movs     r0, r0                        
+  0x000a5050  lsls     r4, r3, #0x1a                 
+  0x000a5052  movs     r0, r0                        
+  0x000a5054  str      r0, [r7, #0x5c]               
+  0x000a5056  vtbl.8   d25, {d14, d15, d16}, d14     
+  0x000a505a  movs     r1, #1                        
+  0x000a505c  add      fp, r1                        
+  0x000a505e  cmp      fp, r2                        
+  0x000a5060  bge      #0xa5064                      
+  0x000a5062  b        #0xa4e34                      
+  0x000a5064  adds     r0, r7, #0                    
+  0x000a5066  bl       #0x8fc78                        <<< readUint8()
+  0x000a506a  str      r0, [sp, #0xc0]               
+  0x000a506c  cmp      r0, #0                        
+  0x000a506e  bne      #0xa5074                      
+  0x000a5070  bl       #0xa58b2                      
+  0x000a5074  ldr      r2, [sp, #0x78]               
+  0x000a5076  adds     r4, r5, #0                    
+  0x000a5078  adds     r4, #0x38                     
+  0x000a507a  subs     r2, #7                        
+  0x000a507c  rsbs     r3, r2, #0                    
+  0x000a507e  adcs     r2, r3                        
+  0x000a5080  ldr      r3, [sp, #0x78]               
+  0x000a5082  str      r4, [sp, #0xbc]               
+  0x000a5084  movs     r0, #1                        
+  0x000a5086  subs     r3, #0x10                     
+  0x000a5088  rsbs     r1, r3, #0                    
+  0x000a508a  adcs     r3, r1                        
+  0x000a508c  orrs     r2, r3                        
+  0x000a508e  adds     r3, r5, #0                    
+  0x000a5090  adds     r3, #0x4c                     
+  0x000a5092  str      r3, [sp, #0xc4]               
+  0x000a5094  ldr      r3, [sp, #0x78]               
+  0x000a5096  str      r2, [sp, #0x98]               
+  0x000a5098  movs     r1, #0                        
+  0x000a509a  subs     r3, #4                        
+  0x000a509c  rsbs     r2, r3, #0                    
+  0x000a509e  adcs     r2, r3                        
+  0x000a50a0  ldr      r3, [sp, #0x78]               
+  0x000a50a2  str      r0, [sp, #0xb8]               
+  0x000a50a4  str      r1, [sp, #0x80]               
+  0x000a50a6  subs     r3, #0x14                     
+  0x000a50a8  rsbs     r4, r3, #0                    
+  0x000a50aa  adcs     r4, r3                        
+  0x000a50ac  str      r4, [sp, #0xb4]               
+  0x000a50ae  orrs     r4, r2                        
+  0x000a50b0  str      r1, [sp, #0x44]               
+  0x000a50b2  str      r2, [sp, #0xb0]               
+  0x000a50b4  str      r4, [sp, #0x74]               
+  0x000a50b6  ldr      r0, [sp, #0x98]               
+  0x000a50b8  cmp      r0, #0                        
+  0x000a50ba  bne      #0xa50c0                      
+  0x000a50bc  bl       #0xa6038                      
+  0x000a50c0  movs     r0, #0x4c                     
+  0x000a50c2  bl       #0x108f78                       <<< _Znwj
+  0x000a50c6  adds     r1, r5, #0                    
+  0x000a50c8  adds     r4, r0, #0                    
+  0x000a50ca  bl       #0xa3c80                        <<< _ZN18CLandLayer_GravityC1EP4CMap
+  0x000a50ce  str      r4, [sp, #0xa4]               
+  0x000a50d0  adds     r0, r7, #0                    
+  0x000a50d2  bl       #0x8fc78                        <<< readUint8()
+  0x000a50d6  str      r0, [sp, #0x30]               
+  0x000a50d8  cmp      r0, #0                        
+  0x000a50da  beq      #0xa51d2                      
+  0x000a50dc  ldr      r1, [sp, #0xa4]               
+  0x000a50de  ldr      r2, [sp, #0xa4]               
+  0x000a50e0  movs     r4, #0xde                     
+  0x000a50e2  adds     r1, #0x38                     
+  0x000a50e4  adds     r2, #8                        
+  0x000a50e6  movs     r3, #0                        
+  0x000a50e8  add      r4, sp, r4                    
+  0x000a50ea  str      r1, [sp, #0x40]               
+  0x000a50ec  str      r2, [sp, #0x2c]               
+  0x000a50ee  mov      sb, r4                        
+  0x000a50f0  adds     r6, r3, #0                    
+  0x000a50f2  b        #0xa5168                      
+  0x000a50f4  mov      r1, r8                        
+  0x000a50f6  ldr      r0, [r5, #0x14]               
+  0x000a50f8  bl       #0xa7b50                        <<< _ZN7CMapMgr12GetMapPzxMgrEi
+  0x000a50fc  mov      fp, r0                        
+  0x000a50fe  movs     r0, #0x24                     
+  0x000a5100  bl       #0x108f78                       <<< _Znwj
+  0x000a5104  mov      r1, fp                        
+  0x000a5106  adds     r4, r0, #0                    
+  0x000a5108  bl       #0x61994                        <<< _ZN10CAniObjectC1EP7CPzxMgr
+  0x000a510c  mov      r1, sl                        
+  0x000a510e  movs     r2, #1                        
+  0x000a5110  adds     r0, r4, #0                    
+  0x000a5112  bl       #0x61f08                        <<< _ZN10CAniObject10InitMotionEib
+  0x000a5116  ldr      r3, [r4]                      
+  0x000a5118  adds     r0, r4, #0                    
+  0x000a511a  ldr      r3, [r3, #8]                  
+  0x000a511c  blx      r3                            
+  0x000a511e  movs     r0, #0x14                     
+  0x000a5120  bl       #0x108f78                       <<< _Znwj
+  0x000a5124  adds     r1, r4, #0                    
+  0x000a5126  mov      r2, r8                        
+  0x000a5128  mov      sl, r0                        
+  0x000a512a  bl       #0xa11d4                        <<< _ZN12CPattern_AniC1EP10CAniObjecth
+  0x000a512e  adds     r0, r7, #0                    
+  0x000a5130  bl       #0x8fc84                        <<< readInt16()
+  0x000a5134  lsls     r3, r0, #0x10                 
+  0x000a5136  lsrs     r3, r3, #0x10                 
+  0x000a5138  mov      r1, sb                        
+  0x000a513a  mov      r2, sl                        
+  0x000a513c  strh     r3, [r1]                      
+  0x000a513e  adds     r0, r7, #0                    
+  0x000a5140  strh     r3, [r2, #0xa]                
+  0x000a5142  bl       #0x8fc84                        <<< readInt16()
+  0x000a5146  mov      r3, sl                        
+  0x000a5148  strh     r0, [r3, #0xc]                
+  0x000a514a  movs     r4, #0x6c                     
+  0x000a514c  ldrb     r3, [r5, r4]                  
+  0x000a514e  cmp      r3, #0                        
+  0x000a5150  beq      #0xa5158                      
+  0x000a5152  movs     r0, #0x81                     
+  0x000a5154  mov      r1, sl                        
+  0x000a5156  str      r0, [r1, #0x10]               
+  0x000a5158  ldr      r0, [sp, #0x40]               
+  0x000a515a  mov      r1, sl                        
+  0x000a515c  bl       #0xa16dc                        <<< _ZN7CVectorIP12CPattern_AniE10AddElementES1_
+  0x000a5160  ldr      r2, [sp, #0x30]               
+  0x000a5162  adds     r6, #1                        
+  0x000a5164  cmp      r6, r2                        
+  0x000a5166  bge      #0xa51d2                      
+  0x000a5168  adds     r0, r7, #0                    
+  0x000a516a  bl       #0x8fc78                        <<< readUint8()
+  0x000a516e  mov      r8, r0                        
+  0x000a5170  adds     r0, r7, #0                    
+  0x000a5172  bl       #0x8fc78                        <<< readUint8()
+  0x000a5176  mov      r1, r8                        
+  0x000a5178  mov      sl, r0                        
+  0x000a517a  ldr      r0, [r5, #0x14]               
+  0x000a517c  bl       #0xa7b50                        <<< _ZN7CMapMgr12GetMapPzxMgrEi
+  0x000a5180  mov      r1, sl                        
+  0x000a5182  bl       #0xe7a9c                        <<< _ZN7CPzxMgr8GetFrameEi
+  0x000a5186  str      r0, [sp, #0x9c]               
+  0x000a5188  ldr      r0, [sp, #0x98]               
+  0x000a518a  cmp      r0, #0                        
+  0x000a518c  bne      #0xa50f4                      
+  0x000a518e  movs     r0, #0x14                     
+  0x000a5190  bl       #0x108f78                       <<< _Znwj
+  0x000a5194  ldr      r1, [sp, #0x9c]               
+  0x000a5196  mov      r2, r8                        
+  0x000a5198  adds     r4, r0, #0                    
+  0x000a519a  bl       #0x9bb5c                        <<< _ZN8CPatternC1EP11CGxPZxFrameh
+  0x000a519e  adds     r0, r7, #0                    
+  0x000a51a0  bl       #0x8fc84                        <<< readInt16()
+  0x000a51a4  lsls     r3, r0, #0x10                 
+  0x000a51a6  lsrs     r3, r3, #0x10                 
+  0x000a51a8  mov      r2, sb                        
+  0x000a51aa  strh     r3, [r2]                      
+  0x000a51ac  adds     r0, r7, #0                    
+  0x000a51ae  strh     r3, [r4, #0xa]                
+  0x000a51b0  bl       #0x8fc84                        <<< readInt16()
+  0x000a51b4  strh     r0, [r4, #0xc]                
+  0x000a51b6  movs     r0, #0x6c                     
+  0x000a51b8  ldrb     r3, [r5, r0]                  
+  0x000a51ba  cmp      r3, #0                        
+  0x000a51bc  beq      #0xa51c2                      
+  0x000a51be  movs     r1, #0x81                     
+  0x000a51c0  str      r1, [r4, #0x10]               
+  0x000a51c2  ldr      r0, [sp, #0x2c]               
+  0x000a51c4  adds     r1, r4, #0                    
+  0x000a51c6  bl       #0x9eeec                        <<< _ZN7CVectorIP8CPatternE10AddElementES1_
+  0x000a51ca  ldr      r2, [sp, #0x30]               
+  0x000a51cc  adds     r6, #1                        
+  0x000a51ce  cmp      r6, r2                        
+  0x000a51d0  blt      #0xa5168                      
+  0x000a51d2  adds     r0, r7, #0                    
+  0x000a51d4  bl       #0x8fc78                        <<< readUint8()
+  0x000a51d8  mov      sl, r0                        
+  0x000a51da  cmp      r0, #0                        
+  0x000a51dc  beq      #0xa5250                      
+  0x000a51de  ldr      r3, [sp, #0xa4]               
+  0x000a51e0  movs     r4, #0xde                     
+  0x000a51e2  add      r4, sp, r4                    
+  0x000a51e4  mov      fp, r3                        
+  0x000a51e6  movs     r3, #8                        
+  0x000a51e8  add      fp, r3                        
+  0x000a51ea  movs     r6, #0                        
+  0x000a51ec  mov      sb, r4                        
+  0x000a51ee  adds     r0, r7, #0                    
+  0x000a51f0  bl       #0x8fc78                        <<< readUint8()
+  0x000a51f4  mov      r8, r0                        
+  0x000a51f6  adds     r0, r7, #0                    
+  0x000a51f8  bl       #0x8fc78                        <<< readUint8()
+  0x000a51fc  mov      r1, r8                        
+  0x000a51fe  adds     r4, r0, #0                    
+  0x000a5200  ldr      r0, [r5, #0x14]               
+  0x000a5202  bl       #0xa7b50                        <<< _ZN7CMapMgr12GetMapPzxMgrEi
+  0x000a5206  adds     r1, r4, #0                    
+  0x000a5208  bl       #0xe7a9c                        <<< _ZN7CPzxMgr8GetFrameEi
+  0x000a520c  str      r0, [sp, #0x9c]               
+  0x000a520e  movs     r0, #0x14                     
+  0x000a5210  bl       #0x108f78                       <<< _Znwj
+  0x000a5214  ldr      r1, [sp, #0x9c]               
+  0x000a5216  mov      r2, r8                        
+  0x000a5218  adds     r4, r0, #0                    
+  0x000a521a  bl       #0x9bb5c                        <<< _ZN8CPatternC1EP11CGxPZxFrameh
+  0x000a521e  adds     r0, r7, #0                    
+  0x000a5220  bl       #0x8fc84                        <<< readInt16()
+  0x000a5224  lsls     r3, r0, #0x10                 
+  0x000a5226  lsrs     r3, r3, #0x10                 
+  0x000a5228  mov      r0, sb                        
+  0x000a522a  strh     r3, [r0]                      
+  0x000a522c  strh     r3, [r4, #0xa]                
+  0x000a522e  adds     r0, r7, #0                    
+  0x000a5230  bl       #0x8fc84                        <<< readInt16()
+  0x000a5234  movs     r1, #0x6c                     
+  0x000a5236  strh     r0, [r4, #0xc]                
+  0x000a5238  ldrb     r3, [r5, r1]                  
+  0x000a523a  cmp      r3, #0                        
+  0x000a523c  beq      #0xa5242                      
+  0x000a523e  movs     r2, #0x81                     
+  0x000a5240  str      r2, [r4, #0x10]               
+  0x000a5242  mov      r0, fp                        
+  0x000a5244  adds     r1, r4, #0                    
+  0x000a5246  adds     r6, #1                        
+  0x000a5248  bl       #0x9eeec                        <<< _ZN7CVectorIP8CPatternE10AddElementES1_
+  0x000a524c  cmp      r6, sl                        
+  0x000a524e  blt      #0xa51ee                      
+  0x000a5250  adds     r0, r7, #0                    
+  0x000a5252  bl       #0x8fc78                        <<< readUint8()
+  0x000a5256  str      r0, [sp, #0xa8]               
+  0x000a5258  cmp      r0, #0                        
+  0x000a525a  bne      #0xa525e                      
+  0x000a525c  b        #0xa5894                      
+  0x000a525e  movs     r3, #0                        
+  0x000a5260  str      r3, [sp, #0x94]               
+  0x000a5262  mov      r8, r7                        
+  0x000a5264  ldr      r4, [sp, #0x64]               
+  0x000a5266  cmp      r4, #0                        
+  0x000a5268  beq      #0xa526e                      
+  0x000a526a  bl       #0xa5ed8                      
+  0x000a526e  ldr      r0, [sp, #0x98]               
+  0x000a5270  cmp      r0, #0                        
+  0x000a5272  beq      #0xa5278                      
+  0x000a5274  bl       #0xa5fb0                        <<< $t
+  0x000a5278  ldr      r1, [sp, #0x78]               
+  0x000a527a  cmp      r1, #0x11                     
+  0x000a527c  bne      #0xa5282                      
+  0x000a527e  bl       #0xa5f92                      
+  0x000a5282  cmp      r1, #6                        
+  0x000a5284  bne      #0xa528a                      
+  0x000a5286  bl       #0xa5f92                      
+  0x000a528a  movs     r0, #0x24                     
+  0x000a528c  bl       #0x108f78                       <<< _Znwj
+  0x000a5290  adds     r1, r5, #0                    
+  0x000a5292  adds     r6, r0, #0                    
+  0x000a5294  bl       #0x9c1d0                        <<< _ZN10CPathLayerC1EP4CMap
+  0x000a5298  mov      r0, r8                        
+  0x000a529a  bl       #0x8fca4                        <<< readUint16()
+  0x000a529e  mov      sb, r0                        
+  0x000a52a0  movs     r0, #0x18                     
+  0x000a52a2  bl       #0x108f78                       <<< _Znwj
+  0x000a52a6  mov      r1, sb                        
+  0x000a52a8  str      r0, [sp, #0x58]               
+  0x000a52aa  bl       #0x9d698                        <<< _ZN5CPathC1Ei
+  0x000a52ae  ldr      r4, [sp, #0x58]               
+  0x000a52b0  ldr      r3, [sp, #0x58]               
+  0x000a52b2  ldr      r0, [sp, #0x58]               
+  0x000a52b4  ldr      r4, [r4, #8]                  
+  0x000a52b6  ldr      r3, [r3, #4]                  
+  0x000a52b8  ldr      r1, [sp, #0x58]               
+  0x000a52ba  str      r4, [sp, #0x68]               
+  0x000a52bc  ldr      r0, [r0, #0xc]                
+  0x000a52be  mov      r2, sb                        
+  0x000a52c0  mov      fp, r3                        
+  0x000a52c2  str      r0, [sp, #0x6c]               
+  0x000a52c4  ldr      r1, [r1, #0x10]               
+  0x000a52c6  str      r1, [sp, #0x30]               
+  0x000a52c8  cmp      r2, #0                        
+  0x000a52ca  beq      #0xa538e                      
+  0x000a52cc  lsls     r3, r2, #1                    
+  0x000a52ce  adds     r4, r4, r3                    
+  0x000a52d0  ldr      r1, [sp, #0x6c]               
+  0x000a52d2  adds     r3, r0, r3                    
+  0x000a52d4  ldr      r0, [sp, #0x68]               
+  0x000a52d6  str      r3, [sp, #0x28]               
+  0x000a52d8  subs     r2, #1                        
+  0x000a52da  mov      r3, r8                        
+  0x000a52dc  str      r4, [sp, #0x34]               
+  0x000a52de  str      r6, [sp, #0x40]               
+  0x000a52e0  mov      r8, r5                        
+  0x000a52e2  movs     r7, #0                        
+  0x000a52e4  movs     r4, #0                        
+  0x000a52e6  str      r2, [sp, #0x2c]               
+  0x000a52e8  adds     r6, r0, #0                    
+  0x000a52ea  mov      sl, r1                        
+  0x000a52ec  adds     r5, r3, #0                    
+  0x000a52ee  b        #0xa5300                      
+  0x000a52f0  ldrh     r3, [r6]                      
+  0x000a52f2  subs     r3, #0xc8                     
+  0x000a52f4  strh     r3, [r6]                      
+  0x000a52f6  adds     r4, #1                        
+  0x000a52f8  adds     r6, #2                        
+  0x000a52fa  adds     r7, #2                        
+  0x000a52fc  cmp      r4, sb                        
+  0x000a52fe  bge      #0xa5386                      
+  0x000a5300  adds     r0, r5, #0                    
+  0x000a5302  bl       #0x8fc78                        <<< readUint8()
+  0x000a5306  mov      r2, fp                        
+  0x000a5308  strb     r0, [r4, r2]                  
+  0x000a530a  adds     r0, r5, #0                    
+  0x000a530c  bl       #0x8fc84                        <<< readInt16()
+  0x000a5310  strh     r0, [r6]                      
+  0x000a5312  adds     r0, r5, #0                    
+  0x000a5314  bl       #0x8fc84                        <<< readInt16()
+  0x000a5318  mov      r3, sl                        
+  0x000a531a  strh     r0, [r7, r3]                  
+  0x000a531c  adds     r0, r5, #0                    
+  0x000a531e  bl       #0x8fca4                        <<< readUint16()
+  0x000a5322  movs     r1, #0xb4                     
+  0x000a5324  lsls     r1, r1, #1                    
+  0x000a5326  blx      #0x121c28                       <<< __aeabi_uidivmod
+  0x000a532a  ldr      r0, [sp, #0x30]               
+  0x000a532c  strh     r1, [r7, r0]                  
+  0x000a532e  ldr      r1, [sp, #0x64]               
+  0x000a5330  cmp      r1, #0                        
+  0x000a5332  beq      #0xa52f6                      
+  0x000a5334  mov      r2, r8                        
+  0x000a5336  movs     r0, #0x84                     
+  0x000a5338  ldrsh    r3, [r2, r0]                  
+  0x000a533a  mov      r2, sl                        
+  0x000a533c  asrs     r3, r3, #1                    
+  0x000a533e  rsbs     r3, r3, #0                    
+  0x000a5340  strh     r3, [r7, r2]                  
+  0x000a5342  cmp      r4, #0                        
+  0x000a5344  beq      #0xa52f0                      
+  0x000a5346  ldr      r3, [sp, #0x2c]               
+  0x000a5348  cmp      r3, r4                        
+  0x000a534a  bne      #0xa52f6                      
+  0x000a534c  mov      r0, fp                        
+  0x000a534e  ldrb     r3, [r3, r0]                  
+  0x000a5350  mov      r1, fp                        
+  0x000a5352  add      r1, sb                        
+  0x000a5354  strb     r3, [r1]                      
+  0x000a5356  ldrh     r3, [r6]                      
+  0x000a5358  ldr      r2, [sp, #0x34]               
+  0x000a535a  mov      r0, sl                        
+  0x000a535c  adds     r3, #0xc8                     
+  0x000a535e  strh     r3, [r2]                      
+  0x000a5360  ldrh     r3, [r7, r0]                  
+  0x000a5362  ldr      r1, [sp, #0x28]               
+  0x000a5364  mov      r2, r8                        
+  0x000a5366  movs     r0, #0x68                     
+  0x000a5368  strh     r3, [r1]                      
+  0x000a536a  ldrb     r3, [r2, r0]                  
+  0x000a536c  cmp      r3, #0                        
+  0x000a536e  beq      #0xa5374                      
+  0x000a5370  bl       #0xa5ec4                      
+  0x000a5374  movs     r1, #0x82                     
+  0x000a5376  ldrh     r3, [r2, r1]                  
+  0x000a5378  adds     r4, #1                        
+  0x000a537a  adds     r7, #2                        
+  0x000a537c  adds     r3, #0xc8                     
+  0x000a537e  strh     r3, [r6]                      
+  0x000a5380  adds     r6, #2                        
+  0x000a5382  cmp      r4, sb                        
+  0x000a5384  blt      #0xa5300                      
+  0x000a5386  ldr      r6, [sp, #0x40]               
+  0x000a5388  adds     r3, r5, #0                    
+  0x000a538a  mov      r5, r8                        
+  0x000a538c  mov      r8, r3                        
+  0x000a538e  ldr      r2, [sp, #0x58]               
+  0x000a5390  str      r2, [r6, #8]                  
+  0x000a5392  ldr      r3, [sp, #0x98]               
+  0x000a5394  cmp      r3, #0                        
+  0x000a5396  beq      #0xa539c                      
+  0x000a5398  bl       #0xa5f02                      
+  0x000a539c  mov      r0, r8                        
+  0x000a539e  bl       #0x8fca4                        <<< readUint16()
+  0x000a53a2  str      r0, [sp, #0x30]               
+  0x000a53a4  cmp      r0, #0                        
+  0x000a53a6  bne      #0xa53aa                      
+  0x000a53a8  b        #0xa54f2                      
+  0x000a53aa  ldr      r4, [sp, #0xb4]               
+  0x000a53ac  ldr      r0, [sp, #0xb0]               
+  0x000a53ae  movs     r3, #0xea                     
+  0x000a53b0  adds     r1, r6, #0                    
+  0x000a53b2  orrs     r4, r0                        
+  0x000a53b4  str      r4, [sp, #0x2c]               
+  0x000a53b6  ldr      r4, [sp, #0x80]               
+  0x000a53b8  mov      fp, r3                        
+  0x000a53ba  adds     r1, #0xc                      
+  0x000a53bc  lsls     r3, r4, #0x18                 
+  0x000a53be  movs     r2, #0                        
+  0x000a53c0  lsrs     r3, r3, #0x18                 
+  0x000a53c2  str      r6, [sp, #0x34]               
+  0x000a53c4  str      r1, [sp, #0x40]               
+  0x000a53c6  mov      sb, r2                        
+  0x000a53c8  str      r3, [sp, #0x28]               
+  0x000a53ca  adds     r7, r5, #0                    
+  0x000a53cc  mov      r6, r8                        
+  0x000a53ce  adds     r0, r6, #0                    
+  0x000a53d0  bl       #0x8fc78                        <<< readUint8()
+  0x000a53d4  adds     r3, r0, #0                    
+  0x000a53d6  subs     r3, #0x5f                     
+  0x000a53d8  lsls     r3, r3, #0x18                 
+  0x000a53da  movs     r0, #0x98                     
+  0x000a53dc  lsrs     r3, r3, #0x18                 
+  0x000a53de  lsls     r0, r0, #1                    
+  0x000a53e0  mov      r8, r3                        
+  0x000a53e2  bl       #0x108f78                       <<< _Znwj
+  0x000a53e6  mov      r1, r8                        
+  0x000a53e8  adds     r2, r7, #0                    
+  0x000a53ea  adds     r5, r0, #0                    
+  0x000a53ec  bl       #0x8485c                        <<< _ZN12CEventRect_TC1EiP4CMap
+  0x000a53f0  ldr      r0, [sp, #0x2c]               
+  0x000a53f2  cmp      r0, #0                        
+  0x000a53f4  bne      #0xa53f8                      
+  0x000a53f6  b        #0xa5854                      
+  0x000a53f8  ldr      r1, [sp, #0x80]               
+  0x000a53fa  cmp      r1, #0                        
+  0x000a53fc  bne      #0xa5400                      
+  0x000a53fe  b        #0xa5854                      
+  0x000a5400  ldr      r3, [r7, #0x1c]               
+  0x000a5402  str      r3, [r5, #0x28]               
+  0x000a5404  movs     r4, #0                        
+  0x000a5406  adds     r0, r6, #0                    
+  0x000a5408  bl       #0x8fc84                        <<< readInt16()
+  0x000a540c  adds     r3, r5, r4                    
+  0x000a540e  adds     r3, #0xd4                     
+  0x000a5410  adds     r4, #2                        
+  0x000a5412  strh     r0, [r3]                      
+  0x000a5414  cmp      r4, #0xc                      
+  0x000a5416  bne      #0xa5406                      
+  0x000a5418  adds     r0, r6, #0                    
+  0x000a541a  bl       #0x8fc84                        <<< readInt16()
+  0x000a541e  strh     r0, [r5, #0x20]               
+  0x000a5420  adds     r0, r6, #0                    
+  0x000a5422  bl       #0x8fc84                        <<< readInt16()
+  0x000a5426  strh     r0, [r5, #0x22]               
+  0x000a5428  adds     r0, r6, #0                    
+  0x000a542a  bl       #0x8fc84                        <<< readInt16()
+  0x000a542e  mov      r2, fp                        
+  0x000a5430  strh     r0, [r5, r2]                  
+  0x000a5432  adds     r0, r6, #0                    
+  0x000a5434  bl       #0x8fc84                        <<< readInt16()
+  0x000a5438  movs     r3, #0xec                     
+  0x000a543a  strh     r0, [r5, r3]                  
+  0x000a543c  adds     r0, r6, #0                    
+  0x000a543e  bl       #0x8fc78                        <<< readUint8()
+  0x000a5442  subs     r4, r0, #0                    
+  0x000a5444  beq      #0xa5448                      
+  0x000a5446  b        #0xa59a6                      
+  0x000a5448  mov      r3, r8                        
+  0x000a544a  cmp      r3, #0xa2                     
+  0x000a544c  bne      #0xa5450                      
+  0x000a544e  b        #0xa59ce                      
+  0x000a5450  mov      r0, r8                        
+  0x000a5452  cmp      r0, #0xa3                     
+  0x000a5454  bne      #0xa5458                      
+  0x000a5456  b        #0xa5a22                      
+  0x000a5458  ldr      r3, [r5]                      
+  0x000a545a  adds     r0, r5, #0                    
+  0x000a545c  ldr      r1, [sp, #0x28]               
+  0x000a545e  ldr      r3, [r3, #0x28]               
+  0x000a5460  blx      r3                            
+  0x000a5462  add      r2, sp, #0x94                 
+  0x000a5464  ldrb     r3, [r2]                      
+  0x000a5466  movs     r2, #0x3e                     
+  0x000a5468  strb     r3, [r5, r2]                  
+  0x000a546a  ldr      r4, [sp, #0x64]               
+  0x000a546c  cmp      r4, #0                        
+  0x000a546e  beq      #0xa54d8                      
+  0x000a5470  movs     r3, #1                        
+  0x000a5472  movs     r2, #0x3a                     
+  0x000a5474  strb     r3, [r5, r2]                  
+  0x000a5476  movs     r2, #0x34                     
+  0x000a5478  strb     r3, [r5, r2]                  
+  0x000a547a  strb     r3, [r5, #0x1c]               
+  0x000a547c  mov      r1, fp                        
+  0x000a547e  movs     r0, #0x20                     
+  0x000a5480  ldrsh    r2, [r5, r0]                  
+  0x000a5482  ldrsh    r3, [r5, r1]                  
+  0x000a5484  subs     r3, r3, r2                    
+  0x000a5486  asrs     r3, r3, #1                    
+  0x000a5488  adds     r3, r3, r2                    
+  0x000a548a  movs     r2, #0x68                     
+  0x000a548c  ldrb     r2, [r7, r2]                  
+  0x000a548e  cmp      r2, #1                        
+  0x000a5490  bne      #0xa5496                      
+  0x000a5492  bl       #0xa5dd4                      
+  0x000a5496  ldr      r2, [sp, #0x58]               
+  0x000a5498  ldr      r0, [sp, #0x6c]               
+  0x000a549a  ldr      r1, [r2, #0x14]               
+  0x000a549c  subs     r1, #1                        
+  0x000a549e  lsls     r1, r1, #0x10                 
+  0x000a54a0  lsrs     r4, r1, #0x10                 
+  0x000a54a2  str      r4, [sp, #0x44]               
+  0x000a54a4  asrs     r1, r1, #0xf                  
+  0x000a54a6  ldrsh    r2, [r0, r1]                  
+  0x000a54a8  mov      ip, r1                        
+  0x000a54aa  ldr      r0, [pc, #0x338]              
+  0x000a54ac  ldr      r1, [sp, #0x60]               
+  0x000a54ae  ldr      r4, [sp, #0x68]               
+  0x000a54b0  ldr      r0, [r1, r0]                  
+  0x000a54b2  ldr      r0, [r0]                      
+  0x000a54b4  mov      r8, r0                        
+  0x000a54b6  mov      r0, ip                        
+  0x000a54b8  ldrsh    r4, [r4, r0]                  
+  0x000a54ba  mov      r0, r8                        
+  0x000a54bc  str      r2, [sp]                      
+  0x000a54be  adds     r1, r4, #0                    
+  0x000a54c0  bl       #0xd55c4                        <<< _ZN8CNomUtil10Distance2DEiiii
+  0x000a54c4  rsbs     r0, r0, #0                    
+  0x000a54c6  str      r0, [r5, #0x68]               
+  0x000a54c8  add      r2, sp, #0x44                 
+  0x000a54ca  ldrh     r2, [r2]                      
+  0x000a54cc  movs     r3, #0x4a                     
+  0x000a54ce  strh     r2, [r5, r3]                  
+  0x000a54d0  movs     r3, #0x68                     
+  0x000a54d2  ldrb     r2, [r7, r3]                  
+  0x000a54d4  movs     r3, #0x41                     
+  0x000a54d6  strb     r2, [r5, r3]                  
+  0x000a54d8  ldr      r0, [sp, #0x40]               
+  0x000a54da  adds     r1, r5, #0                    
+  0x000a54dc  bl       #0x83b7c                        <<< _ZN7CVectorIP7CObjectE10AddElementES1_
+  0x000a54e0  ldr      r4, [sp, #0x30]               
+  0x000a54e2  movs     r3, #1                        
+  0x000a54e4  add      sb, r3                        
+  0x000a54e6  cmp      sb, r4                        
+  0x000a54e8  bge      #0xa54ec                      
+  0x000a54ea  b        #0xa53ce                      
+  0x000a54ec  mov      r8, r6                        
+  0x000a54ee  ldr      r6, [sp, #0x34]               
+  0x000a54f0  adds     r5, r7, #0                    
+  0x000a54f2  mov      r0, r8                        
+  0x000a54f4  bl       #0x8fca4                        <<< readUint16()
+  0x000a54f8  str      r0, [sp, #0x84]               
+  0x000a54fa  cmp      r0, #0                        
+  0x000a54fc  bne      #0xa5500                      
+  0x000a54fe  b        #0xa587a                      
+  0x000a5500  movs     r1, #0                        
+  0x000a5502  ldr      r3, [sp, #0x94]               
+  0x000a5504  ldr      r4, [sp, #0x80]               
+  0x000a5506  adds     r0, r6, #0                    
+  0x000a5508  str      r1, [sp, #0x5c]               
+  0x000a550a  ldr      r1, [sp, #0xac]               
+  0x000a550c  adds     r0, #0xc                      
+  0x000a550e  movs     r2, #0xde                     
+  0x000a5510  str      r0, [sp, #0x50]               
+  0x000a5512  add      r2, sp, r2                    
+  0x000a5514  lsls     r3, r3, #0x18                 
+  0x000a5516  lsls     r4, r4, #0x18                 
+  0x000a5518  movs     r0, #0x48                     
+  0x000a551a  mov      sl, r2                        
+  0x000a551c  str      r3, [sp, #0x88]               
+  0x000a551e  str      r4, [sp, #0x8c]               
+  0x000a5520  mov      sb, r0                        
+  0x000a5522  adds     r7, r5, #0                    
+  0x000a5524  mov      fp, r1                        
+  0x000a5526  b        #0xa56b6                      
+  0x000a5528  ldr      r2, [sp, #0x64]               
+  0x000a552a  cmp      r2, #0                        
+  0x000a552c  beq      #0xa5574                      
+  0x000a552e  movs     r2, #0x68                     
+  0x000a5530  ldrb     r3, [r7, r2]                  
+  0x000a5532  cmp      r3, #1                        
+  0x000a5534  bne      #0xa553a                      
+  0x000a5536  bl       #0xa5e18                      
+  0x000a553a  ldr      r3, [sp, #0x58]               
+  0x000a553c  ldr      r1, [pc, #0x2a4]              
+  0x000a553e  ldr      r2, [r3, #0x14]               
+  0x000a5540  subs     r2, #1                        
+  0x000a5542  lsls     r2, r2, #0x10                 
+  0x000a5544  lsrs     r0, r2, #0x10                 
+  0x000a5546  str      r0, [sp, #0x44]               
+  0x000a5548  ldr      r0, [sp, #0x60]               
+  0x000a554a  asrs     r2, r2, #0xf                  
+  0x000a554c  ldr      r3, [r0, r1]                  
+  0x000a554e  ldr      r1, [sp, #0x68]               
+  0x000a5550  ldr      r0, [r3]                      
+  0x000a5552  ldrsh    r1, [r1, r2]                  
+  0x000a5554  str      r1, [sp, #0x30]               
+  0x000a5556  ldr      r1, [sp, #0x6c]               
+  0x000a5558  ldrsh    r2, [r1, r2]                  
+  0x000a555a  mov      r1, sl                        
+  0x000a555c  movs     r3, #0                        
+  0x000a555e  ldrsh    r1, [r1, r3]                  
+  0x000a5560  lsls     r3, r5, #0x10                 
+  0x000a5562  asrs     r3, r3, #0x10                 
+  0x000a5564  mov      ip, r1                        
+  0x000a5566  str      r3, [sp]                      
+  0x000a5568  ldr      r1, [sp, #0x30]               
+  0x000a556a  mov      r3, ip                        
+  0x000a556c  bl       #0xd55c4                        <<< _ZN8CNomUtil10Distance2DEiiii
+  0x000a5570  rsbs     r0, r0, #0                    
+  0x000a5572  str      r0, [r4, #0x68]               
+  0x000a5574  ldr      r0, [sp, #0x40]               
+  0x000a5576  movs     r1, #0                        
+  0x000a5578  str      r1, [sp, #0x30]               
+  0x000a557a  subs     r3, r0, #1                    
+  0x000a557c  sbcs     r0, r3                        
+  0x000a557e  str      r0, [sp, #0x3c]               
+  0x000a5580  movs     r3, #0x6c                     
+  0x000a5582  ldrb     r3, [r7, r3]                  
+  0x000a5584  cmp      r3, #0                        
+  0x000a5586  beq      #0xa5590                      
+  0x000a5588  ldr      r2, [sp, #0x38]               
+  0x000a558a  rsbs     r1, r2, #0                    
+  0x000a558c  adcs     r1, r2                        
+  0x000a558e  str      r1, [sp, #0x34]               
+  0x000a5590  add      r0, sp, #0x30                 
+  0x000a5592  ldrb     r0, [r0]                      
+  0x000a5594  movs     r3, #0x41                     
+  0x000a5596  add      r1, sp, #0x3c                 
+  0x000a5598  strb     r0, [r4, r3]                  
+  0x000a559a  ldrb     r1, [r1]                      
+  0x000a559c  movs     r3, #0x36                     
+  0x000a559e  adds     r0, r4, #0                    
+  0x000a55a0  strb     r1, [r4, r3]                  
+  0x000a55a2  ldr      r2, [sp, #0x34]               
+  0x000a55a4  subs     r3, r2, #1                    
+  0x000a55a6  sbcs     r2, r3                        
+  0x000a55a8  movs     r3, #0x37                     
+  0x000a55aa  strb     r2, [r4, r3]                  
+  0x000a55ac  ldr      r2, [sp, #0x24]               
+  0x000a55ae  subs     r3, r2, #1                    
+  0x000a55b0  sbcs     r2, r3                        
+  0x000a55b2  movs     r3, #0xf9                     
+  0x000a55b4  strb     r2, [r4, r3]                  
+  0x000a55b6  add      r2, sp, #0x28                 
+  0x000a55b8  ldrb     r2, [r2]                      
+  0x000a55ba  movs     r3, #0x40                     
+  0x000a55bc  strb     r2, [r4, r3]                  
+  0x000a55be  ldr      r3, [sp, #0x8c]               
+  0x000a55c0  lsrs     r3, r3, #0x18                 
+  0x000a55c2  str      r3, [sp, #0x38]               
+  0x000a55c4  ldr      r3, [r4]                      
+  0x000a55c6  ldr      r1, [sp, #0x38]               
+  0x000a55c8  ldr      r3, [r3, #0x28]               
+  0x000a55ca  blx      r3                            
+  0x000a55cc  ldr      r0, [sp, #0x88]               
+  0x000a55ce  movs     r3, #0x3e                     
+  0x000a55d0  lsrs     r0, r0, #0x18                 
+  0x000a55d2  str      r0, [sp, #0x34]               
+  0x000a55d4  strb     r0, [r4, r3]                  
+  0x000a55d6  ldr      r2, [sp, #0x74]               
+  0x000a55d8  cmp      r2, #0                        
+  0x000a55da  bne      #0xa55de                      
+  0x000a55dc  b        #0xa57e8                      
+  0x000a55de  ldr      r3, [sp, #0x80]               
+  0x000a55e0  cmp      r3, #0                        
+  0x000a55e2  bne      #0xa55e6                      
+  0x000a55e4  b        #0xa57e8                      
+  0x000a55e6  ldr      r3, [r7, #0x1c]               
+  0x000a55e8  str      r3, [r4, #0x28]               
+  0x000a55ea  movs     r3, #0x67                     
+  0x000a55ec  ldrb     r3, [r7, r3]                  
+  0x000a55ee  cmp      r3, #1                        
+  0x000a55f0  bne      #0xa55f4                      
+  0x000a55f2  b        #0xa57f6                      
+  0x000a55f4  ldr      r3, [sp, #0x98]               
+  0x000a55f6  cmp      r3, #0                        
+  0x000a55f8  bne      #0xa55fc                      
+  0x000a55fa  b        #0xa590a                      
+  0x000a55fc  ldr      r0, [sp, #0x2c]               
+  0x000a55fe  ldrb     r3, [r0, #0xc]                
+  0x000a5600  cmp      r3, #0x17                     
+  0x000a5602  bls      #0xa5606                      
+  0x000a5604  b        #0xa5d7e                      
+  0x000a5606  movs     r2, #0                        
+  0x000a5608  str      r2, [sp, #0x24]               
+  0x000a560a  movs     r1, #0x24                     
+  0x000a560c  mov      r0, sp                        
+  0x000a560e  ldrh     r0, [r1, r0]                  
+  0x000a5610  movs     r3, #0x46                     
+  0x000a5612  movs     r2, #0x24                     
+  0x000a5614  strh     r0, [r4, r3]                  
+  0x000a5616  mov      r1, sp                        
+  0x000a5618  ldrh     r1, [r2, r1]                  
+  0x000a561a  movs     r3, #0x44                     
+  0x000a561c  strh     r1, [r4, r3]                  
+  0x000a561e  ldr      r2, [sp, #0x28]               
+  0x000a5620  cmp      r2, #7                        
+  0x000a5622  bne      #0xa5626                      
+  0x000a5624  b        #0xa59da                      
+  0x000a5626  ldr      r3, [sp, #0x28]               
+  0x000a5628  subs     r3, #1                        
+  0x000a562a  lsls     r3, r3, #0x18                 
+  0x000a562c  lsrs     r3, r3, #0x18                 
+  0x000a562e  cmp      r3, #1                        
+  0x000a5630  bhi      #0xa5634                      
+  0x000a5632  b        #0xa5a3a                      
+  0x000a5634  ldr      r3, [sp, #0x28]               
+  0x000a5636  cmp      r3, #0xc                      
+  0x000a5638  bne      #0xa563c                      
+  0x000a563a  b        #0xa5a48                      
+  0x000a563c  ldr      r2, [sp, #0x2c]               
+  0x000a563e  ldrb     r3, [r2, #0xd]                
+  0x000a5640  cmp      r3, #7                        
+  0x000a5642  bne      #0xa5648                      
+  0x000a5644  bl       #0xa5e5a                      
+  0x000a5648  mov      r0, sb                        
+  0x000a564a  ldrh     r3, [r4, r0]                  
+  0x000a564c  lsls     r2, r3, #0x10                 
+  0x000a564e  asrs     r2, r2, #0x10                 
+  0x000a5650  cmp      r2, #0x68                     
+  0x000a5652  bne      #0xa5656                      
+  0x000a5654  b        #0xa5a06                      
+  0x000a5656  cmp      r2, #0x69                     
+  0x000a5658  bne      #0xa565c                      
+  0x000a565a  b        #0xa5a06                      
+  0x000a565c  mov      r0, sl                        
+  0x000a565e  lsls     r5, r5, #0x10                 
+  0x000a5660  movs     r2, #0                        
+  0x000a5662  ldrsh    r1, [r0, r2]                  
+  0x000a5664  asrs     r2, r5, #0x10                 
+  0x000a5666  adds     r0, r4, #0                    
+  0x000a5668  bl       #0xd56f4                        <<< _ZN7CObject11SetPositionEss
+  0x000a566c  ldr      r3, [sp, #0x74]               
+  0x000a566e  cmp      r3, #0                        
+  0x000a5670  beq      #0xa5674                      
+  0x000a5672  b        #0xa57b4                      
+  0x000a5674  ldr      r0, [sp, #0x78]               
+  0x000a5676  cmp      r0, #0x13                     
+  0x000a5678  bne      #0xa567c                      
+  0x000a567a  b        #0xa57b4                      
+  0x000a567c  cmp      r0, #3                        
+  0x000a567e  bne      #0xa5682                      
+  0x000a5680  b        #0xa57b4                      
+  0x000a5682  mov      r0, r8                        
+  0x000a5684  bl       #0x8fc78                        <<< readUint8()
+  0x000a5688  subs     r5, r0, #0                    
+  0x000a568a  beq      #0xa568e                      
+  0x000a568c  b        #0xa5936                      
+  0x000a568e  mov      r0, sb                        
+  0x000a5690  ldrsh    r3, [r4, r0]                  
+  0x000a5692  cmp      r3, #0x92                     
+  0x000a5694  bne      #0xa5698                      
+  0x000a5696  b        #0xa585a                      
+  0x000a5698  ldr      r0, [sp, #0x50]               
+  0x000a569a  adds     r1, r4, #0                    
+  0x000a569c  bl       #0x83b7c                        <<< _ZN7CVectorIP7CObjectE10AddElementES1_
+  0x000a56a0  ldr      r2, [sp, #0x28]               
+  0x000a56a2  cmp      r2, #0xc                      
+  0x000a56a4  bne      #0xa56a8                      
+  0x000a56a6  b        #0xa5a66                      
+  0x000a56a8  ldr      r3, [sp, #0x5c]               
+  0x000a56aa  ldr      r4, [sp, #0x84]               
+  0x000a56ac  adds     r3, #1                        
+  0x000a56ae  str      r3, [sp, #0x5c]               
+  0x000a56b0  cmp      r3, r4                        
+  0x000a56b2  blt      #0xa56b6                      
+  0x000a56b4  b        #0xa5878                      
+  0x000a56b6  mov      r0, r8                        
+  0x000a56b8  bl       #0x8fc78                        <<< readUint8()
+  0x000a56bc  str      r0, [sp, #0x40]               
+  0x000a56be  str      r0, [sp, #0x3c]               
+  0x000a56c0  mov      r0, r8                        
+  0x000a56c2  bl       #0x8fc78                        <<< readUint8()
+  0x000a56c6  str      r0, [sp, #0x38]               
+  0x000a56c8  str      r0, [sp, #0x34]               
+  0x000a56ca  mov      r0, r8                        
+  0x000a56cc  bl       #0x8fc78                        <<< readUint8()
+  0x000a56d0  str      r0, [sp, #0x24]               
+  0x000a56d2  mov      r0, r8                        
+  0x000a56d4  bl       #0x8fc78                        <<< readUint8()
+  0x000a56d8  str      r0, [sp, #0x4c]               
+  0x000a56da  mov      r0, r8                        
+  0x000a56dc  bl       #0x8fc78                        <<< readUint8()
+  0x000a56e0  str      r0, [sp, #0x28]               
+  0x000a56e2  mov      r0, r8                        
+  0x000a56e4  bl       #0x8fc78                        <<< readUint8()
+  0x000a56e8  str      r0, [sp, #0x70]               
+  0x000a56ea  mov      r0, r8                        
+  0x000a56ec  bl       #0x8fc78                        <<< readUint8()
+  0x000a56f0  str      r0, [sp, #0x7c]               
+  0x000a56f2  ldr      r1, [sp, #0x4c]               
+  0x000a56f4  ldr      r0, [r7, #0x14]               
+  0x000a56f6  bl       #0xa7c0c                        <<< _ZN7CMapMgr13GetObjectInfoEh
+  0x000a56fa  str      r0, [sp, #0x2c]               
+  0x000a56fc  ldr      r2, [sp, #0x2c]               
+  0x000a56fe  ldr      r0, [r7, #0x14]               
+  0x000a5700  movs     r3, #0x10                     
+  0x000a5702  ldrsh    r1, [r2, r3]                  
+  0x000a5704  movs     r4, #0x1c                     
+  0x000a5706  ldrsh    r2, [r2, r4]                  
+  0x000a5708  bl       #0xa7ba4                        <<< _ZN7CMapMgr9GetPzxMgrEii
+  0x000a570c  str      r0, [sp, #0x54]               
+  0x000a570e  ldr      r0, [r7, #0x14]               
+  0x000a5710  bl       #0xa7b30                        <<< _ZN7CMapMgr15GetShadowPzxMgrEv
+  0x000a5714  adds     r5, r0, #0                    
+  0x000a5716  movs     r0, #0x86                     
+  0x000a5718  lsls     r0, r0, #1                    
+  0x000a571a  bl       #0x108f78                       <<< _Znwj
+  0x000a571e  ldr      r1, [sp, #0x2c]               
+  0x000a5720  ldr      r2, [sp, #0x54]               
+  0x000a5722  adds     r3, r5, #0                    
+  0x000a5724  adds     r4, r0, #0                    
+  0x000a5726  str      r7, [sp]                      
+  0x000a5728  bl       #0xb48a4                        <<< _ZN10CMonster_TC1EPK14tagSObjectInfoP7CPzxMgrS4_P4CMap
+  0x000a572c  mov      r0, r8                        
+  0x000a572e  bl       #0x8fc84                        <<< readInt16()
+  0x000a5732  movs     r3, #0xd4                     
+  0x000a5734  strh     r0, [r4, r3]                  
+  0x000a5736  mov      r0, r8                        
+  0x000a5738  bl       #0x8fc84                        <<< readInt16()
+  0x000a573c  movs     r3, #0xd6                     
+  0x000a573e  strh     r0, [r4, r3]                  
+  0x000a5740  mov      r0, r8                        
+  0x000a5742  bl       #0x8fc84                        <<< readInt16()
+  0x000a5746  movs     r3, #0xd8                     
+  0x000a5748  strh     r0, [r4, r3]                  
+  0x000a574a  mov      r0, r8                        
+  0x000a574c  bl       #0x8fc84                        <<< readInt16()
+  0x000a5750  movs     r3, #0xda                     
+  0x000a5752  strh     r0, [r4, r3]                  
+  0x000a5754  mov      r0, r8                        
+  0x000a5756  bl       #0x8fc84                        <<< readInt16()
+  0x000a575a  mov      r1, sl                        
+  0x000a575c  strh     r0, [r1]                      
+  0x000a575e  mov      r0, r8                        
+  0x000a5760  bl       #0x8fc84                        <<< readInt16()
+  0x000a5764  lsls     r5, r0, #0x10                 
+  0x000a5766  adds     r0, r4, #0                    
+  0x000a5768  lsrs     r5, r5, #0x10                 
+  0x000a576a  bl       #0xd5704                        <<< _ZN7CObject6IsItemEv
+  0x000a576e  cmp      r0, #0                        
+  0x000a5770  beq      #0xa5774                      
+  0x000a5772  b        #0xa5528                      
+  0x000a5774  ldr      r2, [sp, #0x2c]               
+  0x000a5776  ldrb     r3, [r2, #0xc]                
+  0x000a5778  cmp      r3, #0x18                     
+  0x000a577a  bne      #0xa577e                      
+  0x000a577c  b        #0xa58c6                      
+  0x000a577e  cmp      r3, #0x4b                     
+  0x000a5780  bne      #0xa5784                      
+  0x000a5782  b        #0xa58c6                      
+  0x000a5784  cmp      r3, #0x4c                     
+  0x000a5786  bne      #0xa578a                      
+  0x000a5788  b        #0xa58c6                      
+  0x000a578a  cmp      r3, #0x4d                     
+  0x000a578c  bne      #0xa5790                      
+  0x000a578e  b        #0xa58c6                      
+  0x000a5790  movs     r1, #0x68                     
+  0x000a5792  ldrb     r3, [r7, r1]                  
+  0x000a5794  cmp      r3, #1                        
+  0x000a5796  bne      #0xa579a                      
+  0x000a5798  b        #0xa5e72                      
+  0x000a579a  ldr      r2, [sp, #0x40]               
+  0x000a579c  rsbs     r1, r2, #0                    
+  0x000a579e  adcs     r1, r2                        
+  0x000a57a0  ldr      r3, [sp, #0x64]               
+  0x000a57a2  str      r1, [sp, #0x30]               
+  0x000a57a4  cmp      r3, #0                        
+  0x000a57a6  beq      #0xa57ac                      
+  0x000a57a8  bl       #0xa5f4a                      
+  0x000a57ac  subs     r3, r2, #1                    
+  0x000a57ae  sbcs     r2, r3                        
+  0x000a57b0  str      r2, [sp, #0x3c]               
+  0x000a57b2  b        #0xa5580                      
+  0x000a57b4  ldr      r3, [r6, #0x10]               
+  0x000a57b6  movs     r5, #0                        
+  0x000a57b8  cmp      r3, #0                        
+  0x000a57ba  bgt      #0xa57c8                      
+  0x000a57bc  b        #0xa5682                      
+  0x000a57be  ldr      r3, [r6, #0x10]               
+  0x000a57c0  adds     r5, #1                        
+  0x000a57c2  cmp      r5, r3                        
+  0x000a57c4  blt      #0xa57c8                      
+  0x000a57c6  b        #0xa5682                      
+  0x000a57c8  lsls     r1, r5, #0x18                 
+  0x000a57ca  lsrs     r1, r1, #0x18                 
+  0x000a57cc  adds     r0, r6, #0                    
+  0x000a57ce  bl       #0x9bc50                        <<< _ZN10CPathLayer9GetObjectEh
+  0x000a57d2  mov      r1, sb                        
+  0x000a57d4  ldrsh    r3, [r0, r1]                  
+  0x000a57d6  cmp      r3, #0xa0                     
+  0x000a57d8  ble      #0xa57be                      
+  0x000a57da  adds     r1, r4, #0                    
+  0x000a57dc  bl       #0x83798                        <<< _ZN12CEventRect_T11CheckInRectEP7CObject
+  0x000a57e0  b        #0xa57be                      
+  0x000a57e2  mov      r8, r8                        
+  0x000a57e4  lsls     r4, r1, #0x1f                 
+  0x000a57e6  movs     r0, r0                        
+  0x000a57e8  ldr      r3, [r7, #0x18]               
+  0x000a57ea  str      r3, [r4, #0x28]               
+  0x000a57ec  movs     r3, #0x67                     
+  0x000a57ee  ldrb     r3, [r7, r3]                  
+  0x000a57f0  cmp      r3, #1                        
+  0x000a57f2  beq      #0xa57f6                      
+  0x000a57f4  b        #0xa55f4                      
+  0x000a57f6  ldr      r0, [sp, #0x64]               
+  0x000a57f8  cmp      r0, #0                        
+  0x000a57fa  bne      #0xa57fe                      
+  0x000a57fc  b        #0xa5df8                      
+  0x000a57fe  movs     r2, #0x70                     
+  0x000a5800  ldrh     r2, [r7, r2]                  
+  0x000a5802  add      r0, sp, #0x44                 
+  0x000a5804  asrs     r2, r2, #1                    
+  0x000a5806  adds     r5, r5, r2                    
+  0x000a5808  movs     r2, #0x52                     
+  0x000a580a  strh     r5, [r4, r2]                  
+  0x000a580c  movs     r2, #0x84                     
+  0x000a580e  ldrsh    r5, [r7, r2]                  
+  0x000a5810  ldrh     r0, [r0]                      
+  0x000a5812  movs     r2, #0x4a                     
+  0x000a5814  asrs     r5, r5, #1                    
+  0x000a5816  rsbs     r5, r5, #0                    
+  0x000a5818  strh     r0, [r4, r2]                  
+  0x000a581a  movs     r2, #0x3a                     
+  0x000a581c  lsls     r5, r5, #0x10                 
+  0x000a581e  strb     r3, [r4, r2]                  
+  0x000a5820  movs     r2, #0x34                     
+  0x000a5822  lsrs     r5, r5, #0x10                 
+  0x000a5824  strb     r3, [r4, r2]                  
+  0x000a5826  ldr      r2, [sp, #0x44]               
+  0x000a5828  ldr      r3, [pc, #0x260]              
+  0x000a582a  lsls     r1, r2, #0x10                 
+  0x000a582c  asrs     r1, r1, #0x10                 
+  0x000a582e  cmp      r1, r3                        
+  0x000a5830  bne      #0xa5834                      
+  0x000a5832  b        #0xa5606                      
+  0x000a5834  ldr      r0, [r6, #8]                  
+  0x000a5836  bl       #0x9bc24                        <<< _ZN5CPath12GetPathAngleEs
+  0x000a583a  rsbs     r0, r0, #0                    
+  0x000a583c  lsls     r0, r0, #0x10                 
+  0x000a583e  asrs     r0, r0, #0x10                 
+  0x000a5840  adds     r0, #0x69                     
+  0x000a5842  movs     r1, #0xb4                     
+  0x000a5844  adds     r0, #0xff                     
+  0x000a5846  lsls     r1, r1, #1                    
+  0x000a5848  blx      #0x121d1c                       <<< __aeabi_idivmod
+  0x000a584c  lsls     r1, r1, #0x10                 
+  0x000a584e  lsrs     r1, r1, #0x10                 
+  0x000a5850  str      r1, [sp, #0x24]               
+  0x000a5852  b        #0xa560a                      
+  0x000a5854  ldr      r3, [r7, #0x18]               
+  0x000a5856  str      r3, [r5, #0x28]               
+  0x000a5858  b        #0xa5404                      
+  0x000a585a  ldr      r3, [sp, #0x28]               
+  0x000a585c  cmp      r3, #0xc                      
+  0x000a585e  bne      #0xa5862                      
+  0x000a5860  b        #0xa5bd6                      
+  0x000a5862  adds     r1, r4, #0                    
+  0x000a5864  ldr      r0, [sp, #0x50]               
+  0x000a5866  bl       #0x83b7c                        <<< _ZN7CVectorIP7CObjectE10AddElementES1_
+  0x000a586a  ldr      r3, [sp, #0x5c]               
+  0x000a586c  ldr      r4, [sp, #0x84]               
+  0x000a586e  adds     r3, #1                        
+  0x000a5870  str      r3, [sp, #0x5c]               
+  0x000a5872  cmp      r3, r4                        
+  0x000a5874  bge      #0xa5878                      
+  0x000a5876  b        #0xa56b6                      
+  0x000a5878  adds     r5, r7, #0                    
+  0x000a587a  ldr      r0, [sp, #0xa4]               
+  0x000a587c  adds     r1, r6, #0                    
+  0x000a587e  ldr      r3, [r0]                      
+  0x000a5880  ldr      r3, [r3, #0xc]                
+  0x000a5882  blx      r3                            
+  0x000a5884  ldr      r1, [sp, #0x94]               
+  0x000a5886  ldr      r2, [sp, #0xa8]               
+  0x000a5888  adds     r1, #1                        
+  0x000a588a  str      r1, [sp, #0x94]               
+  0x000a588c  cmp      r2, r1                        
+  0x000a588e  ble      #0xa5892                      
+  0x000a5890  b        #0xa5264                      
+  0x000a5892  mov      r7, r8                        
+  0x000a5894  ldr      r0, [sp, #0xc4]               
+  0x000a5896  ldr      r1, [sp, #0xa4]               
+  0x000a5898  bl       #0x9ef48                        <<< _ZN7CVectorIP10CLandLayerE10AddElementES1_
+  0x000a589c  ldr      r3, [sp, #0x80]               
+  0x000a589e  ldr      r4, [sp, #0xb8]               
+  0x000a58a0  ldr      r0, [sp, #0xc0]               
+  0x000a58a2  adds     r3, #1                        
+  0x000a58a4  adds     r4, #1                        
+  0x000a58a6  str      r3, [sp, #0x80]               
+  0x000a58a8  str      r4, [sp, #0xb8]               
+  0x000a58aa  cmp      r3, r0                        
+  0x000a58ac  bge      #0xa58b2                      
+  0x000a58ae  bl       #0xa50b6                      
+  0x000a58b2  adds     r0, r7, #0                    
+  0x000a58b4  bl       #0x8fc30                        <<< _ZN12CInputStreamD1Ev
+  0x000a58b8  add      sp, #0xe4                     
+  0x000a58ba  pop      {r2, r3, r4, r5}              
+  0x000a58bc  mov      r8, r2                        
+  0x000a58be  mov      sb, r3                        
+  0x000a58c0  mov      sl, r4                        
+  0x000a58c2  mov      fp, r5                        
+  0x000a58c4  pop      {r4, r5, r6, r7, pc}          
+  0x000a58c6  movs     r3, #0x68                     
+  0x000a58c8  ldrb     r3, [r7, r3]                  
+  0x000a58ca  str      r3, [sp, #0x30]               
+  0x000a58cc  cmp      r3, #1                        
+  0x000a58ce  bne      #0xa58d2                      
+  0x000a58d0  b        #0xa5dcc                      
+  0x000a58d2  ldr      r1, [sp, #0x3c]               
+  0x000a58d4  subs     r3, r1, #1                    
+  0x000a58d6  sbcs     r1, r3                        
+  0x000a58d8  str      r1, [sp, #0x3c]               
+  0x000a58da  ldr      r3, [r7, #0x18]               
+  0x000a58dc  movs     r2, #0x4c                     
+  0x000a58de  ldrsh    r3, [r3, r2]                  
+  0x000a58e0  lsls     r3, r3, #1                    
+  0x000a58e2  strh     r3, [r4, r2]                  
+  0x000a58e4  mov      r2, sl                        
+  0x000a58e6  movs     r3, #0                        
+  0x000a58e8  ldrsh    r1, [r2, r3]                  
+  0x000a58ea  ldr      r0, [r6, #8]                  
+  0x000a58ec  bl       #0x9d3a0                        <<< _ZN5CPath16GetPathIndexPosXEs
+  0x000a58f0  lsls     r0, r0, #0x10                 
+  0x000a58f2  lsrs     r0, r0, #0x10                 
+  0x000a58f4  str      r0, [sp, #0x44]               
+  0x000a58f6  add      r0, sp, #0x44                 
+  0x000a58f8  ldrh     r0, [r0]                      
+  0x000a58fa  movs     r3, #0x4a                     
+  0x000a58fc  movs     r2, #1                        
+  0x000a58fe  strh     r0, [r4, r3]                  
+  0x000a5900  movs     r3, #0x3a                     
+  0x000a5902  strb     r2, [r4, r3]                  
+  0x000a5904  movs     r3, #0x34                     
+  0x000a5906  strb     r2, [r4, r3]                  
+  0x000a5908  b        #0xa5580                      
+  0x000a590a  ldr      r3, [sp, #0x78]               
+  0x000a590c  cmp      r3, #0x11                     
+  0x000a590e  beq      #0xa5916                      
+  0x000a5910  cmp      r3, #6                        
+  0x000a5912  beq      #0xa5916                      
+  0x000a5914  b        #0xa5606                      
+  0x000a5916  mov      r2, sl                        
+  0x000a5918  movs     r3, #0                        
+  0x000a591a  ldrsh    r1, [r2, r3]                  
+  0x000a591c  ldr      r0, [r6, #8]                  
+  0x000a591e  bl       #0x9d3a0                        <<< _ZN5CPath16GetPathIndexPosXEs
+  0x000a5922  lsls     r0, r0, #0x10                 
+  0x000a5924  lsrs     r0, r0, #0x10                 
+  0x000a5926  str      r0, [sp, #0x44]               
+  0x000a5928  add      r0, sp, #0x44                 
+  0x000a592a  ldrh     r0, [r0]                      
+  0x000a592c  movs     r3, #0x4a                     
+  0x000a592e  movs     r1, #0                        
+  0x000a5930  strh     r0, [r4, r3]                  
+  0x000a5932  str      r1, [sp, #0x24]               
+  0x000a5934  b        #0xa560a                      
+  0x000a5936  adds     r3, r5, #1                    
+  0x000a5938  adds     r0, r3, #0                    
+  0x000a593a  str      r3, [sp, #0x90]               
+  0x000a593c  bl       #0x108f70                       <<< _Znaj
+  0x000a5940  movs     r1, #0                        
+  0x000a5942  ldr      r2, [sp, #0x90]               
+  0x000a5944  str      r0, [sp, #0x48]               
+  0x000a5946  blx      #0x54910                      
+  0x000a594a  mov      r0, r8                        
+  0x000a594c  ldr      r1, [sp, #0x48]               
+  0x000a594e  adds     r2, r5, #0                    
+  0x000a5950  bl       #0x8fd30                        <<< readString(buf,n)
+  0x000a5954  ldr      r0, [sp, #0x60]               
+  0x000a5956  ldr      r1, [sp, #0xa0]               
+  0x000a5958  ldr      r3, [r0, r1]                  
+  0x000a595a  ldr      r3, [r3]                      
+  0x000a595c  ldr      r3, [r3, #8]                  
+  0x000a595e  cmp      r3, #0xb0                     
+  0x000a5960  beq      #0xa5996                      
+  0x000a5962  movs     r0, #0x44                     
+  0x000a5964  bl       #0x108f78                       <<< _Znwj
+  0x000a5968  adds     r5, r0, #0                    
+  0x000a596a  bl       #0x103760                       <<< _ZN8CTalkBoxC1Ev
+  0x000a596e  movs     r3, #0xd0                     
+  0x000a5970  str      r5, [r4, r3]                  
+  0x000a5972  ldr      r2, [sp, #0x30]               
+  0x000a5974  movs     r3, #0                        
+  0x000a5976  cmp      r2, #0                        
+  0x000a5978  beq      #0xa5984                      
+  0x000a597a  adds     r3, r2, #0                    
+  0x000a597c  subs     r3, #1                        
+  0x000a597e  rsbs     r2, r3, #0                    
+  0x000a5980  adcs     r3, r2                        
+  0x000a5982  adds     r3, #1                        
+  0x000a5984  ldr      r0, [sp, #0x7c]               
+  0x000a5986  ldr      r1, [sp, #0x70]               
+  0x000a5988  movs     r2, #0                        
+  0x000a598a  str      r0, [sp]                      
+  0x000a598c  str      r1, [sp, #4]                  
+  0x000a598e  adds     r0, r5, #0                    
+  0x000a5990  ldr      r1, [sp, #0x48]               
+  0x000a5992  bl       #0x102ffc                       <<< _ZN8CTalkBox4InitEPc12eTalkBoxKindiii
+  0x000a5996  ldr      r2, [sp, #0x48]               
+  0x000a5998  cmp      r2, #0                        
+  0x000a599a  bne      #0xa599e                      
+  0x000a599c  b        #0xa568e                      
+  0x000a599e  adds     r0, r2, #0                    
+  0x000a59a0  bl       #0x108f60                       <<< _ZdaPv
+  0x000a59a4  b        #0xa568e                      
+  0x000a59a6  adds     r0, r4, #1                    
+  0x000a59a8  mov      sl, r0                        
+  0x000a59aa  bl       #0x108f70                       <<< _Znaj
+  0x000a59ae  movs     r1, #0xe4                     
+  0x000a59b0  str      r0, [r5, r1]                  
+  0x000a59b2  mov      r2, sl                        
+  0x000a59b4  movs     r1, #0                        
+  0x000a59b6  blx      #0x54910                      
+  0x000a59ba  movs     r2, #0xe4                     
+  0x000a59bc  ldr      r1, [r5, r2]                  
+  0x000a59be  adds     r0, r6, #0                    
+  0x000a59c0  adds     r2, r4, #0                    
+  0x000a59c2  bl       #0x8fd30                        <<< readString(buf,n)
+  0x000a59c6  mov      r3, r8                        
+  0x000a59c8  cmp      r3, #0xa2                     
+  0x000a59ca  beq      #0xa59ce                      
+  0x000a59cc  b        #0xa5450                      
+  0x000a59ce  ldr      r3, [pc, #0xc0]               
+  0x000a59d0  ldr      r4, [sp, #0x60]               
+  0x000a59d2  movs     r1, #3                        
+  0x000a59d4  ldr      r3, [r4, r3]                  
+  0x000a59d6  ldr      r0, [r3]                      
+  0x000a59d8  b        #0xa5a2c                      
+  0x000a59da  movs     r2, #0                        
+  0x000a59dc  movs     r3, #0x3a                     
+  0x000a59de  strb     r2, [r4, r3]                  
+  0x000a59e0  mov      r3, sl                        
+  0x000a59e2  ldrh     r2, [r3]                      
+  0x000a59e4  movs     r3, #0xd4                     
+  0x000a59e6  ldrh     r3, [r4, r3]                  
+  0x000a59e8  mov      r0, sl                        
+  0x000a59ea  mov      r1, sb                        
+  0x000a59ec  adds     r3, r2, r3                    
+  0x000a59ee  strh     r3, [r0]                      
+  0x000a59f0  movs     r3, #0xd8                     
+  0x000a59f2  ldrh     r3, [r4, r3]                  
+  0x000a59f4  adds     r5, r5, r3                    
+  0x000a59f6  ldrh     r3, [r4, r1]                  
+  0x000a59f8  lsls     r5, r5, #0x10                 
+  0x000a59fa  lsrs     r5, r5, #0x10                 
+  0x000a59fc  lsls     r2, r3, #0x10                 
+  0x000a59fe  asrs     r2, r2, #0x10                 
+  0x000a5a00  cmp      r2, #0x68                     
+  0x000a5a02  beq      #0xa5a06                      
+  0x000a5a04  b        #0xa5656                      
+  0x000a5a06  ldr      r1, [r6, #0x10]               
+  0x000a5a08  adds     r0, r6, #0                    
+  0x000a5a0a  subs     r1, #1                        
+  0x000a5a0c  lsls     r1, r1, #0x18                 
+  0x000a5a0e  lsrs     r1, r1, #0x18                 
+  0x000a5a10  bl       #0x9bc50                        <<< _ZN10CPathLayer9GetObjectEh
+  0x000a5a14  mov      r3, sl                        
+  0x000a5a16  ldrh     r2, [r3]                      
+  0x000a5a18  movs     r3, #0xd4                     
+  0x000a5a1a  strh     r2, [r0, r3]                  
+  0x000a5a1c  movs     r3, #0xd6                     
+  0x000a5a1e  strh     r5, [r0, r3]                  
+  0x000a5a20  b        #0xa565c                      
+  0x000a5a22  ldr      r1, [sp, #0x60]               
+  0x000a5a24  ldr      r3, [pc, #0x68]               
+  0x000a5a26  ldr      r3, [r1, r3]                  
+  0x000a5a28  movs     r1, #4                        
+  0x000a5a2a  ldr      r0, [r3]                      
+  0x000a5a2c  bl       #0x101f34                       <<< _ZN15CStageGameScene9SetScriptEi
+  0x000a5a30  ldr      r3, [r5]                      
+  0x000a5a32  adds     r0, r5, #0                    
+  0x000a5a34  ldr      r3, [r3, #4]                  
+  0x000a5a36  blx      r3                            
+  0x000a5a38  b        #0xa54e0                      
+  0x000a5a3a  movs     r2, #0                        
+  0x000a5a3c  movs     r3, #0x3a                     
+  0x000a5a3e  strb     r2, [r4, r3]                  
+  0x000a5a40  mov      r2, sb                        
+  0x000a5a42  ldrh     r3, [r4, r2]                  
+  0x000a5a44  lsls     r2, r3, #0x10                 
+  0x000a5a46  b        #0xa564e                      
+  0x000a5a48  mov      r0, sb                        
+  0x000a5a4a  ldrh     r3, [r4, r0]                  
+  0x000a5a4c  lsls     r2, r3, #0x10                 
+  0x000a5a4e  cmp      r3, #0x62                     
+  0x000a5a50  beq      #0xa5a54                      
+  0x000a5a52  b        #0xa564e                      
+  0x000a5a54  movs     r3, #0xd4                     
+  0x000a5a56  ldrsh    r3, [r4, r3]                  
+  0x000a5a58  cmp      r3, #0                        
+  0x000a5a5a  bgt      #0xa5a5e                      
+  0x000a5a5c  b        #0xa5fce                      
+  0x000a5a5e  movs     r1, #1                        
+  0x000a5a60  movs     r3, #0xd6                     
+  0x000a5a62  strh     r1, [r4, r3]                  
+  0x000a5a64  b        #0xa564e                      
+  0x000a5a66  movs     r3, #0xd4                     
+  0x000a5a68  ldrsh    r3, [r4, r3]                  
+  0x000a5a6a  cmp      r3, #0                        
+  0x000a5a6c  bgt      #0xa5a70                      
+  0x000a5a6e  b        #0xa56a8                      
+  0x000a5a70  ldr      r2, [sp, #0x24]               
+  0x000a5a72  movs     r1, #0xf                      
+  0x000a5a74  movs     r5, #1                        
+  0x000a5a76  lsls     r3, r2, #0x10                 
+  0x000a5a78  asrs     r3, r3, #0x10                 
+  0x000a5a7a  str      r3, [sp, #0x48]               
+  0x000a5a7c  mov      r3, r8                        
+  0x000a5a7e  str      r6, [sp, #0x70]               
+  0x000a5a80  str      r1, [sp, #0x28]               
+  0x000a5a82  mov      r6, sl                        
+  0x000a5a84  str      r3, [sp, #0x7c]               
+  0x000a5a86  mov      sl, r5                        
+  0x000a5a88  b        #0xa5b20                      
+  0x000a5a8a  mov      r8, r8                        
+  0x000a5a8c  bhi      #0xa5a70                      
+
+Read sequence (60 calls):
+  [00] skip(int)
+  [01] readUint16()
+  [02] readUint16()
+  [03] readUint8()
+  [04] readUint8()
+  [05] readUint8()
+  [06] readUint8()
+  [07] readUint8()
+  [08] readUint8()
+  [09] readUint8()
+  [10] readUint8()
+  [11] readUint8()
+  [12] readInt16()
+  [13] readInt16()
+  [14] readUint8()
+  [15] readUint8()
+  [16] readUint8()
+  [17] readUint8()
+  [18] readInt16()
+  [19] readInt16()
+  [20] readUint8()
+  [21] readUint8()
+  [22] readInt16()
+  [23] readInt16()
+  [24] readUint8()
+  [25] readUint8()
+  [26] readUint8()
+  [27] readInt16()
+  [28] readInt16()
+  [29] readUint8()
+  [30] readUint16()
+  [31] readUint8()
+  [32] readInt16()
+  [33] readInt16()
+  [34] readUint16()
+  [35] readUint16()
+  [36] readUint8()
+  [37] readInt16()
+  [38] readInt16()
+  [39] readInt16()
+  [40] readInt16()
+  [41] readInt16()
+  [42] readUint8()
+  [43] readUint16()
+  [44] readUint8()
+  [45] readUint8()
+  [46] readUint8()
+  [47] readUint8()
+  [48] readUint8()
+  [49] readUint8()
+  [50] readUint8()
+  [51] readUint8()
+  [52] readInt16()
+  [53] readInt16()
+  [54] readInt16()
+  [55] readInt16()
+  [56] readInt16()
+  [57] readInt16()
+  [58] readString(buf,n)
+  [59] readString(buf,n)

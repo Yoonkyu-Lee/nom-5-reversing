@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nexus2>
+    <profile profile_package="com.gamevil.OA123123" profile_version="1.0.0" profile_carrier="SKT" profile_appId="000001923x" profile_type="PRELOAD">	Referral URL http://m.gamevil.com
+</profile>
+    <profile profile_package="com.gamevil.OA000001" profile_version="1.0.1" profile_carrier="SKT" profile_appId="00000192342" profile_type="PRELOAD">	Referral URL http://android.gamevil.com
+</profile>
+    <profile profile_package="com.gamevil.OA00034370" profile_version="1.0.2" profile_carrier="SKT" profile_type="UPDATE">
+        <appId>0000034370</appId>
+        <title>업데이트 일림</title>
+        <message>제노니아3 1.0.2 새 버전에 업데이트 되었습니다./n 업데이트 하시겠습니까?</message>
+        <newsBanner_url>http://android.gamevil.com/news/popup.png</newsBanner_url>
+        <callback_url>http://android.gamevil.com/GoMarket.php?game=GAME_ID</callback_url>
+    </profile>
+    <profile profile_package="com.gamevil.OA000001" profile_version="1.0.1" profile_carrier="SKT" profile_appId="0000019239" profile_type="PRELOAD">	Referral URL http://android.gamevil.com
+</profile>
+</nexus2>

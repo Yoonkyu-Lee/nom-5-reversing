@@ -1,0 +1,107 @@
+N5S file summary
+============================================================
+
+stage_0.n5s (1464 bytes)
+  strings (1): ['d']
+  bin_start=0x8  bin_size=1456
+  sentinels: 42
+
+stage_1.n5s (1414 bytes)
+  strings (2): ['d', 'd']
+  bin_start=0x9  bin_size=1405
+  sentinels: 80
+
+stage_10.n5s (1344 bytes)
+  strings (0): []
+  bin_start=0xc  bin_size=1332
+  sentinels: 31
+
+stage_12.n5s (1628 bytes)
+  strings (1): ['d']
+  bin_start=0x9  bin_size=1619
+  sentinels: 100
+
+stage_15.n5s (1530 bytes)
+  strings (1): ['2']
+  bin_start=0x9  bin_size=1521
+  sentinels: 95
+
+stage_16.n5s (1206 bytes)
+  strings (2): ['d', 'd']
+  bin_start=0x9  bin_size=1197
+  sentinels: 71
+
+stage_17.n5s (1412 bytes)
+  strings (1): ['map_7_backmap_7']
+  bin_start=0x1c  bin_size=1384
+  sentinels: 61
+
+stage_19.n5s (1674 bytes)
+  strings (1): ['d']
+  bin_start=0x7  bin_size=1667
+  sentinels: 94
+
+stage_20.n5s (1568 bytes)
+  strings (1): ['map_4_backmap_4']
+  bin_start=0x1c  bin_size=1540
+  sentinels: 37
+
+stage_22.n5s (1412 bytes)
+  strings (1): ['d']
+  bin_start=0x8  bin_size=1404
+  sentinels: 38
+
+stage_23.n5s (1414 bytes)
+  strings (2): ['d', 'd']
+  bin_start=0x9  bin_size=1405
+  sentinels: 80
+
+stage_25.n5s (1346 bytes)
+  strings (0): []
+  bin_start=0xc  bin_size=1334
+  sentinels: 31
+
+stage_26.n5s (1628 bytes)
+  strings (1): ['map_9']
+  bin_start=0x12  bin_size=1610
+  sentinels: 44
+
+stage_26_s.n5s (1774 bytes)
+  strings (1): ['map_9']
+  bin_start=0x12  bin_size=1756
+  sentinels: 52
+
+stage_28.n5s (1628 bytes)
+  strings (1): ['d']
+  bin_start=0x9  bin_size=1619
+  sentinels: 100
+
+stage_3.n5s (1674 bytes)
+  strings (1): ['d']
+  bin_start=0x7  bin_size=1667
+  sentinels: 94
+
+stage_4.n5s (1568 bytes)
+  strings (1): ['map_4_backmap_4']
+  bin_start=0x1c  bin_size=1540
+  sentinels: 37
+
+stage_6.n5s (1412 bytes)
+  strings (1): ['map_7_backmap_7']
+  bin_start=0x1c  bin_size=1384
+  sentinels: 61
+
+stage_7.n5s (1208 bytes)
+  strings (2): ['d', 'd']
+  bin_start=0x9  bin_size=1199
+  sentinels: 71
+
+stage_9.n5s (1628 bytes)
+  strings (1): ['map_9']
+  bin_start=0x12  bin_size=1610
+  sentinels: 44
+
+stage_9_s.n5s (1744 bytes)
+  strings (1): ['map_9']
+  bin_start=0x12  bin_size=1726
+  sentinels: 52
